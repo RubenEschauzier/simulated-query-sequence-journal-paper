@@ -1,0 +1,415 @@
+\section{Query Sequence Benchmark}
+
+In this section, we detail our simulation methodology and the resulting hyperparameters.
+We base our sequence generator on SolidBench~\cite{taelman2023link}, 
+which simulates realistic decentralized social media applications within the Solid ecosystem.
+SolidBench utilizes the Social Network Benchmark (SNB) dataset~\cite{erling2015ldbc,angles2020ldbc} 
+and applies the Linked Data Benchmark Council (LDBC) choke point methodology~\cite{angles2014linked}.
+Its workload combines standard SNB \textit{interactive} queries with custom \textit{discover} templates,
+which explicitly target Link Traversal Query Processing (LTQP) choke points in decentralized environments. 
+
+To support sequence-based evaluation, we extend three core components of the SolidBench ecosystem:
+
+\begin{itemize}
+    \item \textbf{Query Generator:} We modify the generator to produce correlated query sequences that reflect empirical real-world usage patterns.
+    
+    \item \textbf{Dataset Generator:} We enhance the data generation process to model interest-based similarities between simulated users.
+    
+    \item \textbf{Benchmark Runner:} We integrate sequence execution logic into the existing runner to facilitate straightforward,
+     reproducible sequence-based experiments and allow easy generation of default configuration files.
+\end{itemize}
+
+\subsection{Simulation Methodology}
+Our methodology models three interdependent behaviors: task-oriented logical sessions,
+user interests for data locality,
+and refinement patterns for iterative query development.
+
+\subsubsection{Logical Query Sessions}
+To model logical sessions, we categorize queries into four primary topics: 
+person-specific messages, forum information, person attributes, and message attributes. 
+Because queries in decentralized environments often depend on preceding results, 
+we map the output types of each template to valid subsequent templates. 
+This creates a directed graph of query progression that governs the flow of a logical session.
+% \rt{If you can't add a figure in the introduction, I'd add one here, to illustrate what you explain in this paragraph.}
+
+Within a session, a template's \emph{instantiation values} are typically derived 
+from the previous query's results. 
+To realistically simulate this ``click-through'' 
+behavior, we execute centralized equivalents of the LDBC SNB queries using 
+QLever~\cite{bast2017qlever}. 
+We then randomly sample the returned result set 
+to instantiate the subsequent query template. 
+If a query yields no results, 
+we fall back to our default, interest-based instantiation methodology.
+
+As an example, consider the following data distributed across a 
+decentralized environment:
+
+\begin{lstlisting}[
+    language=json,
+    caption={A minimal decentralized dataset distributed across documents.},
+    label={lst:example_dataset},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
+@prefix : <https://example.org/voc#> .
+
+# File: https://pod.example/alice/profile.ttl
+<https://pod.example/alice/profile.ttl#me> a :Person ;
+    :knows <https://pod.example/bob/profile.ttl#me> ;
+    :hasInbox <https://pod.example/alice/inbox> .
+
+# File: https://pod.example/bob/profile.ttl
+<https://pod.example/bob/profile.ttl#me> a :Person ;
+    :posts <https://pod.example/bob/posts/1> .
+
+# File: https://pod.example/bob/posts/1
+<https://pod.example/bob/posts/1> a :Post ;
+    :content "Hello Solid world!" .
+
+# File: https://pod.example/alice/interests.ttl
+<https://pod.example/alice/profile.ttl#me> :interestedIn "Wildlife" .
+
+# File: https://pod.example/forum/wildlife.ttl
+<https://pod.example/forum/wildlife.ttl> a :Forum ;
+    :hasPost <https://pod.example/ruben/posts/9> ;
+    :hasComment <https://pod.example/bob/comment/1> ;
+    :hasTopic "Wildlife" .
+<https://pod.example/bob/comment/1> :responseTo <https://pod.example/ruben/posts/9> .
+\end{lstlisting}
+
+Given this dataset, we can simulate a logical session using two query 
+templates: one to fetch a person's posts and another to retrieve the 
+content of a specific post. For user ``alice'', the session starts by 
+executing the first query template (Q1) to discover Bob's posts, 
+as shown in Listing~\ref{lst:query_1}.
+
+\begin{lstlisting}[
+    language=SPARQL,
+    caption={Initial query (Q1) fetching Bob's posts.},
+    label={lst:query_1},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
+SELECT ?post WHERE {
+  <https://pod.example/bob/profile.ttl#me> :posts ?post .
+}
+\end{lstlisting}
+
+The client-side query engine executes this query by traversing to Bob's 
+profile document, returning the result binding: 
+`?post = <https://pod.example/bob/posts/1>`.
+
+To simulate a user clicking on this discovered post, the sequence 
+generator instantiates the next query template dynamically. It extracts 
+the value bound to ``?post'' from the results of Q1 and injects it as the 
+subject of Q2, as shown in Listing~\ref{lst:query_2}.
+
+\begin{lstlisting}[
+    language=SPARQL,
+    caption={Dynamic sequence query (Q2) instantiating a variable from Q1.},
+    label={lst:query_2},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
+SELECT ?content WHERE {
+  <https://pod.example/bob/posts/1> :content ?content .
+}
+\end{lstlisting}
+
+This example demonstrates that the instantiation of Q2 strictly depends 
+on the execution results of Q1. Because Q2 requires an instantiated 
+post URI from Q1, these queries are directionally dependent; reversing 
+their order leaves the generator with no method to instantiate the 
+initial query parameters. Consequently, structured logical query sequences 
+naturally emerge from these interdependencies, accurately reflecting 
+realistic exploratory user behavior.
+
+Finally, we simulate logical session switching. 
+Drawing from web browsing behavior, we assign each sequence a session-switching probability sampled from a log-normal 
+distribution with a mean of 15\%~\cite{meiss_whats_2009,schneider2009understanding}. 
+During sequence generation, a session switch triggers a random choice with equal probability: the engine either starts a new 
+session (using interest-based instantiation) or resumes a previous one (deriving instantiation values from that session's last executed query).
+To prevent repetitive queries and maintain a uniform distribution of template instantiations, 
+we explicitly prohibit backtracking within our model. 
+Additionally, we maintain a balanced template distribution by dynamically 
+scaling down each template's selection probability proportionally to its 
+overall frequency.
+
+Continuing our running example, a session switch occurs after executing Q2. 
+Instead of continuing sequence generation from the content of Bob's post, 
+the generator terminates the current path and selects a new template to 
+instantiate: a query for posts within a forum.
+
+As shown in Listing~\ref{lst:query_3}, the generator selects a wildlife forum 
+as the initial instantiation value. This query requires an entirely separate 
+data path to execute, breaking the dependency chain of the previous queries 
+and representing a clear change in user intent.
+
+\begin{lstlisting}[
+    language=json,
+    caption={Independent query (Q3) initiating a session switch to explore a wildlife forum.},
+    label={lst:query_3},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
+SELECT ?post WHERE {
+  <https://pod.example/forum/wildlife.ttl> :hasPost ?post .
+}
+\end{lstlisting}
+
+\subsubsection{User Interest Modeling}
+
+Individuals interact more frequently with users sharing similar interests~\cite{mitzlaff2013user}. 
+To simulate this behavior, we use the underlying LDBC dataset utilized by SolidBench~\cite{erling2015ldbc}, 
+which inherently models realistic user preferences. 
+The LDBC generator, Datagen, produces person profiles containing specific interests, 
+educational backgrounds, and workplaces. 
+It links users based on these demographic and interest overlaps, 
+yielding a non-random network topology with a realistic degree distribution.
+
+We use this interest-driven topology to generate template instantiation values 
+for the first query of each logical session. 
+Specifically, we construct a binary feature vector $v_{k}$ for each user $k$:
+\begin{equation}
+ v_{k} = (x_{k,1}, \dots, x_{k,n}, y_{k,1}, \dots, y_{k,m}),
+\end{equation}
+where $x_{k,j}=1$ if user $k$ holds stated interest $j$, and $y_{k,l}=1$ 
+if user $k$ completed study $l$.
+
+For each sequence, we randomly select a base person $k$ and compute the cosine similarity 
+between $v_{k}$ and the feature vectors of all other users.
+Let $N$ be the total number of users. To maintain efficiency at large scale factors, 
+we restrict our candidate pool to $C_{k,M}$, defined as the set of the top $M < N$ users 
+ranked by similarity to $k$. 
+Template instantiation values are then selected probabilistically using a softmax function 
+with temperature $T$:
+
+\begin{equation}
+   P(i \mid k) = \frac{e^{s_{k,i} / T}}{\sum_{u \in C_{k,M}} e^{s_{k,u} / T}},
+\end{equation}
+
+where $s_{k,i}$ is the similarity score between base person $k$ and candidate $i \in C_{k,M}$. 
+For templates requiring non-person values (e.g., posts or activities),
+selection probabilities are derived from the similarity scores of the content's creators.
+
+Continuing our running example, consider an expanded decentralized environment containing a 
+second forum dedicated to pottery, as shown in 
+Listing~\ref{lst:augmented_dataset}.
+
+\begin{lstlisting}[
+    language=json,
+    caption={The decentralized dataset augmented with an additional photography forum document.},
+    label={lst:augmented_dataset},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
+# ... [Previous files from Listing 1 remain unchanged] ...
+
+# File: https://pod.example/forum/pottery.ttl
+<https://pod.example/forum/pottery.ttl> a :Forum ;
+    :hasTopic "Pottery".
+
+\end{lstlisting}
+
+To determine which forum seed the generator selects when simulating a query sequence 
+for user Alice during a session switch, we construct binary feature vectors over a small global feature space: 
+$\text{(Photography, Cats, Computer Science)}$. 
+
+Alice's profile states an explicit interest in photography, yielding vector 
+$v_{\text{Alice}} = (1, 0, 0)$. The forum content creators, Ruben (Wildlife) and 
+Charlie (Photography), have vectors $v_{\text{Ruben}} = (0, 1, 1)$ and 
+$v_{\text{Charlie}} = (1, 0, 1)$, respectively. 
+
+Computing the cosine similarity between Alice and the creators yields:
+\begin{itemize}[leftmargin=*]
+    \item $s_{\text{Alice},\text{Ruben}} = \frac{0}{\sqrt{1}\cdot\sqrt{2}} = 0$
+    \item $s_{\text{Alice},\text{Charlie}} = \frac{1}{\sqrt{1}\cdot\sqrt{2}} \approx 0.707$
+\end{itemize}
+
+At a generator system temperature of $T = 0.5$, the softmax function maps 
+these similarity scores to selection probabilities for the target seed documents:
+\begin{equation*}
+    P(\text{Wildlife} \mid \text{Alice}) = \frac{e^{0 / 0.5}}{e^{0 / 0.5} + e^{0.707 / 0.5}} = \frac{1}{1 + 4.11} \approx 19.6\%
+\end{equation*}
+\begin{equation*}
+    P(\text{Photography} \mid \text{Alice}) = \frac{e^{0.707 / 0.5}}{e^{0 / 0.5} + e^{0.707 / 0.5}} = \frac{4.11}{1 + 4.11} \approx 80.4\%
+\end{equation*}
+
+Consequently, when initiating or switching a session, the generator will favor 
+instantiating templates using the photography forum seed, directly reflecting Alice's 
+modeled preferences.
+
+\subsubsection{Refinement Patterns}
+
+The benchmark simulates query refinement by applying 
+composable transformations to an instantiated query template. 
+Following our literature review, we focus on transformations 
+(and their reciprocal counterparts) that add or modify 
+BGPs, \texttt{OPTIONAL} clauses, \texttt{UNION} blocks, 
+and query instantiation values.
+
+To ensure these transformations meaningfully alter query execution 
+rather than superficially appending triples, we apply a 
+choke point-based design methodology~\cite{angles2014linked}. 
+The generator sequentially applies refinements to a base 
+SolidSessionBench template. By mapping empirical exploratory 
+usage patterns~\cite{arenas2025exploring} to concrete 
+planning (P) and traversal (T) choke points, we translate 
+real-world user behaviors into rigorous execution bottlenecks 
+for query engines.
+
+The planning choke points, derived from empirical usage 
+patterns~\cite{arenas2025exploring} and relevant LDBC 
+choke points~\cite{angles2020ldbc}, are defined as follows:
+\begin{enumerate}[label=\textbf{P.\arabic*}, leftmargin=*]
+    \item Involves adding or 
+    removing a \texttt{FILTER}, requiring prior knowledge 
+    to adjust query plans and estimate selectivity.
+    \item Addresses 
+    adding or removing \texttt{UNION} or \texttt{OPTIONAL} 
+    clauses to alter filter push-down capabilities and 
+    complicate query planning.
+    \item Covers adding 
+    or removing selective triple patterns, forcing the engine 
+    to identify changes and re-optimize the plan.
+    \item Focuses 
+    on adding or removing non-selective triple patterns.
+\end{enumerate}
+
+Beyond planning, these refinements introduce traversal 
+choke points that expand upon those established in 
+SolidBench~\cite{taelman2023link,taelman2023evaluation}:
+\begin{enumerate}[label=\textbf{T.\arabic*}, leftmargin=*]
+    \item Expands 
+    or contracts the reachable sub-web through 
+    predicate additions.
+    \item Shifts the sub-web 
+    by substituting the traversal starting point.
+    \item Changes the number 
+    of hops required to obtain relevant data, corresponding 
+    to SolidBench choke points L.1--L.6~\cite{taelman2023evaluation}.
+    \item Alters the usability of structural indexes, such as type indexes, 
+    corresponding to SolidBench choke point 
+    L.8~\cite{taelman2023evaluation}.
+\end{enumerate}
+
+These choke points directly map to the exploratory query 
+behaviors identified in Section~\ref{sec:related_work_qup}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Result refinement} corresponds to 
+    P.1 and P.3, as it narrows results via \texttt{FILTER} 
+    constraints and selective triple patterns.
+    \item \textbf{Result generalization} corresponds to 
+    P.3 and P.4, expanding existing BGPs with selective 
+    or non-selective triple patterns.
+    \item \textbf{Result extension} maps to P.2, P.3, 
+    and P.4 by appending triple patterns to BGPs or 
+    introducing \texttt{OPTIONAL} and \texttt{UNION} 
+    blocks that alter filter push-down capabilities.
+    \item \textbf{Shifting query intent} corresponds to 
+    T.1 and T.2, substituting instantiation values to 
+    initiate traversal from different seed documents, 
+    thereby shifting or expanding the reachable sub-web.
+    \item \textbf{Query refinement} maps to P.2, 
+    modifying the structural complexity of the query 
+    by adding or removing \texttt{OPTIONAL} and 
+    \texttt{UNION} blocks.
+\end{itemize}
+
+Finally, the generator supports variable instantiation 
+within refinements, allowing users to bind pattern variables 
+to specific values randomly selected from configuration candidates. 
+Users can define custom refinement patterns via JSON files to 
+augment the default configurations. 
+
+An example of a slimmed-down default configuration is 
+provided in Listing~\ref{lst:refinement_config}. 
+This entry specifies an \texttt{OPTIONAL} refinement 
+pattern that appends a triple pattern to retrieve the 
+messages liked by a person. 
+
+The \texttt{location} parameter is set to 0, indicating 
+that the triple pattern is added to the first existing 
+\texttt{OPTIONAL} block, or to a new block if none is 
+present. The default benchmark suite also includes a 
+reciprocal configuration where \texttt{operation} is 
+set to ``removal'', which instead deletes the triple pattern 
+from the first \texttt{OPTIONAL} block.
+
+\begin{lstlisting}[
+    language=json,
+    caption={Example configuration for an \texttt{OPTIONAL} refinement pattern.},
+    label={lst:refinement_config},
+    breaklines=true,
+    basicstyle=\small\ttfamily,
+    columns=fullflexible
+]
+{
+  "type": "OPTIONAL",
+  "id": 0,
+  "operation": "addition",
+  "description": "Add triple for likes (P.1, T.2)",
+  "location": 0,
+  "target": [
+    {
+      "subject": { 
+        "value": "person", 
+        "termType": "variable" 
+      },
+      "predicate": { 
+        "value": ".../vocabulary/likes", 
+        "termType": "namedNode" 
+      },
+      "object": { 
+        "value": "likedMessage", 
+        "termType": "variable" 
+      }
+    }
+  ]
+}
+\end{lstlisting}
+
+All defaults, along with 
+complete documentation, are available on GitHub.%
+\footnote{\url{https://github.com/SolidBench/SolidBench.js/tree/master/templates/refinements}}
+
+
+\subsection{Hyperparameters}
+
+The sequence generation process introduces several new hyperparameters, 
+which are detailed in Table~\ref{tab:generation_hyperparameters} together with their default values. 
+To guarantee reproducibility despite extensive random sampling, 
+a single seeded pseudo-random number generator (PRNG) is used througout the 
+entire pipeline.
+
+\begin{table}[htbp]
+    \centering
+    \caption{LogT-normal distribution parameters ($\mu, \sigma$) control the queries per sequence, 
+    queries per logical session, and the probability of switching logical sessions. 
+    Refinement parameters define the likelihood (\texttt{patternProbability}) 
+    and bounds (\texttt{min/maxRefinementLength}) of generating a refinement sequence for a given query. 
+    Instantiation relies on a softmax \texttt{temperature} and a \texttt{maxLogits} 
+    cutoff for similarity-based entity selection.}
+    \label{tab:generation_hyperparameters}
+    \begin{tabular}{l l c}
+        \toprule
+        \textbf{Category} & \textbf{Parameter} & \textbf{Value} \\
+        \midrule
+        \textbf{Distributions} ($\mu, \sigma$) 
+        & \texttt{Sequence Length} & 3.0, 0.2 \\
+        & \texttt{Session Length} & 1.7, 0.5 \\
+        & \texttt{Transition Probability} & -2.0, 0.25 \\
+        \addlinespace
+        \textbf{Refinements} 
+        & \texttt{patternProbability} & 0.1 \\
+        & \texttt{min/maxRefinementLength} & 2, [3--5] \\
+        \addlinespace
+        \textbf{Instantiation} 
+        & \texttt{temperature} & 0.1 \\
+        & \texttt{maxLogits} & 5--10 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\todo{Mention hyperparameter evaluation}

@@ -1,0 +1,303 @@
+\begin{thebibliography}{67}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Alu{\c{c}} et~al.(2014)Alu{\c{c}}, Hartig, {\"O}zsu and Daudjee}]{alucc2014diversified}
+\bibinfo{author}{Alu{\c{c}}, G.}, \bibinfo{author}{Hartig, O.}, \bibinfo{author}{{\"O}zsu, M.T.}, \bibinfo{author}{Daudjee, K.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Diversified stress testing of rdf data management systems}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{197--212}.
+%Type = Inproceedings
+\bibitem[{Amblard et~al.(2015)Amblard, Bouadjio-Boulic, Guti{\'e}rrez and Gaudou}]{amblard2015models}
+\bibinfo{author}{Amblard, F.}, \bibinfo{author}{Bouadjio-Boulic, A.}, \bibinfo{author}{Guti{\'e}rrez, C.S.}, \bibinfo{author}{Gaudou, B.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Which models are used in social simulation to generate social networks? a review of 17 years of publications in jasss}, in: \bibinfo{booktitle}{2015 Winter Simulation Conference (WSC)}, \bibinfo{organization}{IEEE}. pp. \bibinfo{pages}{4021--4032}.
+%Type = Inproceedings
+\bibitem[{Angles et~al.(2020)Angles, Antal, Averbuch, Birler, Boncz, B{\'u}r, Erling, Gubichev, Haprian, Kaufmann et~al.}]{angles2020ldbc}
+\bibinfo{author}{Angles, R.}, \bibinfo{author}{Antal, J.B.}, \bibinfo{author}{Averbuch, A.}, \bibinfo{author}{Birler, A.}, \bibinfo{author}{Boncz, P.}, \bibinfo{author}{B{\'u}r, M.}, \bibinfo{author}{Erling, O.}, \bibinfo{author}{Gubichev, A.}, \bibinfo{author}{Haprian, V.}, \bibinfo{author}{Kaufmann, M.}, et~al., \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{The ldbc social network benchmark}.
+%Type = Inproceedings
+\bibitem[{Angles et~al.(2014)Angles, Boncz, Larriba-Pey, Fundulaki, Neumann, Erling, Neubauer, Martinez-Bazan, Kotsev and Toma}]{angles2014linked}
+\bibinfo{author}{Angles, R.}, \bibinfo{author}{Boncz, P.}, \bibinfo{author}{Larriba-Pey, J.}, \bibinfo{author}{Fundulaki, I.}, \bibinfo{author}{Neumann, T.}, \bibinfo{author}{Erling, O.}, \bibinfo{author}{Neubauer, P.}, \bibinfo{author}{Martinez-Bazan, N.}, \bibinfo{author}{Kotsev, V.}, \bibinfo{author}{Toma, I.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{The linked data benchmark council: a graph and rdf industry benchmarking effort}, \bibinfo{publisher}{ACM New York, NY, USA}. pp. \bibinfo{pages}{27--31}.
+%Type = Article
+\bibitem[{Arenas et~al.(2025)Arenas, Franconi, Hammerer, Hartig, Hose, Koesten, Konstantinidis, Libkin, Martens, Sasaki et~al.}]{arenas2025exploring}
+\bibinfo{author}{Arenas, M.}, \bibinfo{author}{Franconi, E.}, \bibinfo{author}{Hammerer, J.}, \bibinfo{author}{Hartig, O.}, \bibinfo{author}{Hose, K.}, \bibinfo{author}{Koesten, L.}, \bibinfo{author}{Konstantinidis, G.}, \bibinfo{author}{Libkin, L.}, \bibinfo{author}{Martens, W.}, \bibinfo{author}{Sasaki, Y.}, et~al., \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Exploring exploratory querying}.
+\newblock \bibinfo{journal}{Proceedings of the VLDB Endowment} \bibinfo{volume}{18}, \bibinfo{pages}{5731--5739}.
+%Type = Article
+\bibitem[{Arnold(2014)}]{arnold2014pareto}
+\bibinfo{author}{Arnold, B.C.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Pareto distribution}.
+\newblock \bibinfo{journal}{Wiley StatsRef: Statistics Reference Online} , \bibinfo{pages}{1--10}.
+%Type = Inproceedings
+\bibitem[{Backstrom et~al.(2006)Backstrom, Huttenlocher, Kleinberg and Lan}]{backstrom2006group}
+\bibinfo{author}{Backstrom, L.}, \bibinfo{author}{Huttenlocher, D.}, \bibinfo{author}{Kleinberg, J.}, \bibinfo{author}{Lan, X.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Group formation in large social networks: membership, growth, and evolution}, in: \bibinfo{booktitle}{Proceedings of the 12th ACM SIGKDD international conference on Knowledge discovery and data mining}, pp. \bibinfo{pages}{44--54}.
+%Type = Inproceedings
+\bibitem[{Bast and Buchhold(2017)}]{bast2017qlever}
+\bibinfo{author}{Bast, H.}, \bibinfo{author}{Buchhold, B.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Qlever: A query engine for efficient sparql+ text search}, in: \bibinfo{booktitle}{Proceedings of the 2017 ACM on Conference on Information and Knowledge Management}, pp. \bibinfo{pages}{647--656}.
+%Type = Article
+\bibitem[{Benhocine et~al.(2022)Benhocine, Hansali, Zemmouchi-Ghomari and Ghomari}]{benhocine2022towards}
+\bibinfo{author}{Benhocine, K.}, \bibinfo{author}{Hansali, A.}, \bibinfo{author}{Zemmouchi-Ghomari, L.}, \bibinfo{author}{Ghomari, A.R.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Towards an automatic sparql query generation from ontology competency questions}.
+\newblock \bibinfo{journal}{International Journal of Computers and Applications} \bibinfo{volume}{44}, \bibinfo{pages}{971--980}.
+%Type = Article
+\bibitem[{Berendt et~al.(2013)Berendt, Hollink, Luczak-R{\"o}sch, M{\"o}ller and Vallet}]{berendt2013usewod2013}
+\bibinfo{author}{Berendt, B.}, \bibinfo{author}{Hollink, L.}, \bibinfo{author}{Luczak-R{\"o}sch, M.}, \bibinfo{author}{M{\"o}ller, K.}, \bibinfo{author}{Vallet, D.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Usewod2013 3rd international workshop on usage analysis and the web of data}.
+\newblock \bibinfo{journal}{10th ESWC-Semantics and Big Data, Montpellier, France} .
+%Type = Misc
+\bibitem[{Berners-Lee(2017)}]{bernerslee2017charlie}
+\bibinfo{author}{Berners-Lee, T.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Charlie: An {AI} that works for you}.
+\newblock \bibinfo{howpublished}{W3C Design Issues}.
+\newblock \URLprefix \url{https://www.w3.org/DesignIssues/Charlie.html}. \bibinfo{note}{updated 2023}.
+%Type = Incollection
+\bibitem[{Bizer and Schultz(2011)}]{bizer2011berlin}
+\bibinfo{author}{Bizer, C.}, \bibinfo{author}{Schultz, A.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{The berlin sparql benchmark}, in: \bibinfo{booktitle}{Semantic Services, Interoperability and Web Applications: Emerging Concepts}. \bibinfo{publisher}{IGI Global Scientific Publishing}, pp. \bibinfo{pages}{81--103}.
+%Type = Inproceedings
+\bibitem[{Bonifati et~al.(2018)Bonifati, Martens and Timm}]{bonifati_darql_2018}
+\bibinfo{author}{Bonifati, A.}, \bibinfo{author}{Martens, W.}, \bibinfo{author}{Timm, T.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{{DARQL}: {Deep} {Analysis} of {SPARQL} {Queries}}, in: \bibinfo{booktitle}{Companion {Proceedings} of the {The} {Web} {Conference} 2018}, \bibinfo{publisher}{International World Wide Web Conferences Steering Committee}, \bibinfo{address}{Republic and Canton of Geneva, CHE}. pp. \bibinfo{pages}{187--190}.
+\newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/3184558.3186975}, \DOIprefix\doi{10.1145/3184558.3186975}.
+%Type = Article
+\bibitem[{Bonifati et~al.(2020)Bonifati, Martens and Timm}]{bonifati2020analytical}
+\bibinfo{author}{Bonifati, A.}, \bibinfo{author}{Martens, W.}, \bibinfo{author}{Timm, T.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{An analytical study of large sparql query logs}.
+\newblock \bibinfo{journal}{The VLDB Journal} \bibinfo{volume}{29}, \bibinfo{pages}{655--679}.
+%Type = Inproceedings
+\bibitem[{Bronson et~al.(2013)Bronson, Amsden, Cabrera, Chakka, Dimov, Ding, Ferris, Giardullo, Kulkarni, Li et~al.}]{bronson2013tao}
+\bibinfo{author}{Bronson, N.}, \bibinfo{author}{Amsden, Z.}, \bibinfo{author}{Cabrera, G.}, \bibinfo{author}{Chakka, P.}, \bibinfo{author}{Dimov, P.}, \bibinfo{author}{Ding, H.}, \bibinfo{author}{Ferris, J.}, \bibinfo{author}{Giardullo, A.}, \bibinfo{author}{Kulkarni, S.}, \bibinfo{author}{Li, H.}, et~al., \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{$\{$TAO$\}$:$\{$Facebook’s$\}$ distributed data store for the social graph}, in: \bibinfo{booktitle}{2013 USENIX annual technical conference (USENIX ATC 13)}, pp. \bibinfo{pages}{49--60}.
+%Type = Article
+\bibitem[{Chatzopoulos et~al.(2022)Chatzopoulos, Vergoulis, Skoutas, Dalamagas, Tryfonopoulos and Karras}]{chatzopoulos2022atrapos}
+\bibinfo{author}{Chatzopoulos, S.}, \bibinfo{author}{Vergoulis, T.}, \bibinfo{author}{Skoutas, D.}, \bibinfo{author}{Dalamagas, T.}, \bibinfo{author}{Tryfonopoulos, C.}, \bibinfo{author}{Karras, P.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Atrapos: Evaluating metapath query workloads in real time}.
+\newblock \bibinfo{journal}{CoRR} .
+%Type = Article
+\bibitem[{Clark(2007)}]{clark2007understanding}
+\bibinfo{author}{Clark, A.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Understanding community: A review of networks, ties and contacts} .
+%Type = Inproceedings
+\bibitem[{Dang et~al.(2023)Dang, Aimonier-Davat, Molli, Hartig, Skaf-Molli and Le~Crom}]{dang2023fedshop}
+\bibinfo{author}{Dang, M.H.}, \bibinfo{author}{Aimonier-Davat, J.}, \bibinfo{author}{Molli, P.}, \bibinfo{author}{Hartig, O.}, \bibinfo{author}{Skaf-Molli, H.}, \bibinfo{author}{Le~Crom, Y.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Fedshop: A benchmark for testing the scalability of sparql federation engines}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{285--301}.
+%Type = Article
+\bibitem[{Dolan and Mor{\'e}(2002)}]{dolan2002benchmarking}
+\bibinfo{author}{Dolan, E.D.}, \bibinfo{author}{Mor{\'e}, J.J.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Benchmarking optimization software with performance profiles}.
+\newblock \bibinfo{journal}{Mathematical programming} \bibinfo{volume}{91}, \bibinfo{pages}{201--213}.
+%Type = Inproceedings
+\bibitem[{Erling et~al.(2015)Erling, Averbuch, Larriba-Pey, Chafi, Gubichev, Prat, Pham and Boncz}]{erling2015ldbc}
+\bibinfo{author}{Erling, O.}, \bibinfo{author}{Averbuch, A.}, \bibinfo{author}{Larriba-Pey, J.}, \bibinfo{author}{Chafi, H.}, \bibinfo{author}{Gubichev, A.}, \bibinfo{author}{Prat, A.}, \bibinfo{author}{Pham, M.D.}, \bibinfo{author}{Boncz, P.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{The ldbc social network benchmark: Interactive workload}, in: \bibinfo{booktitle}{Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data}, pp. \bibinfo{pages}{619--630}.
+%Type = Inproceedings
+\bibitem[{Eschauzier et~al.(2025)Eschauzier, Taelman and Verborgh}]{eschauzier2025revisiting}
+\bibinfo{author}{Eschauzier, R.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Revisiting link prioritization for efficient traversal in structured decentralized environments}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{575--593}.
+%Type = Inproceedings
+\bibitem[{Esteves et~al.(2021)Esteves, Pandit and Rodr{\'\i}guez-Doncel}]{esteves2021odrl}
+\bibinfo{author}{Esteves, B.}, \bibinfo{author}{Pandit, H.J.}, \bibinfo{author}{Rodr{\'\i}guez-Doncel, V.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Odrl profile for expressing consent through granular access control policies in solid}, in: \bibinfo{booktitle}{2021 IEEE European Symposium on Security and Privacy Workshops (EuroS\&PW)}, \bibinfo{organization}{IEEE}. pp. \bibinfo{pages}{298--306}.
+%Type = Misc
+\bibitem[{Fielding et~al.(2022)Fielding, Nottingham and Reschke}]{fielding2022rfc}
+\bibinfo{author}{Fielding, R.}, \bibinfo{author}{Nottingham, M.}, \bibinfo{author}{Reschke, J.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Rfc 9111: Http caching}.
+%Type = Inproceedings
+\bibitem[{Folz et~al.(2016)Folz, Skaf-Molli and Molli}]{folz2016cyclades}
+\bibinfo{author}{Folz, P.}, \bibinfo{author}{Skaf-Molli, H.}, \bibinfo{author}{Molli, P.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Cyclades: a decentralized cache for triple pattern fragments}, in: \bibinfo{booktitle}{European semantic web conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{455--469}.
+%Type = Article
+\bibitem[{Hamill and Gilbert(2009)}]{hamill2009social}
+\bibinfo{author}{Hamill, L.}, \bibinfo{author}{Gilbert, G.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Social circles: A simple structure for agent-based social network models}.
+\newblock \bibinfo{journal}{Journal of Artificial Societies and Social Simulation} \bibinfo{volume}{12}.
+%Type = Inproceedings
+\bibitem[{Hanski et~al.(2024)Hanski, Taelman and Verborgh}]{hanski2024observations}
+\bibinfo{author}{Hanski, J.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Observations on bloom filters for traversal-based query execution over solid pods}, in: \bibinfo{booktitle}{European Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{228--233}.
+%Type = Inproceedings
+\bibitem[{Hanski et~al.(2025)Hanski, Van~Braeckel, Taelman and Verborgh}]{hanski2025link}
+\bibinfo{author}{Hanski, J.}, \bibinfo{author}{Van~Braeckel, S.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Link traversal over decentralised environments using restart-based query planning}, in: \bibinfo{booktitle}{International Conference on Web Engineering}.
+%Type = Inproceedings
+\bibitem[{Hartig(2011a)}]{hartig2011caching}
+\bibinfo{author}{Hartig, O.}, \bibinfo{year}{2011}a.
+\newblock \bibinfo{title}{How caching improves efficiency and result completeness for querying linked data.}, in: \bibinfo{booktitle}{LDOW}.
+%Type = Inproceedings
+\bibitem[{Hartig(2011b)}]{hartig2011zero}
+\bibinfo{author}{Hartig, O.}, \bibinfo{year}{2011}b.
+\newblock \bibinfo{title}{Zero-knowledge query planning for an iterator implementation of link traversal based query execution}, in: \bibinfo{booktitle}{Extended Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{154--169}.
+%Type = Inproceedings
+\bibitem[{Hartig(2012)}]{hartig2012sparql}
+\bibinfo{author}{Hartig, O.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Sparql for a web of linked data: Semantics and computability}, in: \bibinfo{booktitle}{Extended Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{8--23}.
+%Type = Inproceedings
+\bibitem[{Hartig et~al.(2009)Hartig, Bizer and Freytag}]{hartig2009executing}
+\bibinfo{author}{Hartig, O.}, \bibinfo{author}{Bizer, C.}, \bibinfo{author}{Freytag, J.C.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Executing sparql queries over the web of linked data}, in: \bibinfo{booktitle}{International semantic web conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{293--309}.
+%Type = Inproceedings
+\bibitem[{Hartig and {\"O}zsu(2016)}]{hartig2016walking}
+\bibinfo{author}{Hartig, O.}, \bibinfo{author}{{\"O}zsu, M.T.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Walking without a map: Ranking-based traversal for querying linked data}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{305--324}.
+%Type = Inproceedings
+\bibitem[{Heling and Acosta(2022)}]{heling2022federated}
+\bibinfo{author}{Heling, L.}, \bibinfo{author}{Acosta, M.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Federated sparql query processing over heterogeneous linked data fragments}, in: \bibinfo{booktitle}{Proceedings of the ACM Web Conference 2022}, pp. \bibinfo{pages}{1047--1057}.
+%Type = Inproceedings
+\bibitem[{Kalaitzakis et~al.(2012)Kalaitzakis, Papadakis and Fragopoulou}]{kalaitzakis2012evolution}
+\bibinfo{author}{Kalaitzakis, A.}, \bibinfo{author}{Papadakis, H.}, \bibinfo{author}{Fragopoulou, P.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Evolution of user activity and community formation in an online social network}, in: \bibinfo{booktitle}{Proceedings of the 2012 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining}, \bibinfo{publisher}{IEEE}. pp. \bibinfo{pages}{1315--1320}.
+%Type = Inproceedings
+\bibitem[{Karki et~al.(2026)Karki, Pandey, Tiwari, Mihindukulasooriya, Groppe and Dobriy}]{karki2026agentic}
+\bibinfo{author}{Karki, N.}, \bibinfo{author}{Pandey, M.}, \bibinfo{author}{Tiwari, S.}, \bibinfo{author}{Mihindukulasooriya, N.}, \bibinfo{author}{Groppe, S.}, \bibinfo{author}{Dobriy, D.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Agentic ai, context engineering and knowledge graphs: Current approaches, challenges and opportunities.}, in: \bibinfo{booktitle}{EDBT/ICDT Workshops}.
+%Type = Inproceedings
+\bibitem[{Lippolis et~al.(2025)Lippolis, Saeedizade, Keskis{\"a}rkk{\"a}, Gangemi, Blomqvist and Nuzzolese}]{lippolis2025large}
+\bibinfo{author}{Lippolis, A.S.}, \bibinfo{author}{Saeedizade, M.J.}, \bibinfo{author}{Keskis{\"a}rkk{\"a}, R.}, \bibinfo{author}{Gangemi, A.}, \bibinfo{author}{Blomqvist, E.}, \bibinfo{author}{Nuzzolese, A.G.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Large language models assisting ontology evaluation}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{502--520}.
+%Type = Inproceedings
+\bibitem[{Lorey and Naumann(2013)}]{lorey2013caching}
+\bibinfo{author}{Lorey, J.}, \bibinfo{author}{Naumann, F.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Caching and prefetching strategies for sparql queries}, in: \bibinfo{booktitle}{Extended Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{46--65}.
+%Type = Inproceedings
+\bibitem[{Malyshev et~al.(2018)Malyshev, Kr{\"o}tzsch, Gonz{\'a}lez, Gonsior and Bielefeldt}]{malyshev2018getting}
+\bibinfo{author}{Malyshev, S.}, \bibinfo{author}{Kr{\"o}tzsch, M.}, \bibinfo{author}{Gonz{\'a}lez, L.}, \bibinfo{author}{Gonsior, J.}, \bibinfo{author}{Bielefeldt, A.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Getting the most out of wikidata: Semantic technology usage in wikipedia’s knowledge graph}, in: \bibinfo{booktitle}{The Semantic Web--ISWC 2018: 17th International Semantic Web Conference, Monterey, CA, USA, October 8--12, 2018, Proceedings, Part II 17}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{376--394}.
+%Type = Inproceedings
+\bibitem[{Martin et~al.(2010)Martin, Unbehauen and Auer}]{martin2010improving}
+\bibinfo{author}{Martin, M.}, \bibinfo{author}{Unbehauen, J.}, \bibinfo{author}{Auer, S.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Improving the performance of semantic web applications with sparql query caching}, in: \bibinfo{booktitle}{Extended Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{304--318}.
+%Type = Inproceedings
+\bibitem[{Meiss et~al.(2009)Meiss, Duncan, Gonçalves, Ramasco and Menczer}]{meiss_whats_2009}
+\bibinfo{author}{Meiss, M.}, \bibinfo{author}{Duncan, J.}, \bibinfo{author}{Gonçalves, B.}, \bibinfo{author}{Ramasco, J.J.}, \bibinfo{author}{Menczer, F.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{What's in a session: tracking individual behavior on the web}, in: \bibinfo{booktitle}{Proceedings of the 20th {ACM} conference on {Hypertext} and hypermedia}, \bibinfo{publisher}{ACM}, \bibinfo{address}{Torino Italy}. pp. \bibinfo{pages}{173--182}.
+\newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/1557914.1557946}, \DOIprefix\doi{10.1145/1557914.1557946}.
+%Type = Inproceedings
+\bibitem[{Mislove et~al.(2007)Mislove, Marcon, Gummadi, Druschel and Bhattacharjee}]{mislove2007measurement}
+\bibinfo{author}{Mislove, A.}, \bibinfo{author}{Marcon, M.}, \bibinfo{author}{Gummadi, K.P.}, \bibinfo{author}{Druschel, P.}, \bibinfo{author}{Bhattacharjee, B.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Measurement and analysis of online social networks}, in: \bibinfo{booktitle}{Proceedings of the 7th ACM SIGCOMM conference on Internet measurement}, pp. \bibinfo{pages}{29--42}.
+%Type = Article
+\bibitem[{Mitzlaff et~al.(2013)Mitzlaff, Atzmueller, Benz, Hotho and Stumme}]{mitzlaff2013user}
+\bibinfo{author}{Mitzlaff, F.}, \bibinfo{author}{Atzmueller, M.}, \bibinfo{author}{Benz, D.}, \bibinfo{author}{Hotho, A.}, \bibinfo{author}{Stumme, G.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{User-relatedness and community structure in social interaction networks}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1309.3888} .
+%Type = Article
+\bibitem[{Nicholson et~al.(2024)Nicholson, Chrysogelos and Ailamaki}]{nicholson2024hpcache}
+\bibinfo{author}{Nicholson, H.}, \bibinfo{author}{Chrysogelos, P.}, \bibinfo{author}{Ailamaki, A.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Hpcache: memory-efficient olap through proportional caching revisited}.
+\newblock \bibinfo{journal}{The VLDB Journal} \bibinfo{volume}{33}, \bibinfo{pages}{1775--1791}.
+%Type = Inproceedings
+\bibitem[{O’Neil et~al.(2009)O’Neil, O’Neil, Chen and Revilak}]{o2009star}
+\bibinfo{author}{O’Neil, P.}, \bibinfo{author}{O’Neil, E.}, \bibinfo{author}{Chen, X.}, \bibinfo{author}{Revilak, S.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{The star schema benchmark and augmented fact table indexing}, in: \bibinfo{booktitle}{Technology Conference on Performance Evaluation and Benchmarking}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{237--252}.
+%Type = Inproceedings
+\bibitem[{Padia et~al.(2015)Padia, Finin, Joshi et~al.}]{padia2015attribute}
+\bibinfo{author}{Padia, A.}, \bibinfo{author}{Finin, T.}, \bibinfo{author}{Joshi, A.}, et~al., \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Attribute-based fine grained access control for triple stores}, in: \bibinfo{booktitle}{3rd Society, Privacy and the Semantic Web-Policy and Technology workshop, 14th International Semantic Web Conference}.
+%Type = Inproceedings
+\bibitem[{Papailiou et~al.(2015)Papailiou, Tsoumakos, Karras and Koziris}]{papailiou2015graph}
+\bibinfo{author}{Papailiou, N.}, \bibinfo{author}{Tsoumakos, D.}, \bibinfo{author}{Karras, P.}, \bibinfo{author}{Koziris, N.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Graph-aware, workload-adaptive sparql query caching}, in: \bibinfo{booktitle}{Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data}, pp. \bibinfo{pages}{1777--1792}.
+%Type = Inproceedings
+\bibitem[{Picalausa and Vansummeren(2011)}]{picalausa_what_2011}
+\bibinfo{author}{Picalausa, F.}, \bibinfo{author}{Vansummeren, S.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{What are real {SPARQL} queries like?}, in: \bibinfo{booktitle}{Proceedings of the {International} {Workshop} on {Semantic} {Web} {Information} {Management}}, \bibinfo{publisher}{Association for Computing Machinery}, \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{1--6}.
+\newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/1999299.1999306}, \DOIprefix\doi{10.1145/1999299.1999306}.
+%Type = Inproceedings
+\bibitem[{Raman et~al.(2019)Raman, Joglekar, Cristofaro, Sastry and Tyson}]{raman2019challenges}
+\bibinfo{author}{Raman, A.}, \bibinfo{author}{Joglekar, S.}, \bibinfo{author}{Cristofaro, E.D.}, \bibinfo{author}{Sastry, N.}, \bibinfo{author}{Tyson, G.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Challenges in the decentralised web: The mastodon case}, in: \bibinfo{booktitle}{Proceedings of the internet measurement conference}, pp. \bibinfo{pages}{217--229}.
+%Type = Inproceedings
+\bibitem[{Sadagopan and Li(2008)}]{sadagopan2008characterizing}
+\bibinfo{author}{Sadagopan, N.}, \bibinfo{author}{Li, J.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Characterizing typical and atypical user sessions in clickstreams}, in: \bibinfo{booktitle}{Proceedings of the 17th international conference on World Wide Web}, pp. \bibinfo{pages}{885--894}.
+%Type = Inproceedings
+\bibitem[{Saleem et~al.(2015)Saleem, Ali, Hogan, Mehmood and Ngomo}]{saleem2015lsq}
+\bibinfo{author}{Saleem, M.}, \bibinfo{author}{Ali, M.I.}, \bibinfo{author}{Hogan, A.}, \bibinfo{author}{Mehmood, Q.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Lsq: the linked sparql queries dataset}, in: \bibinfo{booktitle}{International semantic web conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{261--269}.
+%Type = Article
+\bibitem[{Sambra et~al.(2016)Sambra, Mansour, Hawke, Zereba, Greco, Ghanem, Zagidulin, Aboulnaga and Berners-Lee}]{sambra2016solid}
+\bibinfo{author}{Sambra, A.V.}, \bibinfo{author}{Mansour, E.}, \bibinfo{author}{Hawke, S.}, \bibinfo{author}{Zereba, M.}, \bibinfo{author}{Greco, N.}, \bibinfo{author}{Ghanem, A.}, \bibinfo{author}{Zagidulin, D.}, \bibinfo{author}{Aboulnaga, A.}, \bibinfo{author}{Berners-Lee, T.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Solid: a platform for decentralized social applications based on linked data}.
+\newblock \bibinfo{journal}{MIT CSAIL \& Qatar Computing Research Institute, Tech. Rep.} \bibinfo{volume}{2016}.
+%Type = Inproceedings
+\bibitem[{Schmidt et~al.(2011)Schmidt, G{\"o}rlitz, Haase, Ladwig, Schwarte and Tran}]{schmidt2011fedbench}
+\bibinfo{author}{Schmidt, M.}, \bibinfo{author}{G{\"o}rlitz, O.}, \bibinfo{author}{Haase, P.}, \bibinfo{author}{Ladwig, G.}, \bibinfo{author}{Schwarte, A.}, \bibinfo{author}{Tran, T.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Fedbench: A benchmark suite for federated semantic data query processing}, in: \bibinfo{booktitle}{The Semantic Web--ISWC 2011: 10th International Semantic Web Conference, Bonn, Germany, October 23-27, 2011, Proceedings, Part I 10}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{585--600}.
+%Type = Inproceedings
+\bibitem[{Schneider et~al.(2009)Schneider, Feldmann, Krishnamurthy and Willinger}]{schneider2009understanding}
+\bibinfo{author}{Schneider, F.}, \bibinfo{author}{Feldmann, A.}, \bibinfo{author}{Krishnamurthy, B.}, \bibinfo{author}{Willinger, W.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Understanding online social network usage from a network perspective}, in: \bibinfo{booktitle}{Proceedings of the 9th ACM SIGCOMM Conference on Internet Measurement}, pp. \bibinfo{pages}{35--48}.
+%Type = Inproceedings
+\bibitem[{Schwarte et~al.(2011)Schwarte, Haase, Hose, Schenkel and Schmidt}]{schwarte2011fedx}
+\bibinfo{author}{Schwarte, A.}, \bibinfo{author}{Haase, P.}, \bibinfo{author}{Hose, K.}, \bibinfo{author}{Schenkel, R.}, \bibinfo{author}{Schmidt, M.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Fedx: Optimization techniques for federated query processing on linked data}, in: \bibinfo{booktitle}{The Semantic Web--ISWC 2011: 10th International Semantic Web Conference, Bonn, Germany, October 23-27, 2011, Proceedings, Part I 10}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{601--616}.
+%Type = Article
+\bibitem[{Stadler et~al.(2024)Stadler, Saleem, Mehmood, Buil-Aranda, Dumontier, Hogan and Ngonga~Ngomo}]{stadler2024lsq}
+\bibinfo{author}{Stadler, C.}, \bibinfo{author}{Saleem, M.}, \bibinfo{author}{Mehmood, Q.}, \bibinfo{author}{Buil-Aranda, C.}, \bibinfo{author}{Dumontier, M.}, \bibinfo{author}{Hogan, A.}, \bibinfo{author}{Ngonga~Ngomo, A.C.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Lsq 2.0: A linked dataset of sparql query logs}.
+\newblock \bibinfo{journal}{Semantic Web} \bibinfo{volume}{15}, \bibinfo{pages}{167--189}.
+%Type = Inproceedings
+\bibitem[{Taelman et~al.(2018)Taelman, Van~Herwegen, Vander~Sande and Verborgh}]{taelman2018comunica}
+\bibinfo{author}{Taelman, R.}, \bibinfo{author}{Van~Herwegen, J.}, \bibinfo{author}{Vander~Sande, M.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Comunica: a modular sparql query engine for the web}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{239--255}.
+%Type = Inproceedings
+\bibitem[{Taelman and Verborgh(2023a)}]{taelman2023evaluation}
+\bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2023}a.
+\newblock \bibinfo{title}{Evaluation of link traversal query execution over decentralized environments with structural assumptions}.
+%Type = Inproceedings
+\bibitem[{Taelman and Verborgh(2023b)}]{taelman2023link}
+\bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2023}b.
+\newblock \bibinfo{title}{Link traversal query processing over decentralized environments with structural assumptions}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{3--22}.
+%Type = Article
+\bibitem[{Tam et~al.(2024)Tam, Taelman, Colpaert and Verborgh}]{tam2024opportunities}
+\bibinfo{author}{Tam, B.E.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Colpaert, P.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Opportunities for shape-based optimization of link traversal queries}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2407.00998} .
+%Type = Article
+\bibitem[{Umbrich et~al.(2011)Umbrich, Hose, Karnstedt, Harth and Polleres}]{umbrich2011comparing}
+\bibinfo{author}{Umbrich, J.}, \bibinfo{author}{Hose, K.}, \bibinfo{author}{Karnstedt, M.}, \bibinfo{author}{Harth, A.}, \bibinfo{author}{Polleres, A.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Comparing data summaries for processing live queries over linked data}.
+\newblock \bibinfo{journal}{World Wide Web} \bibinfo{volume}{14}, \bibinfo{pages}{495--544}.
+%Type = Inproceedings
+\bibitem[{Vandenbrande et~al.(2025)Vandenbrande, Taelman, Bonte and Ongenae}]{vandenbrande2025incremunica}
+\bibinfo{author}{Vandenbrande, M.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Bonte, P.}, \bibinfo{author}{Ongenae, F.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Incremunica: Web-based incremental view maintenance for sparql}, in: \bibinfo{booktitle}{European Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{297--315}.
+%Type = Article
+\bibitem[{V{\"o}gele et~al.(2018)V{\"o}gele, van Hoorn, Schulz, Hasselbring and Krcmar}]{vogele2018wessbas}
+\bibinfo{author}{V{\"o}gele, C.}, \bibinfo{author}{van Hoorn, A.}, \bibinfo{author}{Schulz, E.}, \bibinfo{author}{Hasselbring, W.}, \bibinfo{author}{Krcmar, H.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Wessbas: extraction of probabilistic workload specifications for load testing and performance prediction—a model-driven approach for session-based application systems}.
+\newblock \bibinfo{journal}{Software \& Systems Modeling} \bibinfo{volume}{17}, \bibinfo{pages}{443--477}.
+%Type = Inproceedings
+\bibitem[{Walter and Bast(2025)}]{walter2025grasp}
+\bibinfo{author}{Walter, S.}, \bibinfo{author}{Bast, H.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Grasp: Generic reasoning and sparql generation across knowledge graphs}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{271--289}.
+%Type = Inproceedings
+\bibitem[{Williams and Weaver(2011)}]{williams2011enabling}
+\bibinfo{author}{Williams, G.T.}, \bibinfo{author}{Weaver, J.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Enabling fine-grained http caching of sparql query results}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{762--777}.
+%Type = Inproceedings
+\bibitem[{Zahera et~al.(2024)Zahera, Ali, Sherif, Moussallem and Ngomo}]{zahera2024generating}
+\bibinfo{author}{Zahera, H.M.}, \bibinfo{author}{Ali, M.}, \bibinfo{author}{Sherif, M.A.}, \bibinfo{author}{Moussallem, D.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Generating sparql from natural language using chain-of-thoughts prompting.}, in: \bibinfo{booktitle}{SEMANTICS}, pp. \bibinfo{pages}{353--368}.
+%Type = Inproceedings
+\bibitem[{Zhang et~al.(2016)Zhang, Sheng, Qin, Yao, Shemshadi and Taylor}]{zhang2016secf}
+\bibinfo{author}{Zhang, W.E.}, \bibinfo{author}{Sheng, Q.Z.}, \bibinfo{author}{Qin, Y.}, \bibinfo{author}{Yao, L.}, \bibinfo{author}{Shemshadi, A.}, \bibinfo{author}{Taylor, K.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Secf: improving sparql querying performance with proactive fetching and caching}, in: \bibinfo{booktitle}{Proceedings of the 31st Annual ACM Symposium on Applied Computing}, pp. \bibinfo{pages}{362--367}.
+%Type = Inproceedings
+\bibitem[{Zhang et~al.(2020)Zhang, Wang, Zhao, Liu, Zhang and Yang}]{zhang2020characterizing}
+\bibinfo{author}{Zhang, X.}, \bibinfo{author}{Wang, M.}, \bibinfo{author}{Zhao, B.}, \bibinfo{author}{Liu, R.}, \bibinfo{author}{Zhang, J.}, \bibinfo{author}{Yang, H.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Characterizing robotic and organic query in sparql search sessions}, in: \bibinfo{booktitle}{Web and Big Data: 4th International Joint Conference, APWeb-WAIM 2020, Tianjin, China, September 18-20, 2020, Proceedings, Part I 4}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{270--285}.
+
+\end{thebibliography}
