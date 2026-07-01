@@ -1,5 +1,5 @@
 \section{Query Sequence Benchmark}
-
+\label{sec:simulation-methodology}
 In this section, we detail our simulation methodology and the resulting hyperparameters.
 We base our sequence generator on SolidBench~\cite{taelman2023link}, 
 which simulates realistic decentralized social media applications within the Solid ecosystem.
@@ -78,9 +78,14 @@ decentralized environment:
 <https://pod.example/bob/comment/1> :responseTo <https://pod.example/ruben/posts/9> .
 \end{lstlisting}
 
-Given this dataset, we can simulate a logical session using two query 
+The generator randomly selects a user and simulates
+a realistic sequence of queries that reflects real-world user behavior.
+Given 
+Given this dataset, and two query 
 templates: one to fetch a person's posts and another to retrieve the 
-content of a specific post. For user ``alice'', the session starts by 
+content of a specific post, the generator can create a query sequence, which can contain multiple
+logical sessions.
+For user ``alice'', we can start the sequence (and first logical session) by 
 executing the first query template (Q1) to discover Bob's posts, 
 as shown in Listing~\ref{lst:query_1}.
 
@@ -144,7 +149,8 @@ instantiate: a query for posts within a forum.
 As shown in Listing~\ref{lst:query_3}, the generator selects a wildlife forum 
 as the initial instantiation value. This query requires an entirely separate 
 data path to execute, breaking the dependency chain of the previous queries 
-and representing a clear change in user intent.
+and representing a clear change in user intent. We are still generating the same
+\textit{query sequence}, but the session switch introduces a new \textit{logical session} within that sequence.
 
 \begin{lstlisting}[
     language=json,
@@ -212,33 +218,26 @@ Listing~\ref{lst:augmented_dataset}.
 
 \end{lstlisting}
 
-To determine which forum seed the generator selects when simulating a query sequence 
-for user Alice during a session switch, we construct binary feature vectors over a small global feature space: 
-$\text{(Photography, Cats, Computer Science)}$. 
+To determine what instantiation value to use for the forum query for user Alice, we construct 
+binary feature vectors over a small global feature space: 
+$\text{(Wildlife, Pottery)}$. 
 
-Alice's profile states an explicit interest in photography, yielding vector 
-$v_{\text{Alice}} = (1, 0, 0)$. The forum content creators, Ruben (Wildlife) and 
-Charlie (Photography), have vectors $v_{\text{Ruben}} = (0, 1, 1)$ and 
-$v_{\text{Charlie}} = (1, 0, 1)$, respectively. 
+Alice's profile states an explicit interest in `Wildlife', yielding vector 
+$v_{\text{Alice}} = (1, 0)$. While the forums in the data have topic statements, thus
+the vectors for the forums are $v_{\text{Wildlife}} = (1, 0)$ and
+$v_{\text{Pottery}} = (0, 1)$. 
 
-Computing the cosine similarity between Alice and the creators yields:
-\begin{itemize}[leftmargin=*]
-    \item $s_{\text{Alice},\text{Ruben}} = \frac{0}{\sqrt{1}\cdot\sqrt{2}} = 0$
-    \item $s_{\text{Alice},\text{Charlie}} = \frac{1}{\sqrt{1}\cdot\sqrt{2}} \approx 0.707$
-\end{itemize}
+This gives us a cosine similarity of $s_{\text{Alice},\text{Wildlife}} = 1$ and
+$s_{\text{Alice},\text{Pottery}} = 0$. Then using softmax with a temperature of $T = 0.5$,
+we compute the selection probabilities for the two forums:
 
-At a generator system temperature of $T = 0.5$, the softmax function maps 
-these similarity scores to selection probabilities for the target seed documents:
-\begin{equation*}
-    P(\text{Wildlife} \mid \text{Alice}) = \frac{e^{0 / 0.5}}{e^{0 / 0.5} + e^{0.707 / 0.5}} = \frac{1}{1 + 4.11} \approx 19.6\%
-\end{equation*}
-\begin{equation*}
-    P(\text{Photography} \mid \text{Alice}) = \frac{e^{0.707 / 0.5}}{e^{0 / 0.5} + e^{0.707 / 0.5}} = \frac{4.11}{1 + 4.11} \approx 80.4\%
-\end{equation*}
+\begin{align*}
+    P(\text{Wildlife} \mid \text{Alice}) = \frac{e^{1 / 0.5}}{e^{1 / 0.5} + e^{0 / 0.5}} \approx 0.88, \\
+    P(\text{Pottery} \mid \text{Alice}) = \frac{e^{0 / 0.5}}{e^{1 / 0.5} + e^{0 / 0.5}} \approx 0.12.
+\end{align*}
 
-Consequently, when initiating or switching a session, the generator will favor 
-instantiating templates using the photography forum seed, directly reflecting Alice's 
-modeled preferences.
+Consequently, when initiating or switching a session, the generator is more likely to select the
+`Wildlife' forum for Alice, reflecting her interests.
 
 \subsubsection{Refinement Patterns}
 

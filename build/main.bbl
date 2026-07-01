@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{64}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -45,11 +45,6 @@
 \bibitem[{Bast and Buchhold(2017)}]{bast2017qlever}
 \bibinfo{author}{Bast, H.}, \bibinfo{author}{Buchhold, B.}, \bibinfo{year}{2017}.
 \newblock \bibinfo{title}{Qlever: A query engine for efficient sparql+ text search}, in: \bibinfo{booktitle}{Proceedings of the 2017 ACM on Conference on Information and Knowledge Management}, pp. \bibinfo{pages}{647--656}.
-%Type = Article
-\bibitem[{Benhocine et~al.(2022)Benhocine, Hansali, Zemmouchi-Ghomari and Ghomari}]{benhocine2022towards}
-\bibinfo{author}{Benhocine, K.}, \bibinfo{author}{Hansali, A.}, \bibinfo{author}{Zemmouchi-Ghomari, L.}, \bibinfo{author}{Ghomari, A.R.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{Towards an automatic sparql query generation from ontology competency questions}.
-\newblock \bibinfo{journal}{International Journal of Computers and Applications} \bibinfo{volume}{44}, \bibinfo{pages}{971--980}.
 %Type = Article
 \bibitem[{Berendt et~al.(2013)Berendt, Hollink, Luczak-R{\"o}sch, M{\"o}ller and Vallet}]{berendt2013usewod2013}
 \bibinfo{author}{Berendt, B.}, \bibinfo{author}{Hollink, L.}, \bibinfo{author}{Luczak-R{\"o}sch, M.}, \bibinfo{author}{M{\"o}ller, K.}, \bibinfo{author}{Vallet, D.}, \bibinfo{year}{2013}.
@@ -162,10 +157,6 @@
 \bibitem[{Karki et~al.(2026)Karki, Pandey, Tiwari, Mihindukulasooriya, Groppe and Dobriy}]{karki2026agentic}
 \bibinfo{author}{Karki, N.}, \bibinfo{author}{Pandey, M.}, \bibinfo{author}{Tiwari, S.}, \bibinfo{author}{Mihindukulasooriya, N.}, \bibinfo{author}{Groppe, S.}, \bibinfo{author}{Dobriy, D.}, \bibinfo{year}{2026}.
 \newblock \bibinfo{title}{Agentic ai, context engineering and knowledge graphs: Current approaches, challenges and opportunities.}, in: \bibinfo{booktitle}{EDBT/ICDT Workshops}.
-%Type = Inproceedings
-\bibitem[{Lippolis et~al.(2025)Lippolis, Saeedizade, Keskis{\"a}rkk{\"a}, Gangemi, Blomqvist and Nuzzolese}]{lippolis2025large}
-\bibinfo{author}{Lippolis, A.S.}, \bibinfo{author}{Saeedizade, M.J.}, \bibinfo{author}{Keskis{\"a}rkk{\"a}, R.}, \bibinfo{author}{Gangemi, A.}, \bibinfo{author}{Blomqvist, E.}, \bibinfo{author}{Nuzzolese, A.G.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Large language models assisting ontology evaluation}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{502--520}.
 %Type = Inproceedings
 \bibitem[{Lorey and Naumann(2013)}]{lorey2013caching}
 \bibinfo{author}{Lorey, J.}, \bibinfo{author}{Naumann, F.}, \bibinfo{year}{2013}.
@@ -287,10 +278,6 @@
 \bibitem[{Williams and Weaver(2011)}]{williams2011enabling}
 \bibinfo{author}{Williams, G.T.}, \bibinfo{author}{Weaver, J.}, \bibinfo{year}{2011}.
 \newblock \bibinfo{title}{Enabling fine-grained http caching of sparql query results}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{762--777}.
-%Type = Inproceedings
-\bibitem[{Zahera et~al.(2024)Zahera, Ali, Sherif, Moussallem and Ngomo}]{zahera2024generating}
-\bibinfo{author}{Zahera, H.M.}, \bibinfo{author}{Ali, M.}, \bibinfo{author}{Sherif, M.A.}, \bibinfo{author}{Moussallem, D.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2024}.
-\newblock \bibinfo{title}{Generating sparql from natural language using chain-of-thoughts prompting.}, in: \bibinfo{booktitle}{SEMANTICS}, pp. \bibinfo{pages}{353--368}.
 %Type = Inproceedings
 \bibitem[{Zhang et~al.(2016)Zhang, Sheng, Qin, Yao, Shemshadi and Taylor}]{zhang2016secf}
 \bibinfo{author}{Zhang, W.E.}, \bibinfo{author}{Sheng, Q.Z.}, \bibinfo{author}{Qin, Y.}, \bibinfo{author}{Yao, L.}, \bibinfo{author}{Shemshadi, A.}, \bibinfo{author}{Taylor, K.}, \bibinfo{year}{2016}.

@@ -25,7 +25,7 @@ of session switching and query refinement, that traditional workloads do not.
 We conclude that modeling realistic user interactions provides an essential foundation
 for accurately evaluating client-side optimization techniques in decentralized environments.
 
-\todo{Abstract should be 150-250 words and reflect changes in introduction framing}
+\todo{Abstract should  reflect changes in introduction framing}
 \verb+\begin{keyword}+ \verb+...+ \verb+\end{keyword}+
 which
 contain the abstract and keywords respectively.

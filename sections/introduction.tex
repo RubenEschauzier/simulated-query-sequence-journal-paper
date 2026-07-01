@@ -1,32 +1,52 @@
 \textbf{Journal extension}
 \begin{todolist}
     \item Rework introduction to fit special issue in some way
-    \item Introduce examples from rebuttal
     \item Add explanation of different approaches we added
     \item Extend same results we have with disk, offline traversal, and quad store
 \end{todolist}
 
 \section{Introduction}
 
-Emerging automated systems increasingly rely on knowledge graphs to ground the reasoning and decision-making of LLM-based AI agents.
-Language models are progressively utilized to interact with~\cite{zahera2024generating} 
-and build~\cite{lippolis2025large, benhocine2022towards} these knowledge bases.
-During execution, these systems issue queries over the knowledge graph to extract relevant facts 
-for task performance or question answering~\cite{walter2025grasp, karki2026agentic}. 
-Similarly, human-in-the-loop engineering pipelines rely on LLMs for curation and maintenance tasks, 
-which in turn necessitates iterative graph querying to inspect existing data structures.
+Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data.
+Structured decentralized ecosystems, such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges},
+encourage users to keep their data in small, independent stores following shared data models.
+This paradigm shift is increasingly vital for automated systems, such as LLM-based AI agents,
+which query these decentralized structures to extract facts for task performance or question answering~\cite{walter2025grasp,karki2026agentic,bernerslee2017charlie}.
+While this approach strengthens user autonomy, the absence of a central data authority naturally creates a highly multi-perspective environment. 
+Data spreads across thousands of heterogeneous sources that frequently contain overlapping, diverse, 
+or conflicting claims.
+Query engines must therefore dynamically fetch and integrate this information at runtime, 
+not only to discover conflicting statements and multiple perspectives, 
+but to reconcile these claims to provide a coherent answer to the user or agent.
 
-While these systems typically operate on centralized knowledge bases (such as knowledge graphs),
-emerging web architectures prioritize decentralization to give users control over their data.
-This shift is also seen in LLM-based systems that use knowledge graphs for factual grounding.
-For example, deploying Solid~\cite{sambra2016solid} as a decentralized knowledge graph 
-allows individuals to retain autonomy over their personal data and dictate exactly which information feeds 
-the agent's underlying model~\cite{bernerslee2017charlie}. 
+% Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data. 
+% Structured decentralized ecosystems, such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges}, 
+% encourage users to keep their data in small, independent stores that follow shared data models. 
+% While this approach strengthens user autonomy, the absence of a central data authority naturally creates a multi-perspective environment.
+% Data spreads across heterogeneous sources that frequently contain overlapping, diverse, or conflicting claims. 
+% Query engines must therefore be able to dynamically query this information, 
+% to discover conflicting statements and multiple perspectives, and to reconcile these claims to provide a coherent answer to the user.
+% This is a notoriously difficult task when engines must navigate thousands of sources, each enforcing local access policies.
 
-Structured decentralized ecosystems such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges}
-partition global Knowledge Graphs into small, independent sub-graphs managed by individuals. 
-This approach strengthens user autonomy but complicates data consumption; 
-(LLM-based) automated systems must identify and query many heterogeneous data sources on the fly, each enforcing distinct access policies.  
+% Emerging automated systems increasingly rely on knowledge graphs to ground the reasoning and decision-making of LLM-based AI agents.
+% Language models are progressively utilized to interact with~\cite{zahera2024generating} 
+% and build~\cite{lippolis2025large, benhocine2022towards} these knowledge bases.
+% During execution, these systems issue queries over the knowledge graph to extract relevant facts 
+% for task performance or question answering~\cite{walter2025grasp, karki2026agentic}. 
+% Similarly, human-in-the-loop engineering pipelines rely on LLMs for curation and maintenance tasks, 
+% which in turn necessitates iterative graph querying to inspect existing data structures.
+
+% While these systems typically operate on centralized knowledge bases (such as knowledge graphs),
+% emerging web architectures prioritize decentralization to give users control over their data.
+% This shift is also seen in LLM-based systems that use knowledge graphs for factual grounding.
+% For example, deploying Solid~\cite{sambra2016solid} as a decentralized knowledge graph 
+% allows individuals to retain autonomy over their personal data and dictate exactly which information feeds 
+% the agent's underlying model~\cite{bernerslee2017charlie}. 
+
+% Structured decentralized ecosystems such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges}
+% partition global Knowledge Graphs into small, independent sub-graphs managed by individuals. 
+% This approach strengthens user autonomy but complicates data consumption; 
+% (LLM-based) automated systems must identify and query many heterogeneous data sources on the fly, each enforcing distinct access policies.  
 
 % Emerging automated systems increasingly rely on knowledge graphs to ground the reasoning and decision-making
 % of an LLM-based AI agent. 
@@ -68,21 +88,23 @@ These assumptions fail once data is spread across thousands of small units that 
 In addition, enforcing fine-grained access control policies~\cite{esteves2021odrl} on large sources with expressive interfaces introduces notable 
 overhead~\cite{padia2015attribute}, making standard approaches unsuitable for highly decentralized environments.
 
-Newer decentralized environments, such as Solid, often expose data as \\lightweight HTTP resources
-instead of highly expressive query interfaces. 
+Newer decentralized environments, such as Solid, often expose data as lightweight HTTP resources instead of highly expressive query interfaces. 
+Identifying and resolving inconsistencies across these networks requires a querying approach
+capable of navigating resources that contain conflicting information.
 Many of these resources are not known in advance and can only be discovered during query execution. 
-Their simplicity lowers the cost of enforcing fine-grained controls.
-This setting requires a federation model that can operate over a very large number of small sources, many of which may be encountered at runtime, without relying on prior aggregation. 
+While their simplicity lowers the cost of enforcing fine-grained controls,
+this setting requires a federation model that can operate over a very large number of small sources,
+many of which may be encountered at runtime, without relying on prior aggregation.
 Traditional federated approaches are insufficient in this setting due to the assumption of a small number of large endpoints.
-
-Executing SPARQL queries using Link Traversal-based Query Processing (LTQP)~\cite{hartig2009executing} fits these needs. 
-It discovers documents incrementally by following URIs encountered during execution, starting from an initial set of seed documents provided by either the user or the query. 
-Its link-driven, asynchronous traversal supports fine-grained permissions and avoids the requirement to know the entire data distribution beforehand.
+Executing SPARQL queries using Link Traversal-based Query Processing (LTQP)~\cite{hartig2009executing} fits these needs.
+It discovers documents incrementally by following URIs encountered during execution, 
+starting from an initial set of seed documents provided by either the user or the query.
+Its link-driven, asynchronous traversal supports fine-grained permissions 
+and allows systems to discover and reconcile conflicting information without knowing the location of all decentralized data sources beforehand.
 
 However, the fact that LTQP discovers documents incrementally creates significant challenges for efficient execution. 
 Using the traditional optimize-then-execute paradigm is difficult, as the query itself determines which data will be accessed. 
 As a result, the optimizer has no prior knowledge of the relevant data until the query’s traversal has already begun.
-
 Some approaches optimize query execution without prior knowledge by using adaptive query processing~\cite{hanski2025link} and zero-knowledge query planning~\cite{hartig2011zero}. 
 These yield modest but inconsistent performance gains, depending on the decentralized environment and the heuristics used~\cite{taelman2023link}.
 However, other aspects of zero-knowledge LTQP optimization, such as link prioritization~\cite{hartig2016walking},
@@ -107,13 +129,10 @@ that leverage local access patterns to build necessary prior knowledge.
 	\caption{When users interact with agents, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization.}
 	\label{fig:intro-overlap}
 \end{figure}
-
-% \rt{If space permits, I'd add a figure here that illustrates this "personalized" aspect here. 
-% For example where a user interacts with an app, and that app issues multiple queries to the same query engine, 
-% and leads to some overlapping HTTP requests.}
+\todo{Adjust figure to reflect fact that AI is no longer focus}
 
 Benchmarking these approaches requires realistic query sequences.
-Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, BSBM~\cite{bizer2011berlin}) 
+Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}) 
 execute isolated or repeated query templates, which fails to capture client-side dynamics accurately. 
 Furthermore, while centralized SPARQL optimization relies on
 real query logs~\cite{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}, 
@@ -121,16 +140,29 @@ such logs do not yet exist for decentralized LTQP environments.
 Consequently, we need a standardized benchmark that realistically simulates user query sequences 
 to prevent fragmented evaluation practices.
 
-In this paper, we address this gap in existing benchmarks by introducing SolidSessionBench, a new benchmark that builds upon SolidBench~\cite{taelman2023link} to generate realistic query sequences.
-These sequences capture three usage patterns identified in social network application literature,
-the domain simulated by SolidBench, alongside patterns observed in real-world SPARQL logs.
-Consequently, our benchmark enables researchers to evaluate personalized query optimization techniques 
-against the actual user behaviors they will encounter in real client-facing applications.
+In this paper, we address this gap by introducing SolidSessionBench,
+a benchmark extending SolidBench~\cite{taelman2023link} to generate realistic query sequences.
+These sequences capture usage patterns identified in social network literature, 
+a domain naturally rich in multi-perspective data, 
+alongside patterns observed in real-world SPARQL logs.
 
-To demonstrate our benchmark's utility, 
-we implement three baseline client-side caching strategies 
-in the LTQP engine Comunica~\cite{taelman2018comunica,taelman2023link}.
-We use these intentionally simple algorithms to establish a performance baseline 
-and highlight the necessity of sequence-based evaluation.
+To evaluate the realism of our generated query sequences without access to real-world query logs, 
+we investigate \todo{insert} and evaluate \todo{insert} baseline client-side caching strategies
+in the LTQP engine Comunica~\cite{taelman2018comunica,taelman2023link}. 
+We use these simple algorithms to establish a performance baseline and demonstrate the necessity of sequence-based evaluation.
+Comparing this baseline against existing literature shows 
+that current evaluation techniques are insufficient for client-side caching in LTQP.
 
-\todo{Insert section summarizing contributions and structure of the paper.}
+By enabling researchers to evaluate personalized query optimization against actual user behaviors,
+SolidSessionBench lays the foundation for performant client-side querying. 
+Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information 
+and the application of consistency fixes across multi-dimensional knowledge graphs.
+
+The remainder of this paper is structured as follows.
+Section~\ref{sec:related-work} reviews prior benchmarking approaches and real-world query usage patterns.
+Section~\ref{sec:simulation-methodology} outlines our simulation methodology and defines the resulting hyperparameters.
+Section~\ref{sec:client-side-caching} introduces the technical mechanics of client-side caching strategies in LTQP.
+Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
+Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
+
+\todo{Maybe insert section summarizing contributions.}

@@ -1,9 +1,9 @@
-PWD /home/ruben-eschauzier/papers/els-cas-templates
+PWD /home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/ruben-eschauzier/papers/els-cas-templates/main.tex
+INPUT /home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex
 OUTPUT build/main.log
 INPUT ./cas-dc.cls
 INPUT cas-dc.cls

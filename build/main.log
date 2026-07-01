@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.5)  1 JUL 2026 17:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.5)  1 JUL 2026 21:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ruben-eschauzier/papers/els-cas-templates/main.tex
-(/home/ruben-eschauzier/papers/els-cas-templates/main.tex
+**/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex
+(/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./cas-dc.cls
@@ -791,11 +791,6 @@ File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 6.80005pt on input line 29.
-
-Underfull \hbox (badness 4108) in paragraph at lines 28--32
- []\T1/stix/b/n/8 {TODO\T1/stix/m/n/8 : Ab-stract should be 150-250 words and re-flect changes in in-tro-duc-tion fram-ing\T1/stix/b/n/8 }[]
- []
-
 )
 
 Package hyperref Warning: Ignoring empty anchor on input line 163.
@@ -817,41 +812,28 @@ Package pdftex.def Info: thumbnails/cas-url.jpeg  used on input line 163.
 Package hyperref Warning: Ignoring empty anchor on input line 163.
 
 (./sections/introduction.tex
-Overfull \hbox (0.86548pt too wide) in paragraph at lines 11--18
-[]\T1/stix/m/n/10 Emerging au-to-mated sys-tems in-creas-ingly rely on knowl-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 77.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 104.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [1{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./thumbnails/cas-email.jpeg> <./thumbnails/cas-url.jpeg>]
-Underfull \hbox (badness 1769) in paragraph at lines 86--90
-[]\T1/stix/m/n/10 Some ap-proaches op-ti-mize query ex-e-cu-tion with-out
- []
-
-<figures/overlapping_queries_fixed.pdf, id=73, 366.46269pt x 351.81992pt>
+<figures/overlapping_queries_fixed.pdf, id=67, 366.46269pt x 351.81992pt>
 File: figures/overlapping_queries_fixed.pdf Graphic file (type pdf)
 <use figures/overlapping_queries_fixed.pdf>
-Package pdftex.def Info: figures/overlapping_queries_fixed.pdf  used on input line 106.
+Package pdftex.def Info: figures/overlapping_queries_fixed.pdf  used on input line 128.
 (pdftex.def)             Requested size: 214.42754pt x 205.85945pt.
 
-Overfull \hbox (21.94217pt too wide) in paragraph at lines 115--123
-\T1/stix/m/n/10 se-quences. Tra-di-tional bench-marks (e.g., Wat-Div [[]], BSBM [[]])
+Underfull \hbox (badness 1092) in paragraph at lines 149--155
+\T1/stix/m/n/10 with-out ac-cess to real-world query logs, we in-ves-ti-gate
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 115--123
-\T1/stix/m/n/10 cen-tral-ized LTQP en-vi-ron-ments. Con-se-quently, we need
+Underfull \hbox (badness 1418) in paragraph at lines 149--155
+[]\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : in-sert\T1/stix/b/n/10 }[] \T1/stix/m/n/10 and eval-u-ate []\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : in-sert\T1/stix/b/n/10 }[] \T1/stix/m/n/10 base-line
  []
 
-) (./sections/related-work.tex
-Overfull \hbox (1.92548pt too wide) in paragraph at lines 136--1
-[]\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : In-sert sec-tion sum-ma-riz-ing con-tri-bu-tions and struc-
- []
-
-[2 <./figures/overlapping_queries_fixed.pdf>]
+) (./sections/related-work.tex [2 <./figures/overlapping_queries_fixed.pdf>]
 Overfull \hbox (2.1547pt too wide) in paragraph at lines 46--49
 []\T1/stix/m/n/10 The eval-u-a-tion of per-son-al-ized LTQP op-ti-miza-tion would
  []
@@ -894,153 +876,139 @@ Underfull \hbox (badness 1946) in paragraph at lines 18--20
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 54.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 7.65005pt on input line 54.
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[4] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2023/02/27 1.9 listings language file
-) [4]
+)
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 94.
+(Font)              scaled to size 7.65005pt on input line 99.
 
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 95.
+(Font)              using `T1/zi4/m/n' instead on input line 100.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 95.
+(Font)              scaled to size 7.65005pt on input line 100.
 
-Underfull \hbox (badness 1325) in paragraph at lines 163--170
+Underfull \hbox (badness 1325) in paragraph at lines 169--176
 \T1/stix/m/n/10 which in-her-ently mod-els re-al-is-tic user pref-er-ences. The
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 163--170
+Underfull \hbox (badness 2261) in paragraph at lines 169--176
 \T1/stix/m/n/10 tain-ing spe-cific in-ter-ests, ed-u-ca-tional back-grounds, and
  []
 
-
-Overfull \hbox (28.34796pt too wide) in paragraph at lines 215--218
-\T1/stix/m/n/10 small global fea-ture space: $[]$. 
- []
-
 [5]
-Overfull \hbox (7.77576pt too wide) detected at line 234
- $\LS1/stix/m/it/10 P\LS1/stix/m/n/10 .[] Ý []/ = [] = [] ù 19\LS1/stix/m/it/10 :\LS1/stix/m/n/10 6~$ 
- []
-
-
-Overfull \hbox (25.81572pt too wide) detected at line 237
- $\LS1/stix/m/it/10 P\LS1/stix/m/n/10 .[] Ý []/ = [] = [] ù 80\LS1/stix/m/it/10 :\LS1/stix/m/n/10 4~$ 
- []
-
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 249.
+(Font)              scaled to size 8.50006pt on input line 248.
 
-Overfull \hbox (0.63553pt too wide) in paragraph at lines 252--261
+Overfull \hbox (0.63553pt too wide) in paragraph at lines 251--260
 []\T1/stix/m/n/10 To en-sure these trans-for-ma-tions mean-ing-fully al-ter query
  []
 
 
-Overfull \hbox (13.29636pt too wide) in paragraph at lines 292--295
+Overfull \hbox (13.29636pt too wide) in paragraph at lines 291--294
 \T1/stix/m/n/10 in-dexes, cor-re-spond-ing to Solid-Bench choke point L.8 [[]]. 
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 320--325
+Underfull \hbox (badness 1389) in paragraph at lines 319--324
 []\T1/stix/m/n/10 Finally, the gen-er-a-tor sup-ports vari-able in-stan-ti-a-tion
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 320--325
+Underfull \hbox (badness 1072) in paragraph at lines 319--324
 \T1/stix/m/n/10 to spe-cific val-ues ran-domly se-lected from con-fig-u-ra-tion
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 375--375
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 [][][][][]$\T1/zi4/m/n/8 https : / / github . com / SolidBench / SolidBench . js / tree / master /
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 393--393
+Underfull \hbox (badness 1286) in paragraph at lines 392--392
 \T1/cmss/m/n/9 a-bil-ity of switch-ing log-i-cal ses-sions. Re-fine-ment pa-ram-e-
  []
 
 ) (./sections/caching.tex
-Overfull \hbox (1.46635pt too wide) in paragraph at lines 66--69
+Overfull \hbox (1.46635pt too wide) in paragraph at lines 67--70
 \T1/stix/m/n/10 against a cen-tral-ized, pre-built in-dex, LTQP eval-u-ates queries
  []
 
 ) (./sections/evaluation.tex [7]
-Underfull \hbox (badness 1067) in paragraph at lines 10--14
+Underfull \hbox (badness 1067) in paragraph at lines 11--15
 \T1/stix/m/n/10 cor-re-la-tion, mea-sured via cache hit rates and evic-tions,
  []
 
 <figures/performance_profile.pdf, id=356, 1264.82927pt x 873.91306pt>
 File: figures/performance_profile.pdf Graphic file (type pdf)
 <use figures/performance_profile.pdf>
-Package pdftex.def Info: figures/performance_profile.pdf  used on input line 46.
+Package pdftex.def Info: figures/performance_profile.pdf  used on input line 47.
 (pdftex.def)             Requested size: 238.25444pt x 164.61838pt.
 
-Overfull \hbox (3.29637pt too wide) in paragraph at lines 58--63
+Overfull \hbox (3.29637pt too wide) in paragraph at lines 59--64
 []\T1/stix/m/n/10 For the unin-dexed cache, small (350k triples) and medium
  []
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 58--63
+Underfull \hbox (badness 1642) in paragraph at lines 59--64
 \T1/stix/m/n/10 (700k triples) sizes per-form sim-i-larly. The large cache
  []
 
 <figures/combined_cache_efficiency.pdf, id=359, 1057.31009pt x 394.04753pt>
 File: figures/combined_cache_efficiency.pdf Graphic file (type pdf)
 <use figures/combined_cache_efficiency.pdf>
-Package pdftex.def Info: figures/combined_cache_efficiency.pdf  used on input line 134.
+Package pdftex.def Info: figures/combined_cache_efficiency.pdf  used on input line 135.
 (pdftex.def)             Requested size: 494.50888pt x 184.30046pt.
 
-Underfull \hbox (badness 1348) in paragraph at lines 145--149
+Underfull \hbox (badness 1348) in paragraph at lines 146--150
 \T1/stix/m/n/10 though fur-ther anal-y-sis is needed to con-firm the ex-act
  []
 
 [8 <./figures/performance_profile.pdf>]
-<figures/temporal_throughput_line.pdf, id=407, 1057.31009pt x 394.04753pt>
+<figures/temporal_throughput_line.pdf, id=406, 1057.31009pt x 394.04753pt>
 File: figures/temporal_throughput_line.pdf Graphic file (type pdf)
 <use figures/temporal_throughput_line.pdf>
-Package pdftex.def Info: figures/temporal_throughput_line.pdf  used on input line 158.
+Package pdftex.def Info: figures/temporal_throughput_line.pdf  used on input line 159.
 (pdftex.def)             Requested size: 494.50888pt x 184.30046pt.
 
-Overfull \hbox (6.10745pt too wide) in paragraph at lines 168--175
+Overfull \hbox (6.10745pt too wide) in paragraph at lines 169--176
  []\T1/stix/m/it/11 Microbenchmarks - The-o-ret-i-cal Hit Rate Anal-y-sis[] \T1/stix/m/n/10 Cache
  []
 
 
-Overfull \hbox (2.31549pt too wide) in paragraph at lines 168--175
+Overfull \hbox (2.31549pt too wide) in paragraph at lines 169--176
 \T1/stix/m/n/10 lit-er-a-ture ex-ten-sively uses mi-crobench-marks of var-i-ous forms
  []
 
-<figures/synth_hit_rate_reduced.pdf, id=411, 766.84312pt x 453.27434pt>
+<figures/synth_hit_rate_reduced.pdf, id=410, 766.84312pt x 453.27434pt>
 File: figures/synth_hit_rate_reduced.pdf Graphic file (type pdf)
 <use figures/synth_hit_rate_reduced.pdf>
-Package pdftex.def Info: figures/synth_hit_rate_reduced.pdf  used on input line 189.
+Package pdftex.def Info: figures/synth_hit_rate_reduced.pdf  used on input line 190.
 (pdftex.def)             Requested size: 494.50888pt x 292.30783pt.
 [9 <./figures/combined_cache_efficiency.pdf>]
-<figures/performance_profile_random_sequences.pdf, id=439, 1264.82927pt x 479.31886pt>
+<figures/performance_profile_random_sequences.pdf, id=438, 1264.82927pt x 479.31886pt>
 File: figures/performance_profile_random_sequences.pdf Graphic file (type pdf)
 <use figures/performance_profile_random_sequences.pdf>
-Package pdftex.def Info: figures/performance_profile_random_sequences.pdf  used on input line 221.
+Package pdftex.def Info: figures/performance_profile_random_sequences.pdf  used on input line 222.
 (pdftex.def)             Requested size: 238.25444pt x 90.28894pt.
 ) (./sections/conclusion.tex [10 <./figures/temporal_throughput_line.pdf> <./figures/synth_hit_rate_reduced.pdf>]
-Overfull \hbox (19.74739pt too wide) in paragraph at lines 8--14
+Overfull \hbox (19.74739pt too wide) in paragraph at lines 9--15
 \T1/zi4/m/n/10 github . com / SolidBench / SolidBench . js / wiki / Sustainability-[]Plan$[][]\T1/stix/m/n/10 .
  []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 15--19
+Underfull \hbox (badness 1253) in paragraph at lines 16--20
 []\T1/stix/m/n/10 The frame-work is mod-u-lar, MIT-licensed, and fully
  []
 
 
-Overfull \hbox (9.0355pt too wide) in paragraph at lines 15--19
+Overfull \hbox (9.0355pt too wide) in paragraph at lines 16--20
 \T1/stix/m/n/10 extension-friendly ap-proach to de-vel-op-ment al-lows re-searchers
  []
 
@@ -1050,31 +1018,21 @@ Underfull \hbox (badness 1721) in paragraph at lines 32--36
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 80--83
+Underfull \hbox (badness 1383) in paragraph at lines 75--78
 \T1/stix/m/n/8 H., Fer-ris, J., Gi-a-r-dullo, A., Kulka-rni, S., Li, H., et al., 2013.
  []
 
 [11 <./figures/performance_profile_random_sequences.pdf>]
-Underfull \hbox (badness 1048) in paragraph at lines 167--170
-[]\T1/stix/m/n/8 Lippolis, A.S., Saeed-i-zade, M.J., Keskisärkkä, R., Gangemi, A.,
- []
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 197--201
+Underfull \hbox (badness 1062) in paragraph at lines 188--192
 []\T1/stix/m/n/8 Nicholson, H., Chryso-ge-los, P., Ail-a-maki, A., 2024.  Hp-cache:
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 231--235
+Underfull \hbox (badness 1163) in paragraph at lines 222--226
 []\T1/stix/m/n/8 Sambra, A.V., Man-sour, E., Hawke, S., Zereba, M., Greco, N.,
  []
 
-[12]
-Underfull \hbox (badness 1571) in paragraph at lines 292--295
-[]\T1/stix/m/n/8 Zahera, H.M., Ali, M., Sherif, M.A., Mous-sallem, D., Ngomo,
- []
-
-) [13
+[12]) [13
 
 ] (build/main.aux)
  ***********
@@ -1089,18 +1047,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19516 strings out of 474222
- 294553 string characters out of 5748734
- 2114975 words of memory out of 5000000
- 41229 multiletter control sequences out of 15000+600000
+ 19508 strings out of 474222
+ 294404 string characters out of 5748734
+ 2097975 words of memory out of 5000000
+ 41224 multiletter control sequences out of 15000+600000
  673494 words of font info for 168 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,726b,2103s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,93p,755b,2103s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (15 pages, 667205 bytes).
+Output written on build/main.pdf (15 pages, 666075 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 194 named destinations out of 1000 (max. 500000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 515 compressed objects within 6 object streams
+ 191 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

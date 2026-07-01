@@ -14,45 +14,45 @@ Warning--empty pages in karki2026agentic
 Warning--empty pages in padia2015attribute
 Warning--empty booktitle in taelman2023evaluation
 Warning--empty pages in taelman2023evaluation
-You've used 67 entries,
+You've used 64 entries,
             2990 wiz_defined-function locations,
-            1093 strings with 20970 characters,
-and the built_in function-call counts, 54105 in all, are:
-= -- 4271
-> -- 2350
-< -- 62
-+ -- 912
-- -- 831
-* -- 5866
-:= -- 7578
-add.period$ -- 154
-call.type$ -- 67
-change.case$ -- 609
-chr.to.int$ -- 65
-cite$ -- 77
-duplicate$ -- 3951
-empty$ -- 3773
-format.name$ -- 1046
-if$ -- 10505
+            1076 strings with 20250 characters,
+and the built_in function-call counts, 51454 in all, are:
+= -- 4064
+> -- 2224
+< -- 60
++ -- 864
+- -- 786
+* -- 5569
+:= -- 7208
+add.period$ -- 147
+call.type$ -- 64
+change.case$ -- 579
+chr.to.int$ -- 62
+cite$ -- 74
+duplicate$ -- 3765
+empty$ -- 3595
+format.name$ -- 992
+if$ -- 9994
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 730
-newline$ -- 303
-num.names$ -- 268
-pop$ -- 1434
+missing$ -- 694
+newline$ -- 290
+num.names$ -- 256
+pop$ -- 1368
 preamble$ -- 1
-purify$ -- 541
+purify$ -- 514
 quote$ -- 0
-skip$ -- 1487
+skip$ -- 1419
 stack$ -- 0
-substring$ -- 2292
-swap$ -- 2999
-text.length$ -- 43
+substring$ -- 2170
+swap$ -- 2849
+text.length$ -- 41
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 603
+type$ -- 576
 warning$ -- 10
-while$ -- 348
+while$ -- 331
 width$ -- 0
-write$ -- 925
+write$ -- 884
 (There were 10 warnings)
