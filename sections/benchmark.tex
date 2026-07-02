@@ -19,6 +19,37 @@ To support sequence-based evaluation, we extend three core components of the Sol
      reproducible sequence-based experiments and allow easy generation of default configuration files.
 \end{itemize}
 
+\subsection{Realism of Query Sequences}
+To ensure SolidSessionBench accurately reflects user behavior in decentralized environments, 
+we base our simulation methodology on the LDBC methodology used for data generation.
+The sequence generator synthesizes empirical usage patterns established in Section~\ref{sec:related-work} to form a 
+grounded simulation methodology that reflects real-world patterns.
+
+Because direct, real-world query logs for highly decentralized LTQP environments do not currently exist,
+we maintain and evaluate realism through a three-pillared approach:
+
+\begin{itemize}
+    \item \textbf{Topological Realism (User Interests):} We utilize the established LDBC social network topology
+    to model explicit and implicit user relatedness, ensuring data access patterns mirror natural community formations 
+    rather than uniform distributions. Due to the proven realism of the LDBC data generator~\cite{prat2014community}, 
+    our simulations inherit this empirically proven structure.
+    
+    \item \textbf{Navigational Realism (Logical Sessions):} We restrict query sequences to directed dependency graphs.
+    This simulates realistic ``click-through'' application navigation, 
+    accounting for empirically observed session lengths and log-normal transition probabilities.  
+ 
+    \item \textbf{Exploratory Realism (Query Refinement):} We replace static templates with dynamic query transformations. 
+    Mapping real-world SPARQL refinements (e.g., result generalization, intent shifting) directly to execution choke points 
+    ensures engines face realistic structural variability.
+\end{itemize}
+
+We evaluate the success of this simulation by measuring proxy variables such as
+cache hit rates, execution times, and relatedness of relevant data accessed during queries. 
+We then compare these outcomes against theoretical baselines and random sequence generation. 
+This comparative evaluation demonstrates that our query sequence simulation captures essential 
+performance dynamics that existing benchmarks miss.
+
+
 \subsection{Simulation Methodology}
 Our methodology models three interdependent behaviors: task-oriented logical sessions,
 user interests for data locality,
@@ -180,8 +211,8 @@ Specifically, we construct a binary feature vector $v_{k}$ for each user $k$:
 \begin{equation}
  v_{k} = (x_{k,1}, \dots, x_{k,n}, y_{k,1}, \dots, y_{k,m}),
 \end{equation}
-where $x_{k,j}=1$ if user $k$ holds stated interest $j$, and $y_{k,l}=1$ 
-if user $k$ completed study $l$.
+where $x_{k,j}=1$ if user $k$ holds stated interest $j$, and $y_{k,m}=1$ 
+if user $k$ completed study $m$.
 
 For each sequence, we randomly select a base person $k$ and compute the cosine similarity 
 between $v_{k}$ and the feature vectors of all other users.

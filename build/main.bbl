@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -205,6 +205,10 @@
 \bibinfo{author}{Picalausa, F.}, \bibinfo{author}{Vansummeren, S.}, \bibinfo{year}{2011}.
 \newblock \bibinfo{title}{What are real {SPARQL} queries like?}, in: \bibinfo{booktitle}{Proceedings of the {International} {Workshop} on {Semantic} {Web} {Information} {Management}}, \bibinfo{publisher}{Association for Computing Machinery}, \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{1--6}.
 \newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/1999299.1999306}, \DOIprefix\doi{10.1145/1999299.1999306}.
+%Type = Inproceedings
+\bibitem[{Prat-P{\'e}rez and Dominguez-Sal(2014)}]{prat2014community}
+\bibinfo{author}{Prat-P{\'e}rez, A.}, \bibinfo{author}{Dominguez-Sal, D.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{How community-like is the structure of synthetically generated graphs?}, in: \bibinfo{booktitle}{Proceedings of Workshop on GRAph Data management Experiences and Systems}, pp. \bibinfo{pages}{1--9}.
 %Type = Inproceedings
 \bibitem[{Raman et~al.(2019)Raman, Joglekar, Cristofaro, Sastry and Tyson}]{raman2019challenges}
 \bibinfo{author}{Raman, A.}, \bibinfo{author}{Joglekar, S.}, \bibinfo{author}{Cristofaro, E.D.}, \bibinfo{author}{Sastry, N.}, \bibinfo{author}{Tyson, G.}, \bibinfo{year}{2019}.

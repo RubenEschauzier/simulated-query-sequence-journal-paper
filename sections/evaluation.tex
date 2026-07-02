@@ -42,7 +42,7 @@ Figure~\ref{fig:global_cache_performance} compares performance profiles~\cite{do
 for each approach against the no-cache baseline. 
 As expected, all caching methods outperform the baseline.
 
-\begin{figure}[t]
+\begin{figure*}[t]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile.pdf}
     \caption{Performance profiles of the tested cache algorithms. 
@@ -53,7 +53,7 @@ As expected, all caching methods outperform the baseline.
     (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time).
     From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}
     \label{fig:global_cache_performance}
-\end{figure}
+\end{figure*}
 
 
 For the unindexed cache, 
@@ -164,7 +164,7 @@ achieving substantial throughput gains at depth 4 compared to the unindexed alte
 
 \subsection{Comparison To Other Evaluation Methods}
 
-\paragraph{Microbenchmarks - Theoretical Hit Rate Analysis}
+\paragraph{Microbenchmarks-Theoretical Hit Rate Analysis}
 
 Cache literature extensively uses microbenchmarks of various forms 
 to analyze caching performance~\cite{nicholson2024hpcache,hartig2011caching}.
@@ -217,14 +217,14 @@ These results misleadingly suggest that large caches are vital,
 whereas our benchmark demonstrates significant performance benefits even with smaller sizes.
 As expected, the estimation cache performs well in both scenarios because cardinality estimation does not require cache hits.
 
-\begin{figure}[htpb]
+\begin{figure*}[htpb]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile_random_sequences.pdf}
     \caption{Performance profile of the tested cache algorithms on random query sequences.
      The y-axis shows the percentage of queries that execute within 
      a given performance factor (x-axis) of the fastest algorithm for that query.}
     \label{fig:global_cache_performance_random_sequences}
-\end{figure}
+\end{figure*}
 
 \paragraph{Scope and Limitations}
 We evaluate SolidSessionBench against microbenchmarks and random sequences, 
