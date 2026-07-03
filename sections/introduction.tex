@@ -17,8 +17,8 @@ This paradigm shift is increasingly vital for automated systems, such as LLM-bas
 which query these decentralized structures to extract facts for task performance or question answering~\cite{walter2025grasp,karki2026agentic,bernerslee2017charlie}.
 While this approach strengthens user autonomy, the absence of a central data authority naturally creates a highly multi-perspective environment. 
 Data spreads across thousands of heterogeneous sources that frequently contain overlapping, diverse, 
-or conflicting claims.
-Query engines must therefore dynamically fetch and integrate this information at runtime, 
+or potentially conflicting claims.
+Query engines must therefore dynamically fetch and integrate this information at runtime~\cite{taelman_sigweb_queryengineshypermedia_2024}, 
 not only to discover conflicting statements and multiple perspectives, 
 but to reconcile these claims to provide a coherent answer to the user or agent.
 
@@ -85,30 +85,30 @@ but to reconcile these claims to provide a coherent answer to the user or agent.
 % yet it makes query execution more difficult because engines must identify and query many heterogeneous data sources,
 % each with its own access policies.
 
-Traditional federated querying approaches~\cite{schwarte2011fedx,schmidt2011fedbench,heling2022federated} support decentralization of sources,
-but typically assume a small (10-100) set of well-described and consistently available endpoints~\cite{dang2023fedshop}. 
+Traditional federated querying approaches~\cite{schwarte2011fedx,schmidt2011fedbench,heling2022federated} support the integration of decentralized data sources,
+but they typically assume a small (10-100) set of well-described and consistently available endpoints~\cite{dang2023fedshop}. 
 These assumptions fail once data is spread across thousands of small units that enforce local access-control policies.
 In addition, enforcing fine-grained access control policies~\cite{esteves2021odrl} on large sources with expressive interfaces introduces notable 
 overhead~\cite{padia2015attribute}, making standard approaches unsuitable for highly decentralized environments.
 
 Newer decentralized environments, such as Solid, often expose data as lightweight HTTP resources instead of highly expressive query interfaces. 
 Identifying and resolving inconsistencies across these networks requires a querying approach
-capable of navigating resources that contain conflicting information.
+capable of navigating resources that contain conflicting information \rt{I think we already sufficiently made our point on the conflicting-info aspect. I think we can omit this from here on (maybe we can come back to it again in the conclusions section).}.
 Many of these resources are not known in advance and can only be discovered during query execution. 
 While their simplicity lowers the cost of enforcing fine-grained controls,
 this setting requires a federation model that can operate over a very large number of small sources,
 many of which may be encountered at runtime, without relying on prior aggregation.
-Traditional federated approaches are insufficient in this setting due to the assumption of a small number of large endpoints.
+Traditional federated approaches are insufficient in this setting due to the assumption of a small number of large endpoints.\rt{Also: they assume prior source knowledge, and therefore don't support discovery}
 Executing SPARQL queries using Link Traversal-based Query Processing (LTQP)~\cite{hartig2009executing} fits these needs.
 It discovers documents incrementally by following URIs encountered during execution, 
 starting from an initial set of seed documents provided by either the user or the query.
 Its link-driven, asynchronous traversal supports fine-grained permissions 
-and allows systems to discover and reconcile conflicting information without knowing the location of all decentralized data sources beforehand.
+and allows systems to discover and reconcile conflicting information \rt{I'd also omit reconciliation here, as LTQP doesn't really do this right now, but it provides the basis for doing it.} without knowing the location of all decentralized data sources beforehand.
 
 However, the fact that LTQP discovers documents incrementally creates significant challenges for efficient execution. 
-Using the traditional optimize-then-execute paradigm is difficult, as the query itself determines which data will be accessed. 
+Using the traditional optimize-then-execute query processing paradigm is difficult, as the query itself determines which data will be accessed. 
 As a result, the optimizer has no prior knowledge of the relevant data until the query’s traversal has already begun.
-Some approaches optimize query execution without prior knowledge by using adaptive query processing~\cite{hanski2025link} and zero-knowledge query planning~\cite{hartig2011zero}. 
+Some approaches optimize query execution without prior knowledge by using zero-knowledge query planning~\cite{hartig2011zero} or adaptive query processing~\cite{hanski2025link}. 
 These yield modest but inconsistent performance gains, depending on the decentralized environment and the heuristics used~\cite{taelman2023link}.
 However, other aspects of zero-knowledge LTQP optimization, such as link prioritization~\cite{hartig2016walking},
 are unlikely to improve query result arrival times in emerging decentralized environments~\cite{eschauzier2025revisiting}.
@@ -119,7 +119,7 @@ While these approaches offer greater performance benefits, they require the serv
 This raises the cost of serving resources and complicates privacy and access control.
 
 To avoid server-side overhead, engines can derive prior knowledge directly on the client.
-In decentralized settings, LTQP is inherently client-side, with a single engine instance serving one or more applications.
+In decentralized settings, LTQP operates inherently client-side, with a single engine instance serving one or more applications.\rt{I'd mention in here somewhere that it's often specific to one particular user.}
 As these applications issue sequences of correlated queries,
 the engine identifies frequently accessed data and its characteristics.
 This allows engines to implement \emph{personalized} query optimization algorithms 
@@ -133,9 +133,11 @@ that leverage local access patterns to build necessary prior knowledge.
 	\label{fig:intro-overlap}
 \end{figure}
 \todo{Adjust figure to reflect fact that AI is no longer focus}
+\rt{In the figure, make sure to align the two tints of red.}
+\rt{I'd make it explicit somewhere that the different arrows indicate the traversal paths of different LTQP executions (each for one specific query).}
 
 Benchmarking these approaches requires realistic query sequences.
-Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}) 
+Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}) \rt{Let's also cite LargeRDFBench here}
 execute isolated or repeated query templates, which fails to capture client-side dynamics accurately. 
 Furthermore, while centralized SPARQL optimization relies on
 real query logs~\cite{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}, 
@@ -151,14 +153,14 @@ alongside patterns observed in real-world SPARQL logs.
 
 To evaluate the realism of our generated query sequences without access to real-world query logs, 
 we investigate \todo{insert} and evaluate \todo{insert} baseline client-side caching strategies
-in the LTQP engine Comunica~\cite{taelman2018comunica,taelman2023link}. 
+in the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
 We use these simple algorithms to establish a performance baseline and demonstrate the necessity of sequence-based evaluation.
 Comparing this baseline against existing literature shows 
 that current evaluation techniques are insufficient for client-side caching in LTQP.
 
 By enabling researchers to evaluate personalized query optimization against actual user behaviors,
 SolidSessionBench lays the foundation for performant client-side querying. 
-Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information 
+Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information \rt{Coming back here to conflicting info does make sense again IMO.}
 and the application of consistency fixes across multi-dimensional knowledge graphs.
 
 The remainder of this paper is structured as follows.
@@ -168,4 +170,4 @@ Section~\ref{sec:client-side-caching} introduces the technical mechanics of clie
 Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
 Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
 
-\todo{Maybe insert section summarizing contributions.}
+\todo{Maybe insert section summarizing contributions.}\rt{Yes, that would be good!}

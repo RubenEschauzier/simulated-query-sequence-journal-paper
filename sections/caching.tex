@@ -16,7 +16,7 @@ demonstrating that a local repository of recently accessed Web documents
 mitigates the high network latency inherent to LTQP.
 
 For our experiments, we use the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
-As a JavaScript-based engine, it relies on the event loop to asynchronously interleave traversal and local query execution. 
+As a JavaScript-based engine, it relies on the event loop to asynchronously interleave HTTP requests during traversal and local query execution. 
 
 We use caching-based algorithms to validate SolidSessionBench query sequences and compare them against alternative benchmarking methods in the literature.
 Implementing these strategies establishes strong baselines for evaluating caching in traversal engines.
@@ -35,9 +35,10 @@ On a hit, the engine extracts only the triples matching the query patterns.
 Combined with dictionary encoding, this pre-filtering reduces local store memory and indexing overhead,
 potentially offsetting the higher initial ingestion costs.
 
-\paragraph{Quad store Cache}
+\paragraph{Memory-based Quad store Cache}
+\rt{The difference between indexed store and quad store is confusing. Could we call the first one just LRU Cache? I think that could solve it.}
 This approach uses a quad store to unify cache indexes, saving memory and improving search efficiency.
-The quad graph stores the source of the triples, allowing cache hits to retrieve data using an `spo' query where the graph term matches the cached document's URL.
+The quad graph stores the source of the triples, allowing cache hits to retrieve data using an `?subject ?predicate ?object' query where the graph term matches the cached document's URL.
 
 \paragraph{Disk-based Quad store Cache}
 This approach stores the quad store on disk, providing the same advantages while supporting datasets larger than main memory.
@@ -49,12 +50,13 @@ This prevents long-running queries from evicting the entire cache.
 
 Link traversal lacks prior knowledge regarding data distribution and availability, 
 complicating query planning. 
-We evaluate two cardinality estimation approaches using cached quads to address this. 
-The default Comunica cost-based optimizer~\cite{taelman2018comunica} uses these estimates to generate more accurate query plans,
+We evaluate two cardinality estimation approaches using cached data to address this. 
+\rt{I would make explicit here that you make the hypothesis that determining cardinalities using cached data is accurate enough for query planning}
+The default Comunica cost-based optimizer~\cite{taelman2018comunica} uses these estimates to generate more accurate query plans,\rt{This is phrased in a confusing manner. Is this something that already exists? Or is it your contribution?}
 replacing the zero-knowledge heuristics~\cite{hartig2011zero} traditionally used in link traversal.
 
 \paragraph{Global Cache Cardinality Estimation}
-This approach estimates cardinalities across the entire cache. '
+This approach estimates cardinalities across the entire cache.
 For each cache entry, it performs a query to count the number of matching triples 
 and sums these counts to produce a final estimate.
 
@@ -64,9 +66,11 @@ For each query, we traverse the cache to find all documents reachable under the 
 to produce more accurate estimates by ignoring irrelevant data. 
 If the seed document is missing from the cache, we fall back to the global cache estimation approach.
 
+\rt{Regarding naming, what about "Reachability-agnostic Cache-based Cardinality Estimation" and "Reachability-aware Cache-based Cardinality Estimation"}
+
 
 \subsection{Experimental Configurations}
-For our experiments we evaluate three cache capacities: small (350k quads, $\sim$10\% of the dataset), 
+For our experiments we evaluate three cache capacities: small (350k quads\rt{Let's use "triples"}, $\sim$10\% of the dataset), 
 medium (700k, $\sim$20\%), and large (1.4M, $\sim$40\%). 
 While the disk-based cache stores 1.4M quads on disk, 
 and a a small in-memory cache of 25k, 50k, and 100k quads for the small, medium, and large configurations respectively.
@@ -78,6 +82,6 @@ just like a web browser would.
 However, because the benchmark dataset is static, cache entries require no revalidation and never become stale. 
 Consequently, observed hit rates are likely higher than in a live environment. 
 
-Ultimately, comparing these strategies establishes $10$ strong baselines 
+Ultimately, comparing these strategies establishes $10$ baselines \rt{Can you explain how you get to 10?}
 for caching performance in realistic user-centric environments, 
 upon which future research into advanced caching approaches can build.
