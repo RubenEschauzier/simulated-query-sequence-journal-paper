@@ -1,7 +1,8 @@
 Emerging decentralized architectures give users complete control over their own data,
 scattering information across heterogeneous sources.
-Without a central authority to enforce consistency, users freely publish overlapping and conflicting claims,
-generating a highly multi-perspective environment.
+Without a central authority to enforce consistency, users freely publish overlapping and potentially conflicting claims,
+generating a highly multi-perspective decentralized environment.
+\rt{The jump between these sentences feels a bit too large. You could for example add an additional sentence here to talk about why integrating such decentralized data is challenging, and that client-side query engines can solve this.}
 While client-side query engines can dynamically fetch and reconcile this information,
 optimizing execution remains challenging due to a lack of prior knowledge regarding data distribution.
 By exploiting access patterns across repeated user query sequences, engines can overcome this knowledge gap.
@@ -14,7 +15,7 @@ To fill this gap, we introduce an evidence-based simulation
 of client query usage patterns as a reusable benchmark enabling
 realistic and reproducible evaluation of client-side optimization techniques.
 % Object:       What the present document does or covers
-We demonstrate its utility by evaluating client-side caching strategies
+We demonstrate its utility by evaluating client-side caching strategies \rt{It sounds like you're just evaluating existing ones, but you actually introduce new ones yourself. I would emphasize this here.}
 for link traversal query processing.
 By comparing our sequence-based approach against traditional, non-sequence-based workloads,
 we highlight how realistic sequence simulation heavily influences performance evaluations.

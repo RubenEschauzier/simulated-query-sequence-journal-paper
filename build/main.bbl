@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{66}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -243,6 +243,11 @@
 \bibinfo{author}{Stadler, C.}, \bibinfo{author}{Saleem, M.}, \bibinfo{author}{Mehmood, Q.}, \bibinfo{author}{Buil-Aranda, C.}, \bibinfo{author}{Dumontier, M.}, \bibinfo{author}{Hogan, A.}, \bibinfo{author}{Ngonga~Ngomo, A.C.}, \bibinfo{year}{2024}.
 \newblock \bibinfo{title}{Lsq 2.0: A linked dataset of sparql query logs}.
 \newblock \bibinfo{journal}{Semantic Web} \bibinfo{volume}{15}, \bibinfo{pages}{167--189}.
+%Type = Article
+\bibitem[{Taelman(2024)}]{taelman_sigweb_queryengineshypermedia_2024}
+\bibinfo{author}{Taelman, R.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Towards applications on the decentralized web using hypermedia-driven query engines}.
+\newblock \bibinfo{journal}{ACM SIGWEB Newsletter} \URLprefix \url{https://www.rubensworks.net/raw/publications/2024/towards_query_engines_decentralized_hypermedia.pdf}.
 %Type = Inproceedings
 \bibitem[{Taelman et~al.(2018)Taelman, Van~Herwegen, Vander~Sande and Verborgh}]{taelman2018comunica}
 \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Van~Herwegen, J.}, \bibinfo{author}{Vander~Sande, M.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2018}.

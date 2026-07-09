@@ -244,6 +244,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/ts1-stixgeneral.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-italic.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneralsc.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc

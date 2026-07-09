@@ -1,5 +1,52 @@
 \section{Evaluation}
 \label{sec:evaluation}
+
+Outline the experimental setup, including machine scale and configurations. 
+State the primary aim: validating the benchmark. 
+Explain that validation relies on proxy metrics measuring data locality 
+(unique sources, cache hit rates, execution time) to demonstrate how 
+sequence design choices impact engine performance.
+Summarize our evaluation approach, which includes a holistic evaluation of benchmark characteristics, then
+a detailed analysis of logical session and interest modeling, refinement patterns, 
+and a comparison to alternative evaluation methods.
+
+\subsection{Holistic Evaluation of Benchmark Characteristics}
+
+Present overall performance characteristics of the caching algorithms 
+across the complete benchmark. 
+Include a table detailing cache hit rates and evictions per algorithm. 
+Discuss the results, their impact on algorithmic performance, 
+and practical conclusions for system design.
+
+\subsection{Logical Session \& Interest Modeling Cache Performance}
+
+Present a table showing the effect of logical sessions on cache performance. 
+Include a metric for the delta number of unique data sources accessed 
+during session switches to quantify data locality. 
+Discuss the implications of these session dynamics for cache sizing 
+and eviction policies.
+
+\subsection{Refinement Patterns}
+
+Analyze refinement patterns in isolation using 80 single-query sequences 
+with attached refinements. 
+Evaluate the impact of underlying choke points on cache hit rate, 
+new data source discovery, and execution time. 
+Discuss implications for the benchmark design. 
+
+Next, using default query generation, assess the effect of refinement depth 
+on cache performance, followed by implications for cache sizing 
+and eviction policies.
+
+\subsection{Comparison to Alternative Evaluation Methods}
+
+Compare SolidSessionBench's performance outcomes against alternative 
+evaluation methods, specifically micro-benchmarks and random query sequences. 
+Highlight differing performance characteristics, identify the analytical 
+shortcomings of these alternative methods, explain how their resulting 
+conclusions mislead, and demonstrate how this sequence-based benchmark 
+resolves those issues.
+
 We evaluate our benchmark using a scale 0.1 SolidBench dataset comprising 158,233 RDF files,
 1,531 vaults, and 3,556,159 triples. Applying the default hyperparameters from Table 1,
 we generated 8 sequences totaling 192 interactive-workload queries, encompassing both discover and short templates.
