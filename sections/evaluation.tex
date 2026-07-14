@@ -2,7 +2,10 @@
 \label{sec:evaluation}
 \todo{Improve naming algorithms to new names we selected}
 \todo{Here outline also why we evaluate the benchmark this way, why this is a proxy for a useful benchmark
-and then repeat again: no emperical data.}
+and then repeat again: no emperical data.
+Also mention clearly how in this section we will evaluate caching, as it is a well-studied form of client-side and specific
+optimization strategy. This is not the only application field, merely an example application of the data.
+}
 
 We evaluate our benchmark using a scale 0.1 SolidBench dataset 
 (158,233 RDF files, 1,531 vaults, 3,556,159 triples). 
@@ -140,101 +143,112 @@ and eviction policies.
 
 \subsection{Refinement Patterns}
 
-\todo{Write introduction to this section}
+We evaluate how our refinement patterns impact benchmark characteristics and challenge caching algorithms 
+by analyzing the effect of individual chokepoints on query sequences and refinement depth on cache performance.
+Grounding these patterns in empirical data~\cite{arenas2025exploring} already ensures they accurately reflect real-world user behavior.
+Consequently, this evaluation strategy primarily evaluates how these emperically found user behaviors affect caching performance and data locality.
 
 \subsubsection{Effect of chokepoints on query sequences}
-\todo{This has a lot of repetition yes?}
-We isolated the structural impact of individual query chokepoints through a controlled experiment comprising 80 single-query sequences.
-Each sequence begins with a base query and sequentially applies a chain of two to five refinement patterns
-from the benchmark's default refinement pattern set.
-We repeated each sequence execution 10 times across the three distinct cache capacities (Small, Medium, and Large), 
-and measure the cache hit rate, the number of unique data sources accessed, and the total execution time.
-For this experiment we only use the LRU-based indexed cache, as we want to analyse the chokepoints 
-and their effect on the cache in the simplest configuration.
-To quantify the specific performance impact of each chokepoint, 
-we mapped the refinement patterns to their underlying chokepoints 
-and evaluated them using a linear mixed-effects regression model. 
+\todo{Verify appendix or supplemental material reference}
+
+We isolate the structural impact of individual query chokepoints 
+through a controlled experiment comprising 80 single-query sequences. 
+Each sequence begins with a base query 
+and sequentially applies a chain of two to five refinement patterns from the default set. 
+We execute each sequence 10 times across three cache capacities (Small, Medium, Large). 
+To analyze the chokepoints in the simplest configuration, 
+we restrict this experiment to the LRU-based indexed cache. 
+We measure cache hit rate, unique data sources accessed, and total execution time.
+
+To quantify the performance impact of each chokepoint, 
+we map the refinement patterns to their underlying chokepoints 
+and evaluate them using a linear mixed-effects regression model. 
 The model predicts the performance delta ($\Delta Y$) between the current and previous query step. 
-We categorize chokepoint operations into two classes: additions (denoted by an `a' suffix) 
-and removals (denoted by an `r' suffix). 
-A removal operation only occurs when the sequence reverts a previously applied refinement pattern, 
-thereby dropping the associated chokepoint from the query. 
-The chokepoints added in a given refinement step are represented as a binary vector $X_{t}$, 
-where each element indicates the presence (1) or absence (0) of a specific chokepoint. 
-These vectors are then used as predictors in the regression model, 
-in combination with the previous query's performance metrics ($Y_{t-1}$) to account for the baseline state of the system.
-The full regression model is expressed as follows:
+We categorize chokepoint operations into additions (suffix `a') and removals (suffix `r'). 
+A removal operation occurs only when the sequence reverts a previously applied pattern. 
+We represent the chokepoints applied in a given refinement step as a binary vector $\mathbf{T}_{i,t}$. 
+We use these vectors as predictors, alongside the previous query's performance metrics ($Y_{i,t-1}$), 
+to account for the system's baseline state. 
+The regression model is:
+
 \begin{equation}
-    \Delta Y_{i,t} = \gamma Y_{i,t-1} + \mathbf{T}_{i,t}^{\top} \boldsymbol{\beta} + u_i + \epsilon_{i,t},
+    \Delta Y_{i,t} = \gamma Y_{i,t-1} + \mathbf{T}_{i,t}^{\top} \boldsymbol{\beta} + u_i + \epsilon_{i,t}
 \end{equation}
-where $\Delta Y_{i,t}$ is the performance delta for sequence $i$ at refinement step $t$,
-$Y_{i,t-1}$ is the previous steps independent variable value, 
-$\mathbf{T}_{i,t}$ is a binary indicator vector of the applied chokepoints, 
-$\boldsymbol{\beta}$ is the vector of fixed effects estimating the isolated impact of each pattern,
-$u_i$ is a sequence-specific random intercept absorbing unobserved heterogeneity across base queries,
-and $\epsilon_{i,t}$ is the standard residual error.
 
+where $\Delta Y_{i,t}$ is the performance delta for sequence $i$ at refinement step $t$, 
+$Y_{i,t-1}$ is the previous step's independent variable value, 
+$\mathbf{T}_{i,t}$ is a binary indicator vector of applied chokepoints, 
+$\boldsymbol{\beta}$ is the vector of fixed effects estimating the isolated impact of each pattern, 
+$u_i$ is a sequence-specific random intercept absorbing unobserved heterogeneity, 
+and $\epsilon_{i,t}$ is the residual error.
 
-Figure~\ref{fig:chokepoint_regression_coefficients} shows the estimated effect of each chokepoint on performance. 
-Full regression results are in Appendix~\ref{app:regression_tables} \todo{Verify appendix or supplemental material}.
+Figure~\ref{fig:chokepoint_regression_coefficients} plots the estimated effect of each chokepoint on performance. 
+Full regression tables are available in Appendix~\ref{app:regression_tables}. 
+We observe three primary behaviors:
 
-We observe two types of chokepoint behavior. 
-First, modifying some patterns hurts performance in both directions. 
-For example, both adding and removing \texttt{T\_3} (increasing required traversal hops) reduces the hit rate and increases execution time.
-This reveals a strong cache invalidation penalty: changing the refined query breaks the cache, overwriting much of it and evicting useful data.
-From this, we can observe that caching requires a \textit{scan-resistant} algorithm.    
+First, modifying specific patterns degrades performance in both directions. 
+For example, adding or removing \texttt{T.3} (increasing required traversal hops) 
+reduces the cache hit rate and increases execution time. 
+This indicates an invalidation penalty: 
+the chokepoint forces the cache to evict useful data, 
+preventing recovery when the chokepoint is removed. 
+Consequently, caching in these environments requires scan-resistant algorithms.
 
-Second, patterns like \texttt{T\_2} (new instantiation values) and \texttt{P\_4} (non-selective triple patterns) have reversible effects. 
-Adding these chokepoints drops performance, but removing them improves the hit rate and speeds up execution. 
-In these cases, the cache is able to maintain useful data across the refinement, and the chokepoint itself is the primary cause of performance degradation.
-Finally, across all patterns, chokepoints that increase the number of accessed data sources consistently lower the cache hit rate.
+Second, patterns such as \texttt{T.2} (new instantiation values) 
+and \texttt{P.4} (non-selective triple patterns) exhibit reversible effects. 
+Adding these chokepoints reduces performance, 
+but removing them improves the hit rate and accelerates execution. 
+In these instances, the cache successfully maintains temporal locality across the refinement, 
+isolating the performance degradation to the chokepoint itself.
+
+Third, the large cache counterintuitively yields a smaller positive effect 
+on the hit rate for chokepoints like \texttt{P.3.r} 
+(selective triple patterns), \texttt{P.2.r} (unions or optionals), and \texttt{P.1.a} (filters)
+compared to smaller caches. 
+Because the hit rate has an upper bound of 1.0, 
+the large cache has less margin for improvement. 
+The average hit rates across all queries support this ceiling effect: 
+$0.51$, $0.61$, and $0.66$ for the Small, Medium, and Large caches, respectively. 
+The significant negative coefficient of the lagged hit rate in our model 
+further confirms that a higher previous hit rate limits the expected delta.
+
+Finally, across all patterns, 
+chokepoints that increase the number of accessed data sources 
+consistently reduce the cache hit rate.
 
 \paragraph{Implications for Refinement Pattern Design}
-From our analysis, we find important weaknesses in our tested caching algorithms. 
-We demonstrate that structural mutations like \texttt{T\_3} trigger severe cache invalidation penalties, heavily degrading performance. 
-Conversely, the reversible nature of patterns like \texttt{T\_2} proves that caches can successfully maintain temporal locality 
-even when the instantiation value, and thus the traversal starting point, changes. 
-These findings highlight the importance of our refinement sequence generator and the mapping of refinement patterns to chokepoints.
-This mapping allows us to isolate the structural impact of each chokepoint and thus analyse the strengths and weaknesses of a given caching algorithm.
-Furthermore, because our sequence generation is dynamically configurable, 
-it serves as a targeted diagnostic tool for future systems research. 
-Developers can easily extend our default configurations to isolate specific chokepoints, 
-allowing them to custom-build stress tests that target the unique operational challenges of their own caching architectures.
+This analysis exposes structural weaknesses in standard caching algorithms. 
+We demonstrate that structural mutations like \texttt{T.3} trigger severe invalidation penalties. 
+Conversely, the reversibility of patterns like \texttt{T.2} proves that 
+caches can maintain temporal locality despite changes to the traversal seed. 
 
-
-The resulting coefficients are given in Figure~\ref{fig:chokepoint_regression_coefficients}, 
-where the x-axis represents the estimated effect size of each chokepoint on the performance delta, and the y-axis lists the chokepoints.
-For full regression results, we refer to the \todo{Where to put them?}.
-From the figure we find that for some chokepoints, such as T.3 (increasing the number of hops required to obtain the data), 
-both addition and removal significantly reduce cache hit rate and increase execution time.
-Indicating that the chokepoint causes the cache to evict previously cached data, which causes it to underperform when the chokepoint is removed.
-Another type of chokepoint, is where the addition of the chokepoint reduces the hitrate and increases execution time, 
-while removing it increases hitrate while reducing execution time, such as T.2 (new instantiation value) and P.4 (adding non-selective triple patterns).
-Counterintuitively, for chokepoints such as `P.3.r', `P.2.r', and `P.1.a', the large cache has a smaller positive effect 
-on hitrate compared to the smaller caches.
-As cache hitrate is bound by 1.0, the large cache will have less room for improvement compared to smaller caches, which explains the smaller observed effect.
-This is supported by the average hitrates over all queries, which are $0.51$, $0.61$, and $0.66$ for the small, medium, and large caches respectively and the
-significant negative coefficient of the lagged cache hitrate value in the regression model, which indicates that a higher previous hitrate reduces the expected change in hitrate.
-
-Finally, we find that in general, chokepoints that significantly increase the number of sources accessed, significantly reduce cache hit rate and vice versa.
+Mapping refinement patterns to specific chokepoints 
+allows researchers to isolate these structural impacts and directly evaluate caching algorithms. 
+Because our sequence generation is dynamically configurable, it acts as a diagnostic tool. 
+Developers can extend our default configurations to isolate targeted chokepoints, 
+enabling custom stress tests for distinct caching architectures.
 
 \begin{figure*}[htpb]
     \centering
     \includegraphics[width=\textwidth]{figures/faceted_forest_figure.pdf}
-    \caption{Marginal fixed effects of refinement pattern additions (\texttt{-a}) and removals (\texttt{-r}) on query performance 
+    \caption{Marginal fixed effects of refinement pattern additions (\texttt{-a}) 
+        and removals (\texttt{-r}) on query performance 
         across Small (S), Medium (M), and Large (L) cache capacities. 
-        The plot reports the unstandardized absolute expected change ($\Delta Y$) for Cache Hit Rate, Discovered Sources, and Execution Time.
-        For both discovered sources and execution time, the plot uses signed log-counts and signed log-milliseconds, respectively.
-        Error bars represent $95\%$ confidence intervals and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray. 
-        Undoing the traversal chokepoint changing the instantiation value of the query significantly improves cache hit rate (+.35) and
-        reduces the number of unique data sources accessed. However, its effect on execution time is on the edge of significance.}
+        The plot reports the unstandardized absolute expected change ($\Delta Y$) 
+        for Cache Hit Rate, Discovered Sources, and Execution Time. 
+        For both discovered sources and execution time, 
+        the plot uses signed log-counts and signed log-milliseconds, respectively. 
+        Error bars represent $95\%$ confidence intervals 
+        and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray. 
+        Undoing the traversal chokepoint changing the instantiation value of the query 
+        significantly improves cache hit rate (+.35) 
+        and reduces the number of unique data sources accessed. 
+        However, its effect on execution time is on the edge of significance.}
     \label{fig:chokepoint_regression_coefficients}
 \end{figure*}
 
 \subsubsection{Effect of Refinement Depth on Performance}
-Next, using default query generation, assess the effect of refinement depth 
-on cache performance, followed by implications for cache sizing 
-and eviction policies.
+\todo{Write introduction to experiment refinement depth, reuse parts of previous paper}
 
 
 \subsection{Comparison to Alternative Evaluation Methods}
@@ -251,7 +265,7 @@ conclusions mislead, and demonstrate how this sequence-based benchmark
 resolves those issues.
 
 \paragraph{Microbenchmarks-Theoretical Hit Rate Analysis}
-Cache literature extensively uses microbenchmarks of various forms 
+Cache literature extensively uses microbenchmarks of various forms
 to analyze caching performance~\cite{nicholson2024hpcache,hartig2011caching}.
 To compare the conclusions of such a benchmark to the conclusions of the benchmark introduced in this paper
 we investigate theoretical caching speedup without management costs, 

@@ -13,7 +13,6 @@ simulated micro benchmarks, simulated end-to-end query benchmarks, and real-worl
 % Existing evaluation methods for client-side query optimization 
 % generally fall into three categories:
 
-
 \textbf{Simulated micro benchmarks} attempt to isolate performance gains of the benchmarked approaches by fixing certain aspects of query execution.
 This can range from fixing the cached data size~\cite{hartig2011caching} to controlling the percentage of query-relevant data present in the cache \cite{nicholson2024hpcache}. Fixing aspects of query execution makes it easier to isolate and understand the effect of specific caching mechanisms. 
 However, it also gives an incomplete picture, because we don’t know how those fixed conditions relate to real workloads or how the methods perform when those assumptions don’t hold.

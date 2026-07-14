@@ -4,11 +4,21 @@ In this section, we detail our simulation methodology and the resulting hyperpar
 We base our sequence generator on SolidBench~\cite{taelman2023link}, 
 which simulates realistic decentralized social media applications within the Solid ecosystem.
 SolidBench utilizes the Social Network Benchmark (SNB) dataset~\cite{erling2015ldbc,angles2020ldbc} 
-and applies the Linked Data Benchmark Council (LDBC) choke point methodology~\cite{angles2014linked}\rt{We should explain this methodology (somewhere).}.
-Its workload combines standard SNB \textit{interactive} queries with custom \textit{discover} templates,
-which explicitly target Link Traversal Query Processing (LTQP) choke points in decentralized environments. 
+and applies the Linked Data Benchmark Council (LDBC) choke point methodology~\cite{angles2014linked}.
 
-To support sequence-based evaluation, we extend three core components of the SolidBench ecosystem:\rt{We should make sure to properly explain SolidBench and its architecture (we can do that now, with the space limitations of a journal).}
+The choke point methodology is a benchmark design strategy that targets specific query execution 
+and optimization bottlenecks in current database management systems~\cite{boncz2013tpc}.
+Inspired by classical benchmarks like TPC-H, this approach uses these technical challenges to guide research and system development. 
+For graph data, choke points include estimating cardinality during traversals with data skew, determining optimal join orders, 
+and handling scattered index access patterns that lack predictable locality~\cite{erling2015ldbc}. 
+In practice, a choke point-based benchmark design strategy first identifies critical execution challenges, 
+then designs queries or modifications that explicitly test them.
+
+SolidBench's workload combines standard SNB \textit{interactive} queries with custom \textit{discover} templates,
+which explicitly target these Link Traversal Query Processing (LTQP) choke points in decentralized environments.
+
+To support sequence-based evaluation, we extend three core components of the SolidBench ecosystem:
+\rt{We should make sure to properly explain SolidBench and its architecture (we can do that now, with the space limitations of a journal).}
 
 \begin{itemize}
     \item \textbf{Query Generator:} We modify the generator to produce correlated query sequences that reflect empirical real-world usage patterns.
