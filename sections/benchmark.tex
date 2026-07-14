@@ -76,39 +76,100 @@ we fall back to our default, interest-based instantiation methodology.
 As an example, consider the following data distributed across a 
 decentralized environment:
 
-\rt{I would use sub-listings to split different files instead of comments.}
 \begin{lstlisting}[
     language=json,
-    caption={A minimal decentralized dataset distributed across documents.},
-    label={lst:example_dataset},
+    caption={(a) Alice's profile document (\url{https://pod.example/alice/profile.ttl}).},
+    label={lst:example_dataset_alice_profile},
     breaklines=true,
     basicstyle=\small\ttfamily
 ]
-@prefix : <https://example.org/voc#> .
-
-# File: https://pod.example/alice/profile.ttl
 <https://pod.example/alice/profile.ttl#me> a :Person ;
     :knows <https://pod.example/bob/profile.ttl#me> ;
     :hasInbox <https://pod.example/alice/inbox> .
+\end{lstlisting}
+\continuelisting
 
-# File: https://pod.example/bob/profile.ttl
+\begin{lstlisting}[
+    language=json,
+    caption={(b) Bob's profile document (\url{https://pod.example/bob/profile.ttl}).},
+    label={lst:example_dataset_bob_profile},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
 <https://pod.example/bob/profile.ttl#me> a :Person ;
     :posts <https://pod.example/bob/posts/1> .
+\end{lstlisting}
+\continuelisting
 
-# File: https://pod.example/bob/posts/1
+\begin{lstlisting}[
+    language=json,
+    caption={(c) Bob's post (\url{https://pod.example/bob/posts/1}).},
+    label={lst:example_dataset_bob_post},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
 <https://pod.example/bob/posts/1> a :Post ;
     :content "Hello Solid world!" .
+\end{lstlisting}
+\continuelisting
 
-# File: https://pod.example/alice/interests.ttl
+\begin{lstlisting}[
+    language=json,
+    caption={(d) Alice's interests document (\url{https://pod.example/alice/interests.ttl}).},
+    label={lst:example_dataset_alice_interests},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
 <https://pod.example/alice/profile.ttl#me> :interestedIn "Wildlife" .
+\end{lstlisting}
+\continuelisting
 
-# File: https://pod.example/forum/wildlife.ttl
+\begin{lstlisting}[
+    language=json,
+    caption={(e) Wildlife forum document (\url{https://pod.example/forum/wildlife.ttl}).},
+    label={lst:example_dataset_forum_wildlife},
+    breaklines=true,
+    basicstyle=\small\ttfamily
+]
 <https://pod.example/forum/wildlife.ttl> a :Forum ;
     :hasPost <https://pod.example/ruben/posts/9> ;
     :hasComment <https://pod.example/bob/comment/1> ;
     :hasTopic "Wildlife" .
 <https://pod.example/bob/comment/1> :responseTo <https://pod.example/ruben/posts/9> .
 \end{lstlisting}
+
+% \begin{lstlisting}[
+%     language=json,
+%     caption={A minimal decentralized dataset distributed across documents.},
+%     label={lst:example_dataset},
+%     breaklines=true,
+%     basicstyle=\small\ttfamily
+% ]
+% @prefix : <https://example.org/voc#> .
+
+% # File: https://pod.example/alice/profile.ttl
+% <https://pod.example/alice/profile.ttl#me> a :Person ;
+%     :knows <https://pod.example/bob/profile.ttl#me> ;
+%     :hasInbox <https://pod.example/alice/inbox> .
+
+% # File: https://pod.example/bob/profile.ttl
+% <https://pod.example/bob/profile.ttl#me> a :Person ;
+%     :posts <https://pod.example/bob/posts/1> .
+
+% # File: https://pod.example/bob/posts/1
+% <https://pod.example/bob/posts/1> a :Post ;
+%     :content "Hello Solid world!" .
+
+% # File: https://pod.example/alice/interests.ttl
+% <https://pod.example/alice/profile.ttl#me> :interestedIn "Wildlife" .
+
+% # File: https://pod.example/forum/wildlife.ttl
+% <https://pod.example/forum/wildlife.ttl> a :Forum ;
+%     :hasPost <https://pod.example/ruben/posts/9> ;
+%     :hasComment <https://pod.example/bob/comment/1> ;
+%     :hasTopic "Wildlife" .
+% <https://pod.example/bob/comment/1> :responseTo <https://pod.example/ruben/posts/9> .
+% \end{lstlisting}
 
 The generator randomly selects a user and simulates
 a realistic sequence of queries that reflects real-world user behavior.
@@ -231,23 +292,19 @@ where $s_{k,i}$ is the similarity score between base person $k$ and candidate $i
 For templates requiring non-person values (e.g., posts or activities),
 selection probabilities are derived from the similarity scores of the content's creators.
 
-Continuing our running example, consider an expanded decentralized environment containing a 
-second forum dedicated to pottery, as shown in 
-Listing~\ref{lst:augmented_dataset}.
+Continuing our running example, consider an expanded decentralized environment containing a
+second forum dedicated to pottery, as shown in
+Listing~\ref{lst:augmented_dataset} as well as all documents in Listing~\ref{lst:example_dataset_alice_interests}.
 
 \begin{lstlisting}[
     language=json,
-    caption={The decentralized dataset augmented with an additional photography forum document.},
+    caption={The additional pottery forum document (\url{https://pod.example/forum/pottery.ttl}).},
     label={lst:augmented_dataset},
     breaklines=true,
     basicstyle=\small\ttfamily
 ]
-# ... [Previous files from Listing 1 remain unchanged] ...
-
-# File: https://pod.example/forum/pottery.ttl
 <https://pod.example/forum/pottery.ttl> a :Forum ;
-    :hasTopic "Pottery".
-
+    :hasTopic "Pottery" .
 \end{lstlisting}
 
 To determine what instantiation value to use for the forum query for user Alice, we construct 
@@ -443,4 +500,3 @@ entire pipeline.
     \end{tabular}
 \end{table}
 
-\todo{Mention hyperparameter evaluation}

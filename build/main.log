@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.5)  9 JUL 2026 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.5)  14 JUL 2026 15:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -602,67 +602,94 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
-\enitdp@todolist=\count344
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen270
+\captionmargin=\dimen271
+\caption@leftmargin=\dimen272
+\caption@rightmargin=\dimen273
+\caption@width=\dimen274
+\caption@indent=\dimen275
+\caption@parindent=\dimen276
+\caption@hangindent=\dimen277
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count344
+\c@continuedfloat=\count345
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count346
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count347
+)
+\enitdp@todolist=\count348
  (./reviewing.tex (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box68
 \UL@hyphenbox=\box69
 \UL@skip=\skip73
 \UL@hook=\toks37
-\UL@height=\dimen270
-\UL@pe=\count345
-\UL@pixel=\dimen271
+\UL@height=\dimen278
+\UL@pe=\count349
+\UL@pixel=\dimen279
 \ULC@box=\box70
 Package: ulem 2019/11/18
-\ULdepth=\dimen272
+\ULdepth=\dimen280
 ))
-LaTeX Font Info:    Trying to load font information for T1+stix on input line 75.
+LaTeX Font Info:    Trying to load font information for T1+stix on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 ) (build/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 75.
-LaTeX Font Info:    Trying to load font information for LS1+stix on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 79.
+LaTeX Font Info:    Trying to load font information for LS1+stix on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 75.
-LaTeX Font Info:    Trying to load font information for LS2+stix on input line 75.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 79.
+LaTeX Font Info:    Trying to load font information for LS2+stix on input line 79.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stix.fd
 File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    ... okay on input line 79.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count346
-\scratchdimen=\dimen273
+\scratchcounter=\count350
+\scratchdimen=\dimen281
 \scratchbox=\box71
-\nofMPsegments=\count347
-\nofMParguments=\count348
+\nofMPsegments=\count351
+\nofMParguments=\count352
 \everyMPshowfont=\toks38
-\MPscratchCnt=\count349
-\MPscratchDim=\dimen274
-\MPnumerator=\count350
-\makeMPintoPDFobject=\count351
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen282
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
 \everyMPtoPDFconversion=\toks39
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -676,9 +703,9 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Command `\dddot' is already robust on input line 75.
-LaTeX Info: Command `\ddddot' is already robust on input line 75.
-Package hyperref Info: Link coloring ON on input line 75.
+LaTeX Info: Command `\dddot' is already robust on input line 79.
+LaTeX Info: Command `\ddddot' is already robust on input line 79.
+Package hyperref Info: Link coloring ON on input line 79.
  (build/main.out) (build/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -720,67 +747,59 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count352
+\c@lstlisting=\count356
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\noindent' on input line 82.
+(hyperref)                removing `\noindent' on input line 86.
 
 \verbatim@out=\write4
 \openout4 = `main.abs'.
 
-<figs/cas-grabs.pdf, id=4, 142.26349pt x 85.3579pt>
-File: figs/cas-grabs.pdf Graphic file (type pdf)
-<use figs/cas-grabs.pdf>
-Package pdftex.def Info: figs/cas-grabs.pdf  used on input line 149.
-(pdftex.def)             Requested size: 142.26312pt x 85.35768pt.
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 153.
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 ) [0
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc} <./figs/cas-grabs.pdf>]
-pdfTeX warning (ext4): destination with the same identifier (name{page.0}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.164 \maketitle
-                 [0{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 164.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 164.
+LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 164.
+LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 164.
+LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 164.
+LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 164.
+LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 164.
+LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 166.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 )
-Overfull \hbox (123.62721pt too wide) detected at line 164
+Overfull \hbox (123.62721pt too wide) detected at line 166
 []
  []
 
@@ -793,66 +812,52 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 6.80005pt on input line 29.
 )
 
-Package hyperref Warning: Ignoring empty anchor on input line 164.
+Package hyperref Warning: Ignoring empty anchor on input line 166.
 
-<thumbnails/cas-email.jpeg, id=22, 225.84375pt x 225.84375pt>
+<thumbnails/cas-email.jpeg, id=12, 225.84375pt x 225.84375pt>
 File: thumbnails/cas-email.jpeg Graphic file (type jpg)
 <use thumbnails/cas-email.jpeg>
-Package pdftex.def Info: thumbnails/cas-email.jpeg  used on input line 164.
+Package pdftex.def Info: thumbnails/cas-email.jpeg  used on input line 166.
 (pdftex.def)             Requested size: 7.99838pt x 8.0pt.
 
-Package hyperref Warning: Ignoring empty anchor on input line 164.
+Package hyperref Warning: Ignoring empty anchor on input line 166.
 
-<thumbnails/cas-url.jpeg, id=23, 225.84375pt x 225.84375pt>
+<thumbnails/cas-url.jpeg, id=13, 225.84375pt x 225.84375pt>
 File: thumbnails/cas-url.jpeg Graphic file (type jpg)
 <use thumbnails/cas-url.jpeg>
-Package pdftex.def Info: thumbnails/cas-url.jpeg  used on input line 164.
+Package pdftex.def Info: thumbnails/cas-url.jpeg  used on input line 166.
 (pdftex.def)             Requested size: 7.99838pt x 8.0pt.
 
-Package hyperref Warning: Ignoring empty anchor on input line 164.
+Package hyperref Warning: Ignoring empty anchor on input line 166.
 
 (./sections/introduction.tex
-Overfull \hbox (1.26556pt too wide) in paragraph at lines 5--7
-[]\T1/stix/m/n/10 Include re-fine-ment pat-tern anal-y-sis (gen-er-ate se-quence
- []
-
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 107.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 96.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [1{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./thumbnails/cas-email.jpeg> <./thumbnails/cas-url.jpeg>]
-<figures/overlapping_queries_fixed.pdf, id=68, 366.46269pt x 351.81992pt>
+<figures/overlapping_queries_fixed.pdf, id=58, 366.46269pt x 351.81992pt>
 File: figures/overlapping_queries_fixed.pdf Graphic file (type pdf)
 <use figures/overlapping_queries_fixed.pdf>
-Package pdftex.def Info: figures/overlapping_queries_fixed.pdf  used on input line 131.
+Package pdftex.def Info: figures/overlapping_queries_fixed.pdf  used on input line 121.
 (pdftex.def)             Requested size: 214.42754pt x 205.85945pt.
 
-Underfull \hbox (badness 1430) in paragraph at lines 139--147
-\T1/stix/m/n/10 BSBM [[]]) []\T1/stix/b/n/10 RT\T1/stix/m/n/10 : Let's also cite Larg-eRDF-Bench here[]
- []
-
-
-Underfull \hbox (badness 1102) in paragraph at lines 139--147
-\T1/stix/m/n/10 cen-tral-ized LTQP en-vi-ron-ments. Con-se-quently, we need
- []
-
-
-Underfull \hbox (badness 1092) in paragraph at lines 154--160
+Underfull \hbox (badness 1092) in paragraph at lines 144--150
 \T1/stix/m/n/10 with-out ac-cess to real-world query logs, we in-ves-ti-gate
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 154--160
+Underfull \hbox (badness 1418) in paragraph at lines 144--150
 []\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : in-sert\T1/stix/b/n/10 }[] \T1/stix/m/n/10 and eval-u-ate []\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : in-sert\T1/stix/b/n/10 }[] \T1/stix/m/n/10 base-line
  []
 
-[2 <./figures/overlapping_queries_fixed.pdf>]) (./sections/related-work.tex
-Overfull \hbox (12.72546pt too wide) in paragraph at lines 173--1
+) (./sections/related-work.tex
+Overfull \hbox (12.72546pt too wide) in paragraph at lines 163--1
 []\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 : Maybe in-sert sec-tion sum-ma-riz-ing con-tri-bu-tions.\T1/stix/b/n/10 }[][]RT\T1/stix/m/n/10 :
  []
 
-
+[2 <./figures/overlapping_queries_fixed.pdf>]
 Overfull \hbox (2.1547pt too wide) in paragraph at lines 46--49
 []\T1/stix/m/n/10 The eval-u-a-tion of per-son-al-ized LTQP op-ti-miza-tion would
  []
@@ -867,12 +872,12 @@ Underfull \hbox (badness 1303) in paragraph at lines 60--62
 []\T1/stix/m/n/10 Furthermore, em-pir-i-cal re-search for-mally es-tab-lishes
  []
 
-[3]
+
 Overfull \hbox (4.44637pt too wide) in paragraph at lines 78--81
 []\T1/stix/m/n/10 Consequently, in-ter-ac-tive ap-pli-ca-tions gen-er-ate se-quences
  []
 
-
+[3]
 Overfull \hbox (16.34636pt too wide) in paragraph at lines 90--96
 []\T1/stix/m/n/10 In this bench-mark, we fo-cus on or-ganic query se-quences [[]],
  []
@@ -898,9 +903,11 @@ Underfull \hbox (badness 1946) in paragraph at lines 18--20
  []
 
 [4]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 86.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 85.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 86.
+(Font)              scaled to size 8.50006pt on input line 85.
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 85.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -909,53 +916,111 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 131.
+(Font)              scaled to size 7.65005pt on input line 192.
 
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 132.
+(Font)              using `T1/zi4/m/n' instead on input line 193.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 132.
-[5]
-Underfull \hbox (badness 1325) in paragraph at lines 201--208
+(Font)              scaled to size 7.65005pt on input line 193.
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{lstlisting.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstlisting.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstlisting.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstlisting.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.241 
+      ]
+Underfull \hbox (badness 1325) in paragraph at lines 262--269
 \T1/stix/m/n/10 which in-her-ently mod-els re-al-is-tic user pref-er-ences. The
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 201--208
+Underfull \hbox (badness 2261) in paragraph at lines 262--269
 \T1/stix/m/n/10 tain-ing spe-cific in-ter-ests, ed-u-ca-tional back-grounds, and
  []
 
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 280.
 
-Overfull \hbox (0.63553pt too wide) in paragraph at lines 283--292
+Overfull \hbox (0.63553pt too wide) in paragraph at lines 340--349
 []\T1/stix/m/n/10 To en-sure these trans-for-ma-tions mean-ing-fully al-ter query
  []
 
 [6]
-Overfull \hbox (13.29636pt too wide) in paragraph at lines 323--326
+Overfull \hbox (13.29636pt too wide) in paragraph at lines 380--383
 \T1/stix/m/n/10 in-dexes, cor-re-spond-ing to Solid-Bench choke point L.8 [[]]. 
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 351--356
+Underfull \hbox (badness 1389) in paragraph at lines 408--413
 []\T1/stix/m/n/10 Finally, the gen-er-a-tor sup-ports vari-able in-stan-ti-a-tion
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 351--356
+Underfull \hbox (badness 1072) in paragraph at lines 408--413
 \T1/stix/m/n/10 to spe-cific val-ues ran-domly se-lected from con-fig-u-ra-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 463--463
 [][][][][]$\T1/zi4/m/n/8 https : / / github . com / SolidBench / SolidBench . js / tree / master /
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 424--424
+Underfull \hbox (badness 1286) in paragraph at lines 481--481
 \T1/cmss/m/n/9 a-bil-ity of switch-ing log-i-cal ses-sions. Re-fine-ment pa-ram-e-
  []
 
@@ -964,90 +1029,78 @@ Overfull \hbox (1.46635pt too wide) in paragraph at lines 4--7
 \T1/stix/m/n/10 against a cen-tral-ized, pre-built in-dex, LTQP eval-u-ates queries
  []
 
-[7]
-Underfull \hbox (badness 1895) in paragraph at lines 33--37
- []\T1/stix/m/it/11 Indexed Cache[] \T1/stix/m/n/10 This ap-proach pre-indexes triples and
+[7]) (./sections/evaluation.tex [8]
+<figures/performance_profile_normal_sequences_unindexed.pdf, id=348, 784.89403pt x 393.42218pt>
+File: figures/performance_profile_normal_sequences_unindexed.pdf Graphic file (type pdf)
+<use figures/performance_profile_normal_sequences_unindexed.pdf>
+Package pdftex.def Info: figures/performance_profile_normal_sequences_unindexed.pdf  used on input line 43.
+(pdftex.def)             Requested size: 494.50888pt x 247.86928pt.
+<figures/performance_profile_normal_sequences_cache.pdf, id=350, 1062.90631pt x 759.5624pt>
+File: figures/performance_profile_normal_sequences_cache.pdf Graphic file (type pdf)
+<use figures/performance_profile_normal_sequences_cache.pdf>
+Package pdftex.def Info: figures/performance_profile_normal_sequences_cache.pdf  used on input line 75.
+(pdftex.def)             Requested size: 494.50888pt x 353.3899pt.
+ [9 <./figures/performance_profile_normal_sequences_unindexed.pdf>]
+<figures/performance_profile_normal_sequences_store.pdf, id=377, 1059.06604pt x 759.5624pt>
+File: figures/performance_profile_normal_sequences_store.pdf Graphic file (type pdf)
+<use figures/performance_profile_normal_sequences_store.pdf>
+Package pdftex.def Info: figures/performance_profile_normal_sequences_store.pdf  used on input line 104.
+(pdftex.def)             Requested size: 494.50888pt x 354.6532pt.
+File: figures/performance_profile_normal_sequences_store.pdf Graphic file (type pdf)
+<use figures/performance_profile_normal_sequences_store.pdf>
+Package pdftex.def Info: figures/performance_profile_normal_sequences_store.pdf  used on input line 116.
+(pdftex.def)             Requested size: 494.50888pt x 354.6532pt.
+
+Underfull \hbox (badness 1661) in paragraph at lines 127--128
+ []\T1/stix/m/it/11 Comparison Be-tween Caching Al-go-rithms[] []\T1/stix/b/n/10 {TODO\T1/stix/m/n/10 :
  []
 
 
-Overfull \hbox (7.82634pt too wide) in paragraph at lines 69--70
-[]\T1/stix/b/n/10 RT\T1/stix/m/n/10 : Re-gard-ing nam-ing, what about "Reachability-agnostic
+Underfull \hbox (badness 1448) in paragraph at lines 127--128
+\T1/stix/m/n/10 and their per-for-mance char-ac-ter-is-tics. for ex-am-ple how
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 69--70
-\T1/stix/m/n/10 Cache-based Car-di-nal-ity Es-ti-ma-tion" and "Reachability-
- []
-
-[8]) (./sections/evaluation.tex
-Underfull \hbox (badness 1742) in paragraph at lines 85--1
-\T1/stix/m/n/10 upon which fu-ture re-search into ad-vanced caching ap-
+Underfull \hbox (badness 1057) in paragraph at lines 146--167
+\T1/stix/m/n/10 a con-trolled ex-per-i-ment com-pris-ing 80 single-query se-
  []
 
 
-Overfull \hbox (2.78549pt too wide) in paragraph at lines 15--20
-[]\T1/stix/m/n/10 Present over-all per-for-mance char-ac-ter-is-tics of the caching
+Underfull \hbox (badness 1348) in paragraph at lines 146--167
+\T1/stix/m/n/10 quences. Each se-quence be-gins with a base query and
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 58--62
-\T1/stix/m/n/10 cor-re-la-tion, mea-sured via cache hit rates and evic-tions,
+Underfull \hbox (badness 1629) in paragraph at lines 146--167
+\T1/stix/m/n/10 im-pact of each choke-point, we mapped the re-fine-ment
  []
 
-<figures/performance_profile.pdf, id=371, 1264.82927pt x 873.91306pt>
-File: figures/performance_profile.pdf Graphic file (type pdf)
-<use figures/performance_profile.pdf>
-Package pdftex.def Info: figures/performance_profile.pdf  used on input line 94.
-(pdftex.def)             Requested size: 494.50888pt x 341.66481pt.
+[10 <./figures/performance_profile_normal_sequences_cache.pdf>]
 
-Overfull \hbox (3.29637pt too wide) in paragraph at lines 106--111
-[]\T1/stix/m/n/10 For the unin-dexed cache, small (350k triples) and medium
- []
+LaTeX Warning: Reference `app:regression_tables' on page 11 undefined on input line 179.
 
-
-Underfull \hbox (badness 1642) in paragraph at lines 106--111
-\T1/stix/m/n/10 (700k triples) sizes per-form sim-i-larly. The large cache
- []
-
-[9]
-<figures/combined_cache_efficiency.pdf, id=388, 1057.31009pt x 394.04753pt>
-File: figures/combined_cache_efficiency.pdf Graphic file (type pdf)
-<use figures/combined_cache_efficiency.pdf>
-Package pdftex.def Info: figures/combined_cache_efficiency.pdf  used on input line 182.
-(pdftex.def)             Requested size: 494.50888pt x 184.30046pt.
-
-Underfull \hbox (badness 1348) in paragraph at lines 193--197
-\T1/stix/m/n/10 though fur-ther anal-y-sis is needed to con-firm the ex-act
- []
-
-<figures/temporal_throughput_line.pdf, id=389, 1057.31009pt x 394.04753pt>
-File: figures/temporal_throughput_line.pdf Graphic file (type pdf)
-<use figures/temporal_throughput_line.pdf>
-Package pdftex.def Info: figures/temporal_throughput_line.pdf  used on input line 206.
-(pdftex.def)             Requested size: 494.50888pt x 184.30046pt.
-
-Overfull \hbox (2.05943pt too wide) in paragraph at lines 216--223
+[11 <./figures/performance_profile_normal_sequences_store.pdf>] [12]
+<figures/faceted_forest_figure.pdf, id=462, 909.61082pt x 831.26558pt>
+File: figures/faceted_forest_figure.pdf Graphic file (type pdf)
+<use figures/faceted_forest_figure.pdf>
+Package pdftex.def Info: figures/faceted_forest_figure.pdf  used on input line 223.
+(pdftex.def)             Requested size: 494.50888pt x 451.92091pt.
+ [13 <./figures/faceted_forest_figure.pdf>]
+Overfull \hbox (2.05943pt too wide) in paragraph at lines 254--261
  []\T1/stix/m/it/11 Microbenchmarks-Theoretical Hit Rate Anal-y-sis[] \T1/stix/m/n/10 Cache
  []
 
 
-Overfull \hbox (2.31549pt too wide) in paragraph at lines 216--223
+Overfull \hbox (2.31549pt too wide) in paragraph at lines 254--261
 \T1/stix/m/n/10 lit-er-a-ture ex-ten-sively uses mi-crobench-marks of var-i-ous forms
  []
 
-[10 <./figures/performance_profile.pdf>]
-<figures/synth_hit_rate_reduced.pdf, id=436, 766.84312pt x 453.27434pt>
-File: figures/synth_hit_rate_reduced.pdf Graphic file (type pdf)
-<use figures/synth_hit_rate_reduced.pdf>
-Package pdftex.def Info: figures/synth_hit_rate_reduced.pdf  used on input line 237.
-(pdftex.def)             Requested size: 494.50888pt x 292.30783pt.
- [11 <./figures/combined_cache_efficiency.pdf>]
-<figures/performance_profile_random_sequences.pdf, id=466, 1264.82927pt x 479.31886pt>
-File: figures/performance_profile_random_sequences.pdf Graphic file (type pdf)
-<use figures/performance_profile_random_sequences.pdf>
-Package pdftex.def Info: figures/performance_profile_random_sequences.pdf  used on input line 269.
-(pdftex.def)             Requested size: 494.50888pt x 187.39436pt.
-) (./sections/conclusion.tex [12 <./figures/temporal_throughput_line.pdf> <./figures/synth_hit_rate_reduced.pdf>]
+<figures/synth_hit_rate_reduced_combined.pdf, id=574, 738.00792pt x 852.86801pt>
+File: figures/synth_hit_rate_reduced_combined.pdf Graphic file (type pdf)
+<use figures/synth_hit_rate_reduced_combined.pdf>
+Package pdftex.def Info: figures/synth_hit_rate_reduced_combined.pdf  used on input line 280.
+(pdftex.def)             Requested size: 494.50888pt x 571.47066pt.
+) (./sections/conclusion.tex
 Overfull \hbox (19.74739pt too wide) in paragraph at lines 9--15
 \T1/zi4/m/n/10 github . com / SolidBench / SolidBench . js / wiki / Sustainability-[]Plan$[][]\T1/stix/m/n/10 .
  []
@@ -1067,27 +1120,27 @@ Underfull \hbox (badness 1721) in paragraph at lines 32--36
 []\T1/stix/m/n/8 Arenas, M., Fran-coni, E., Ham-merer, J., Har-tig, O., Hose, K.,
  []
 
-[13 <./figures/performance_profile_random_sequences.pdf>]
+[14] [15 <./figures/synth_hit_rate_reduced_combined.pdf>]
 Underfull \hbox (badness 1383) in paragraph at lines 75--78
 \T1/stix/m/n/8 H., Fer-ris, J., Gi-a-r-dullo, A., Kulka-rni, S., Li, H., et al., 2013.
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 188--192
+Underfull \hbox (badness 1062) in paragraph at lines 183--187
 []\T1/stix/m/n/8 Nicholson, H., Chryso-ge-los, P., Ail-a-maki, A., 2024.  Hp-cache:
  []
 
-
+[16]
 Underfull \hbox (badness 1163) in paragraph at lines 226--230
 []\T1/stix/m/n/8 Sambra, A.V., Man-sour, E., Hawke, S., Zereba, M., Greco, N.,
  []
 
-[14]
+
 Underfull \hbox (badness 1558) in paragraph at lines 248--252
 \T1/stix/m/n/8 URL: [][]$\T1/zi4/m/n/8 https : / / www . rubensworks . net / raw / publications / 2024 / towards _
  []
 
-) [15
+) [17
 
 ] (build/main.aux)
  ***********
@@ -1098,22 +1151,25 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19528 strings out of 474222
- 294847 string characters out of 5748734
- 2140975 words of memory out of 5000000
- 41230 multiletter control sequences out of 15000+600000
- 673494 words of font info for 168 fonts, out of 8000000 for 9000
+ 20950 strings out of 474222
+ 322905 string characters out of 5748734
+ 2093975 words of memory out of 5000000
+ 42646 multiletter control sequences out of 15000+600000
+ 690842 words of font info for 199 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,756b,1656s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on build/main.pdf (17 pages, 678411 bytes).
+ 90i,10n,131p,1047b,1671s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb>
+Output written on build/main.pdf (18 pages, 646681 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
- 541 compressed objects within 6 object streams
- 205 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 785 PDF objects out of 1000 (max. 8388607)
+ 538 compressed objects within 6 object streams
+ 192 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

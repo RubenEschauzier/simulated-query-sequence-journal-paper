@@ -1,13 +1,3 @@
-\textbf{Journal extension}
-\begin{todolist}
-    \item Start micro benchmark experiment for disk-based and quad-store (After the other experiments finish running)
-    \item Extend same results we already have with disk, offline traversal, and quad store
-    \item Include refinement pattern analysis (generate sequence with one query that is refined) investigate
-    impact of certain chokepoints on performance
-    \item Include hyperparameter search where we investigate effect of different hyperparameter settings on 
-    data locality (how much of the data is overlapping between queries))
-\end{todolist}
-
 \section{Introduction}
 
 Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data.
@@ -92,18 +82,17 @@ In addition, enforcing fine-grained access control policies~\cite{esteves2021odr
 overhead~\cite{padia2015attribute}, making standard approaches unsuitable for highly decentralized environments.
 
 Newer decentralized environments, such as Solid, often expose data as lightweight HTTP resources instead of highly expressive query interfaces. 
-Identifying and resolving inconsistencies across these networks requires a querying approach
-capable of navigating resources that contain conflicting information \rt{I think we already sufficiently made our point on the conflicting-info aspect. I think we can omit this from here on (maybe we can come back to it again in the conclusions section).}.
 Many of these resources are not known in advance and can only be discovered during query execution. 
 While their simplicity lowers the cost of enforcing fine-grained controls,
 this setting requires a federation model that can operate over a very large number of small sources,
 many of which may be encountered at runtime, without relying on prior aggregation.
-Traditional federated approaches are insufficient in this setting due to the assumption of a small number of large endpoints.\rt{Also: they assume prior source knowledge, and therefore don't support discovery}
+Traditional federated approaches are insufficient in this setting due to the assumption of a small number of large endpoints.
+Additionally, these approaches often assume prior knowledge of the sources, which is not feasible in decentralized environments where discovery is a key requirement.
 Executing SPARQL queries using Link Traversal-based Query Processing (LTQP)~\cite{hartig2009executing} fits these needs.
 It discovers documents incrementally by following URIs encountered during execution, 
 starting from an initial set of seed documents provided by either the user or the query.
 Its link-driven, asynchronous traversal supports fine-grained permissions 
-and allows systems to discover and reconcile conflicting information \rt{I'd also omit reconciliation here, as LTQP doesn't really do this right now, but it provides the basis for doing it.} without knowing the location of all decentralized data sources beforehand.
+and allows systems to discover without knowing the location of all decentralized data sources beforehand.
 
 However, the fact that LTQP discovers documents incrementally creates significant challenges for efficient execution. 
 Using the traditional optimize-then-execute query processing paradigm is difficult, as the query itself determines which data will be accessed. 
@@ -119,8 +108,9 @@ While these approaches offer greater performance benefits, they require the serv
 This raises the cost of serving resources and complicates privacy and access control.
 
 To avoid server-side overhead, engines can derive prior knowledge directly on the client.
-In decentralized settings, LTQP operates inherently client-side, with a single engine instance serving one or more applications.\rt{I'd mention in here somewhere that it's often specific to one particular user.}
-As these applications issue sequences of correlated queries,
+In decentralized settings, LTQP operates inherently client-side, with a single engine instance serving one or more applications,
+often specific to a particular user.
+As these users and thus the used applications issue sequences of correlated queries,
 the engine identifies frequently accessed data and its characteristics.
 This allows engines to implement \emph{personalized} query optimization algorithms 
 that leverage local access patterns to build necessary prior knowledge.
@@ -137,7 +127,7 @@ that leverage local access patterns to build necessary prior knowledge.
 \rt{I'd make it explicit somewhere that the different arrows indicate the traversal paths of different LTQP executions (each for one specific query).}
 
 Benchmarking these approaches requires realistic query sequences.
-Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}) \rt{Let's also cite LargeRDFBench here}
+Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}, LargeRDFBench~\cite{saleem2018largerdfbench})
 execute isolated or repeated query templates, which fails to capture client-side dynamics accurately. 
 Furthermore, while centralized SPARQL optimization relies on
 real query logs~\cite{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}, 
@@ -160,7 +150,7 @@ that current evaluation techniques are insufficient for client-side caching in L
 
 By enabling researchers to evaluate personalized query optimization against actual user behaviors,
 SolidSessionBench lays the foundation for performant client-side querying. 
-Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information \rt{Coming back here to conflicting info does make sense again IMO.}
+Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information
 and the application of consistency fixes across multi-dimensional knowledge graphs.
 
 The remainder of this paper is structured as follows.

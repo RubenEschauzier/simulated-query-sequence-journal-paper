@@ -87,11 +87,6 @@
 \bibitem[{Dang et~al.(2023)Dang, Aimonier-Davat, Molli, Hartig, Skaf-Molli and Le~Crom}]{dang2023fedshop}
 \bibinfo{author}{Dang, M.H.}, \bibinfo{author}{Aimonier-Davat, J.}, \bibinfo{author}{Molli, P.}, \bibinfo{author}{Hartig, O.}, \bibinfo{author}{Skaf-Molli, H.}, \bibinfo{author}{Le~Crom, Y.}, \bibinfo{year}{2023}.
 \newblock \bibinfo{title}{Fedshop: A benchmark for testing the scalability of sparql federation engines}, in: \bibinfo{booktitle}{International Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{285--301}.
-%Type = Article
-\bibitem[{Dolan and Mor{\'e}(2002)}]{dolan2002benchmarking}
-\bibinfo{author}{Dolan, E.D.}, \bibinfo{author}{Mor{\'e}, J.J.}, \bibinfo{year}{2002}.
-\newblock \bibinfo{title}{Benchmarking optimization software with performance profiles}.
-\newblock \bibinfo{journal}{Mathematical programming} \bibinfo{volume}{91}, \bibinfo{pages}{201--213}.
 %Type = Inproceedings
 \bibitem[{Erling et~al.(2015)Erling, Averbuch, Larriba-Pey, Chafi, Gubichev, Prat, Pham and Boncz}]{erling2015ldbc}
 \bibinfo{author}{Erling, O.}, \bibinfo{author}{Averbuch, A.}, \bibinfo{author}{Larriba-Pey, J.}, \bibinfo{author}{Chafi, H.}, \bibinfo{author}{Gubichev, A.}, \bibinfo{author}{Prat, A.}, \bibinfo{author}{Pham, M.D.}, \bibinfo{author}{Boncz, P.}, \bibinfo{year}{2015}.
@@ -221,6 +216,11 @@
 \bibitem[{Saleem et~al.(2015)Saleem, Ali, Hogan, Mehmood and Ngomo}]{saleem2015lsq}
 \bibinfo{author}{Saleem, M.}, \bibinfo{author}{Ali, M.I.}, \bibinfo{author}{Hogan, A.}, \bibinfo{author}{Mehmood, Q.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{Lsq: the linked sparql queries dataset}, in: \bibinfo{booktitle}{International semantic web conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{261--269}.
+%Type = Article
+\bibitem[{Saleem et~al.(2018)Saleem, Hasnain and Ngomo}]{saleem2018largerdfbench}
+\bibinfo{author}{Saleem, M.}, \bibinfo{author}{Hasnain, A.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Largerdfbench: A billion triples benchmark for sparql endpoint federation}.
+\newblock \bibinfo{journal}{Journal of Web Semantics} \bibinfo{volume}{48}, \bibinfo{pages}{85--125}.
 %Type = Article
 \bibitem[{Sambra et~al.(2016)Sambra, Mansour, Hawke, Zereba, Greco, Ghanem, Zagidulin, Aboulnaga and Berners-Lee}]{sambra2016solid}
 \bibinfo{author}{Sambra, A.V.}, \bibinfo{author}{Mansour, E.}, \bibinfo{author}{Hawke, S.}, \bibinfo{author}{Zereba, M.}, \bibinfo{author}{Greco, N.}, \bibinfo{author}{Ghanem, A.}, \bibinfo{author}{Zagidulin, D.}, \bibinfo{author}{Aboulnaga, A.}, \bibinfo{author}{Berners-Lee, T.}, \bibinfo{year}{2016}.

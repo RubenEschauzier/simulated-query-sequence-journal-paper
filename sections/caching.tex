@@ -20,27 +20,26 @@ As a JavaScript-based engine, it relies on the event loop to asynchronously inte
 
 We use caching-based algorithms to validate SolidSessionBench query sequences and compare them against alternative benchmarking methods in the literature.
 Implementing these strategies establishes strong baselines for evaluating caching in traversal engines.
-This section introduces four cache implementations, each storing dereferenced quads differently.
-We also evaluate two cardinality estimation approaches that use cached quads to improve query planning and execution.
+This section introduces four cache implementations, each storing dereferenced triples differently.
+We also evaluate two cardinality estimation approaches that use cached triples to improve query planning and execution.
 Because these estimates require an indexed cache, we omit them for the unindexed baseline.
 
 \subsection{Cache Implementations}
-\paragraph{Unindexed Cache}
+\paragraph{Unindexed LRU Cache}
 This baseline caches raw triple arrays alongside source metadata.
 On a cache hit, the engine retrieves and indexes these triples into the active local store.
 
-\paragraph{Indexed Cache}
+\paragraph{Indexed LRU Cache}
 This approach pre-indexes triples and stores them in an in-memory LRU cache.
 On a hit, the engine extracts only the triples matching the query patterns.
 Combined with dictionary encoding, this pre-filtering reduces local store memory and indexing overhead,
 potentially offsetting the higher initial ingestion costs.
 
-\paragraph{Memory-based Quad store Cache}
-\rt{The difference between indexed store and quad store is confusing. Could we call the first one just LRU Cache? I think that could solve it.}
+\paragraph{Memory-based Quad Store Cache}
 This approach uses a quad store to unify cache indexes, saving memory and improving search efficiency.
 The quad graph stores the source of the triples, allowing cache hits to retrieve data using an `?subject ?predicate ?object' query where the graph term matches the cached document's URL.
 
-\paragraph{Disk-based Quad store Cache}
+\paragraph{Disk-based Quad Store Cache}
 This approach stores the quad store on disk, providing the same advantages while supporting datasets larger than main memory.
 We add a small in-memory cache for a `hot' subset of frequently accessed triples.
 To make this memory cache scan-resistant, documents are only added if accessed multiple times.
@@ -50,30 +49,28 @@ This prevents long-running queries from evicting the entire cache.
 
 Link traversal lacks prior knowledge regarding data distribution and availability, 
 complicating query planning. 
-We evaluate two cardinality estimation approaches using cached data to address this. 
-\rt{I would make explicit here that you make the hypothesis that determining cardinalities using cached data is accurate enough for query planning}
-The default Comunica cost-based optimizer~\cite{taelman2018comunica} uses these estimates to generate more accurate query plans,\rt{This is phrased in a confusing manner. Is this something that already exists? Or is it your contribution?}
-replacing the zero-knowledge heuristics~\cite{hartig2011zero} traditionally used in link traversal.
+To address this, we hypothesize that cached data provides sufficiently accurate cardinalities for query planning,
+and we evaluate two estimation approaches based on this cache.
+We integrate these estimates into the default Comunica cost-based optimizer~\cite{taelman2018comunica} 
+to generate more accurate query plans, replacing the zero-knowledge heuristics~\cite{hartig2011zero} traditionally used in link traversal.
 
-\paragraph{Global Cache Cardinality Estimation}
+\paragraph{Reachability-agnostic Cache-based Cardinality Estimation}
 This approach estimates cardinalities across the entire cache.
 For each cache entry, it performs a query to count the number of matching triples 
 and sums these counts to produce a final estimate.
 
-\paragraph{Offline-traversal Cardinality Estimation}
+\paragraph{Reachability-aware Cache-based Cardinality Estimation}
 Here, we store the outgoing links of each cached document.
 For each query, we traverse the cache to find all documents reachable under the active reachability criterion,
 to produce more accurate estimates by ignoring irrelevant data. 
-If the seed document is missing from the cache, we fall back to the global cache estimation approach.
-
-\rt{Regarding naming, what about "Reachability-agnostic Cache-based Cardinality Estimation" and "Reachability-aware Cache-based Cardinality Estimation"}
+If the seed document is missing from the cache, we fall back to the Reachability-agnostic Cache-based Cardinality Estimation.
 
 
 \subsection{Experimental Configurations}
-For our experiments we evaluate three cache capacities: small (350k quads\rt{Let's use "triples"}, $\sim$10\% of the dataset), 
+For our experiments we evaluate three cache capacities: small (350k triples, $\sim$10\% of the dataset), 
 medium (700k, $\sim$20\%), and large (1.4M, $\sim$40\%). 
-While the disk-based cache stores 1.4M quads on disk, 
-and a a small in-memory cache of 25k, 50k, and 100k quads for the small, medium, and large configurations respectively.
+While the disk-based cache stores 1.4M triples on disk, 
+and a a small in-memory cache of 25k, 50k, and 100k triples for the small, medium, and large configurations respectively.
 % All cache implementations use the LRU eviction policy.
 
 Our implementations adhere to the RFC-9111 specification~\cite{fielding2022rfc}, 
@@ -82,6 +79,8 @@ just like a web browser would.
 However, because the benchmark dataset is static, cache entries require no revalidation and never become stale. 
 Consequently, observed hit rates are likely higher than in a live environment. 
 
-Ultimately, comparing these strategies establishes $10$ baselines \rt{Can you explain how you get to 10?}
+Ultimately, comparing these strategies establishes $10$ baselines: 
+three algorithms per indexed cache (LRU, In-memory Quad Store and Disk-based Quad Store) and
+one algorithm for the unindexed cache,
 for caching performance in realistic user-centric environments, 
 upon which future research into advanced caching approaches can build.

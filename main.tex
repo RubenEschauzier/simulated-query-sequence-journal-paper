@@ -28,6 +28,8 @@
 \usepackage{enumitem}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{caption}
 
 % Custom styling for JSON code blocks
 \definecolor{eclipseStrings}{RGB}{42,0,255}
@@ -60,6 +62,8 @@
 }
 \newlist{todolist}{itemize}{2}
 \setlist[todolist]{label=$\square$}
+\newcommand{\continuelisting}{\addtocounter{lstlisting}{-1}}
+\captionsetup[lstlisting]{justification=raggedright, singlelinecheck=false}
 
 %%%Author definitions
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
@@ -127,7 +131,7 @@ To fill this gap, we introduce an evidence-based simulation
 of client query usage patterns as a reusable benchmark enabling 
 realistic and reproducible evaluation of client-side optimization techniques.
 % Object:       What the present document does or covers
-We demonstrate its utility by evaluating client-side caching strategies \rt{It sounds like you're just evaluating existing ones, but you actually introduce new ones yourself. I would emphasize this here.}
+We demonstrate its utility by evaluating novel client-side caching strategies
 for link traversal query processing.
 By comparing our sequence-based approach against traditional, non-sequence-based workloads, 
 we highlight how realistic sequence simulation heavily influences performance evaluations.
@@ -138,16 +142,12 @@ of session switching and query refinement, that traditional workloads do not.
 We conclude that modeling realistic user interactions provides an essential foundation 
 for accurately evaluating client-side optimization techniques in decentralized environments.
 
-\verb+\begin{keyword}+ \verb+...+ \verb+\end{keyword}+ 
+\verb+Multi-perspective data+ \verb+Link Traversal-based Query Processing+ \verb++ \verb+\end{keyword}+ 
 which
 contain the abstract and keywords respectively. 
 
 \noindent Each keyword shall be separated by a \verb+\sep+ command.
 \end{abstract}
-
-\begin{graphicalabstract}
-\includegraphics{figs/cas-grabs.pdf}
-\end{graphicalabstract}
 
 \begin{highlights}
 \item Research highlights item 1
@@ -156,8 +156,10 @@ contain the abstract and keywords respectively.
 \end{highlights}
 
 \begin{keywords}
-quadrupole exciton \sep polariton \sep \WGM \sep \BEC
-\todo{Update keywords}
+    Multi-perspective data \sep
+    Link Traversal-based Query Processing \sep
+    Client-side caching \sep
+    Query sequence simulation \sep
 \end{keywords}
 
 

@@ -15,7 +15,7 @@ To fill this gap, we introduce an evidence-based simulation
 of client query usage patterns as a reusable benchmark enabling
 realistic and reproducible evaluation of client-side optimization techniques.
 % Object:       What the present document does or covers
-We demonstrate its utility by evaluating client-side caching strategies \rt{It sounds like you're just evaluating existing ones, but you actually introduce new ones yourself. I would emphasize this here.}
+We demonstrate its utility by evaluating novel client-side caching strategies
 for link traversal query processing.
 By comparing our sequence-based approach against traditional, non-sequence-based workloads,
 we highlight how realistic sequence simulation heavily influences performance evaluations.
@@ -26,7 +26,7 @@ of session switching and query refinement, that traditional workloads do not.
 We conclude that modeling realistic user interactions provides an essential foundation
 for accurately evaluating client-side optimization techniques in decentralized environments.
 
-\verb+\begin{keyword}+ \verb+...+ \verb+\end{keyword}+
+\verb+Multi-perspective data+ \verb+Link Traversal-based Query Processing+ \verb++ \verb+\end{keyword}+
 which
 contain the abstract and keywords respectively.
 

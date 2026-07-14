@@ -28,11 +28,15 @@
 \citation{tam2024opportunities,umbrich2011comparing,hanski2024observations}
 \citation{alucc2014diversified}
 \citation{bizer2011berlin}
+\citation{saleem2018largerdfbench}
 \citation{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}
 \citation{taelman2023link}
 \citation{taelman2018comunica,taelman2023link}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces When users interact with agents, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization.}}{2}{figure.1}\protected@file@percent }
-\newlabel{fig:intro-overlap}{{1}{2}{When users interact with agents, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces When users interact with agents, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization.}}{2}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:intro-overlap}{{1}{2}{When users interact with agents, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related-work}{{2}{2}{Literature Review}{section.2}{}}
 \citation{hartig2011caching}
 \citation{nicholson2024hpcache}
 \citation{o2009star}
@@ -50,15 +54,13 @@
 \citation{amblard2015models,hamill2009social}
 \citation{mitzlaff2013user}
 \citation{meiss_whats_2009,sadagopan2008characterizing,schneider2009understanding}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{3}{section.2}\protected@file@percent }
-\newlabel{sec:related-work}{{2}{3}{Literature Review}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Existing Benchmarking Approaches}{3}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Real-world Query Usage Patterns}{3}{subsection.2.2}\protected@file@percent }
-\newlabel{sec:related_work_qup}{{2.2}{3}{Real-world Query Usage Patterns}{subsection.2.2}{}}
 \citation{vogele2018wessbas}
 \citation{bronson2013tao}
 \citation{bonifati2020analytical,zhang2020characterizing}
 \citation{zhang2020characterizing,bonifati2020analytical}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Existing Benchmarking Approaches}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Real-world Query Usage Patterns}{3}{subsection.2.2}\protected@file@percent }
+\newlabel{sec:related_work_qup}{{2.2}{3}{Real-world Query Usage Patterns}{subsection.2.2}{}}
 \citation{zhang2020characterizing}
 \citation{malyshev2018getting}
 \citation{taelman2023link,bizer2011berlin,alucc2014diversified}
@@ -73,34 +75,46 @@
 \newlabel{sec:simulation-methodology}{{3}{4}{Query Sequence Benchmark}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Realism of Query Sequences}{4}{subsection.3.1}\protected@file@percent }
 \citation{bast2017qlever}
+\citation{meiss_whats_2009,schneider2009understanding}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Simulation Methodology}{5}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Logical Query Sessions}{5}{subsubsection.3.2.1}\protected@file@percent }
-\newlabel{lst:example_dataset}{{1}{5}{A minimal decentralized dataset distributed across documents}{lstlisting.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}A minimal decentralized dataset distributed across documents.}{5}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:example_dataset_alice_profile}{{1}{5}{(a) Alice's profile document (\url {https://pod.example/alice/profile.ttl})}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces (a) Alice's profile document (\url  {https://pod.example/alice/profile.ttl}).}}{5}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:example_dataset_bob_profile}{{1}{5}{(b) Bob's profile document (\url {https://pod.example/bob/profile.ttl})}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces (b) Bob's profile document (\url  {https://pod.example/bob/profile.ttl}).}}{5}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:example_dataset_bob_post}{{1}{5}{(c) Bob's post (\url {https://pod.example/bob/posts/1})}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces (c) Bob's post (\url  {https://pod.example/bob/posts/1}).}}{5}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:example_dataset_alice_interests}{{1}{5}{(d) Alice's interests document (\url {https://pod.example/alice/interests.ttl})}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces (d) Alice's interests document (\url  {https://pod.example/alice/interests.ttl}).}}{5}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:example_dataset_forum_wildlife}{{1}{5}{(e) Wildlife forum document (\url {https://pod.example/forum/wildlife.ttl})}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces (e) Wildlife forum document (\url  {https://pod.example/forum/wildlife.ttl}).}}{5}{lstlisting.1}\protected@file@percent }
 \newlabel{lst:query_1}{{2}{5}{Initial query (Q1) fetching Bob's posts}{lstlisting.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}Initial query (Q1) fetching Bob's posts.}{5}{lstlisting.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces Initial query (Q1) fetching Bob's posts.}}{5}{lstlisting.2}\protected@file@percent }
 \newlabel{lst:query_2}{{3}{5}{Dynamic sequence query (Q2) instantiating a variable from Q1}{lstlisting.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}Dynamic sequence query (Q2) instantiating a variable from Q1.}{5}{lstlisting.3}\protected@file@percent }
-\citation{meiss_whats_2009,schneider2009understanding}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces Dynamic sequence query (Q2) instantiating a variable from Q1.}}{5}{lstlisting.3}\protected@file@percent }
 \citation{mitzlaff2013user}
 \citation{erling2015ldbc}
 \citation{angles2014linked}
 \citation{arenas2025exploring}
-\newlabel{lst:query_3}{{4}{6}{Independent query (Q3) initiating a session switch to explore a wildlife forum}{lstlisting.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}Independent query (Q3) initiating a session switch to explore a wildlife forum.}{6}{lstlisting.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}User Interest Modeling}{6}{subsubsection.3.2.2}\protected@file@percent }
-\newlabel{lst:augmented_dataset}{{5}{6}{The decentralized dataset augmented with an additional photography forum document}{lstlisting.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}The decentralized dataset augmented with an additional photography forum document.}{6}{lstlisting.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Refinement Patterns}{6}{subsubsection.3.2.3}\protected@file@percent }
 \citation{arenas2025exploring}
 \citation{angles2020ldbc}
 \citation{taelman2023link,taelman2023evaluation}
+\newlabel{lst:query_3}{{4}{6}{Independent query (Q3) initiating a session switch to explore a wildlife forum}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}{\ignorespaces Independent query (Q3) initiating a session switch to explore a wildlife forum.}}{6}{lstlisting.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}User Interest Modeling}{6}{subsubsection.3.2.2}\protected@file@percent }
+\newlabel{lst:augmented_dataset}{{5}{6}{The additional pottery forum document (\url {https://pod.example/forum/pottery.ttl})}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}{\ignorespaces The additional pottery forum document (\url  {https://pod.example/forum/pottery.ttl}).}}{6}{lstlisting.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Refinement Patterns}{6}{subsubsection.3.2.3}\protected@file@percent }
 \citation{taelman2023evaluation}
 \citation{taelman2023evaluation}
 \citation{taelman2023evaluation,hartig2012sparql}
 \newlabel{lst:refinement_config}{{6}{7}{Example configuration for an \texttt {OPTIONAL} refinement pattern}{lstlisting.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Example configuration for an \texttt  {OPTIONAL} refinement pattern.}{7}{lstlisting.6}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}{\ignorespaces Example configuration for an \texttt  {OPTIONAL} refinement pattern.}}{7}{lstlisting.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces LogT-normal distribution parameters ($\mu , \sigma $) control the queries per sequence, queries per logical session, and the probability of switching logical sessions. Refinement parameters define the likelihood (\texttt  {patternProbability}) and bounds (\texttt  {min/maxRefinementLength}) of generating a refinement sequence for a given query. Instantiation relies on a softmax \texttt  {temperature} and a \texttt  {maxLogits} cutoff for similarity-based entity selection.}}{7}{table.caption.2}\protected@file@percent }
+\newlabel{tab:generation_hyperparameters}{{1}{7}{LogT-normal distribution parameters ($\mu , \sigma $) control the queries per sequence, queries per logical session, and the probability of switching logical sessions. Refinement parameters define the likelihood (\texttt {patternProbability}) and bounds (\texttt {min/maxRefinementLength}) of generating a refinement sequence for a given query. Instantiation relies on a softmax \texttt {temperature} and a \texttt {maxLogits} cutoff for similarity-based entity selection}{table.caption.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Hyperparameters}{7}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Caching in Link Traversal-based Query Processing}{7}{section.4}\protected@file@percent }
+\newlabel{sec:client-side-caching}{{4}{7}{Caching in Link Traversal-based Query Processing}{section.4}{}}
 \citation{hartig2009executing}
 \citation{taelman2018comunica}
 \citation{hartig2011caching}
@@ -108,46 +122,41 @@
 \citation{taelman2018comunica}
 \citation{hartig2011zero}
 \citation{fielding2022rfc}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces LogT-normal distribution parameters ($\mu , \sigma $) control the queries per sequence, queries per logical session, and the probability of switching logical sessions. Refinement parameters define the likelihood (\texttt  {patternProbability}) and bounds (\texttt  {min/maxRefinementLength}) of generating a refinement sequence for a given query. Instantiation relies on a softmax \texttt  {temperature} and a \texttt  {maxLogits} cutoff for similarity-based entity selection.}}{8}{table.1}\protected@file@percent }
-\newlabel{tab:generation_hyperparameters}{{1}{8}{LogT-normal distribution parameters ($\mu , \sigma $) control the queries per sequence, queries per logical session, and the probability of switching logical sessions. Refinement parameters define the likelihood (\texttt {patternProbability}) and bounds (\texttt {min/maxRefinementLength}) of generating a refinement sequence for a given query. Instantiation relies on a softmax \texttt {temperature} and a \texttt {maxLogits} cutoff for similarity-based entity selection}{table.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Caching in Link Traversal-based Query Processing}{8}{section.4}\protected@file@percent }
-\newlabel{sec:client-side-caching}{{4}{8}{Caching in Link Traversal-based Query Processing}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Cache Implementations}{8}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Unindexed Cache}{8}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Indexed Cache}{8}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Memory-based Quad store Cache}{8}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Disk-based Quad store Cache}{8}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Unindexed LRU Cache}{8}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Indexed LRU Cache}{8}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Memory-based Quad Store Cache}{8}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Disk-based Quad Store Cache}{8}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Cardinality Estimation Approaches}{8}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Global Cache Cardinality Estimation}{8}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Offline-traversal Cardinality Estimation}{8}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reachability-agnostic Cache-based Cardinality Estimation}{8}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reachability-aware Cache-based Cardinality Estimation}{8}{section*.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Experimental Configurations}{8}{subsection.4.3}\protected@file@percent }
-\citation{dolan2002benchmarking}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Evaluation}{9}{section.5}\protected@file@percent }
-\newlabel{sec:evaluation}{{5}{9}{Evaluation}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Evaluation}{8}{section.5}\protected@file@percent }
+\newlabel{sec:evaluation}{{5}{8}{Evaluation}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance profiles of the LRU-based unindexed triples cache. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. Curves closer to the top-left indicate better overall performance. The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, while the rightward trajectory demonstrates robustness (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time). From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:unindexed-lru-cache-performance}{{2}{9}{Performance profiles of the LRU-based unindexed triples cache. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. Curves closer to the top-left indicate better overall performance. The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, while the rightward trajectory demonstrates robustness (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time). From the figure, we observe that all caching-based approaches outperform the no-cache baseline}{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Holistic Evaluation of Benchmark Characteristics}{9}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Logical Session \& Interest Modeling Cache Performance}{9}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Refinement Patterns}{9}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Comparison to Alternative Evaluation Methods}{9}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Global Cache Performance}{9}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Logical Sessions}{9}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Unindexed LRU Cache}{9}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Indexed LRU Cache}{9}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Memory-based Quad store Cache}{9}{section*.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Performance profiles of the LRU-based indexed cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}}{10}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:indexed-lru-cache-performance}{{3}{10}{Performance profiles of the LRU-based indexed cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {paragraph}{Disk-based Quad store Cache}{10}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison Between Caching Algorithms}{10}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Cache Hitrates}{10}{subsubsection.5.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Logical Session \& Interest Modeling Cache Performance}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Refinement Patterns}{10}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Effect of chokepoints on query sequences}{10}{subsubsection.5.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Performance profiles of the in-memory quad store cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}}{11}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:quad-store-cache-performance}{{4}{11}{Performance profiles of the in-memory quad store cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Performance profiles of the disk-based quad store cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. \noindent \textcolor {red}{{\bf  \{TODO}: PLACEHOLDER FIGURE{\bf  \}}}}}{12}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:disk-store-cache-performance}{{5}{12}{Performance profiles of the disk-based quad store cache family of algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. \todo {PLACEHOLDER FIGURE}}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {paragraph}{Implications for Refinement Pattern Design}{12}{section*.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Marginal fixed effects of refinement pattern additions (\texttt  {-a}) and removals (\texttt  {-r}) on query performance across Small (S), Medium (M), and Large (L) cache capacities. The plot reports the unstandardized absolute expected change ($\Delta Y$) for Cache Hit Rate, Discovered Sources, and Execution Time. For both discovered sources and execution time, the plot uses signed log-counts and signed log-milliseconds, respectively. Error bars represent $95\%$ confidence intervals and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray. Undoing the traversal chokepoint changing the instantiation value of the query significantly improves cache hit rate (+.35) and reduces the number of unique data sources accessed. However, its effect on execution time is on the edge of significance.}}{13}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:chokepoint_regression_coefficients}{{6}{13}{Marginal fixed effects of refinement pattern additions (\texttt {-a}) and removals (\texttt {-r}) on query performance across Small (S), Medium (M), and Large (L) cache capacities. The plot reports the unstandardized absolute expected change ($\Delta Y$) for Cache Hit Rate, Discovered Sources, and Execution Time. For both discovered sources and execution time, the plot uses signed log-counts and signed log-milliseconds, respectively. Error bars represent $95\%$ confidence intervals and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray. Undoing the traversal chokepoint changing the instantiation value of the query significantly improves cache hit rate (+.35) and reduces the number of unique data sources accessed. However, its effect on execution time is on the edge of significance}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Effect of Refinement Depth on Performance}{13}{subsubsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Comparison to Alternative Evaluation Methods}{13}{subsection.5.4}\protected@file@percent }
 \citation{nicholson2024hpcache,hartig2011caching}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance profiles of the tested cache algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. Curves closer to the top-left indicate better overall performance. The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, while the rightward trajectory demonstrates robustness (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time). From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}}{10}{figure.2}\protected@file@percent }
-\newlabel{fig:global_cache_performance}{{2}{10}{Performance profiles of the tested cache algorithms. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. Curves closer to the top-left indicate better overall performance. The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, while the rightward trajectory demonstrates robustness (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time). From the figure, we observe that all caching-based approaches outperform the no-cache baseline}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Refinement Patterns}{10}{subsection.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Comparison To Other Evaluation Methods}{10}{subsection.5.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Microbenchmarks-Theoretical Hit Rate Analysis}{10}{section*.7}\protected@file@percent }
-\citation{nicholson2024hpcache}
-\citation{o2009star,bizer2011berlin,hartig2011caching,nicholson2024hpcache,folz2016cyclades}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces  Impact of logical session status on algorithm performance. Values represent absolute and percentage cache hit rate deviations from the global template average across new, existing, and within-session queries. Negative values mean caches perform worse for these types of queries. }}{11}{table.2}\protected@file@percent }
-\newlabel{tab:performance_differences}{{2}{11}{Impact of logical session status on algorithm performance. Values represent absolute and percentage cache hit rate deviations from the global template average across new, existing, and within-session queries. Negative values mean caches perform worse for these types of queries}{table.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Cache hit ratios and percentage of cache capacity evicted across refinement depths for small, medium, and large cache configurations.}}{11}{figure.3}\protected@file@percent }
-\newlabel{fig:cache_efficiency}{{3}{11}{Cache hit ratios and percentage of cache capacity evicted across refinement depths for small, medium, and large cache configurations}{figure.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Random Query Sequences}{11}{section*.8}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Geometric mean of observed speedups and increases respectively for total execution time and query throughput relative to the no caching baseline across refinement depths.}}{12}{figure.4}\protected@file@percent }
-\newlabel{fig:temporal_throughput}{{4}{12}{Geometric mean of observed speedups and increases respectively for total execution time and query throughput relative to the no caching baseline across refinement depths}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Performance of unindexed and indexed caches across representative query templates. The y-axis shows the mean speedup relative to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile}}{12}{figure.5}\protected@file@percent }
-\newlabel{fig:theoretical_cache_performance}{{5}{12}{Performance of unindexed and indexed caches across representative query templates. The y-axis shows the mean speedup relative to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile}{figure.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Scope and Limitations}{12}{section*.9}\protected@file@percent }
 \citation{eschauzier2025revisiting,vandenbrande2025incremunica,hanski2025link,tam2024opportunities}
 \bibstyle{cas-model2-names}
 \bibdata{references/bib}
@@ -159,51 +168,55 @@
 \bibcite{arnold2014pareto}{{6}{2014}{{Arnold}}{{}}}
 \bibcite{backstrom2006group}{{7}{2006}{{Backstrom et~al.}}{{Backstrom, Huttenlocher, Kleinberg and Lan}}}
 \bibcite{bast2017qlever}{{8}{2017}{{Bast and Buchhold}}{{}}}
+\@writefile{toc}{\contentsline {paragraph}{Microbenchmarks-Theoretical Hit Rate Analysis}{14}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Random Query Sequences}{14}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Scope and Limitations}{14}{section*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Scope and Limitations}{14}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{14}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{14}{Conclusion}{section.6}{}}
 \bibcite{berendt2013usewod2013}{{9}{2013}{{Berendt et~al.}}{{Berendt, Hollink, Luczak-R{\"o}sch, M{\"o}ller and Vallet}}}
 \bibcite{bernerslee2017charlie}{{10}{2017}{{Berners-Lee}}{{}}}
 \bibcite{bizer2011berlin}{{11}{2011}{{Bizer and Schultz}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Performance of unindexed, LRU indexed, In-memory store, and Disk-based store caches across representative query templates. The y-axis shows the mean speedup relative to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile \noindent \textcolor {red}{{\bf  \{TODO}: Placeholder disk figure{\bf  \}}}}}{15}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:theoretical_cache_performance}{{7}{15}{Performance of unindexed, LRU indexed, In-memory store, and Disk-based store caches across representative query templates. The y-axis shows the mean speedup relative to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile \todo {Placeholder disk figure}}{figure.caption.21}{}}
 \bibcite{bonifati_darql_2018}{{12}{2018}{{Bonifati et~al.}}{{Bonifati, Martens and Timm}}}
 \bibcite{bonifati2020analytical}{{13}{2020}{{Bonifati et~al.}}{{Bonifati, Martens and Timm}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Performance profile of the tested cache algorithms on random query sequences. The y-axis shows the percentage of queries that execute within a given performance factor (x-axis) of the fastest algorithm for that query.}}{13}{figure.6}\protected@file@percent }
-\newlabel{fig:global_cache_performance_random_sequences}{{6}{13}{Performance profile of the tested cache algorithms on random query sequences. The y-axis shows the percentage of queries that execute within a given performance factor (x-axis) of the fastest algorithm for that query}{figure.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}\protected@file@percent }
-\newlabel{sec:conclusion}{{6}{13}{Conclusion}{section.6}{}}
 \bibcite{bronson2013tao}{{14}{2013}{{Bronson et~al.}}{{Bronson, Amsden, Cabrera, Chakka, Dimov, Ding, Ferris, Giardullo, Kulkarni, Li et~al.}}}
 \bibcite{chatzopoulos2022atrapos}{{15}{2022}{{Chatzopoulos et~al.}}{{Chatzopoulos, Vergoulis, Skoutas, Dalamagas, Tryfonopoulos and Karras}}}
 \bibcite{clark2007understanding}{{16}{2007}{{Clark}}{{}}}
 \bibcite{dang2023fedshop}{{17}{2023}{{Dang et~al.}}{{Dang, Aimonier-Davat, Molli, Hartig, Skaf-Molli and Le~Crom}}}
-\bibcite{dolan2002benchmarking}{{18}{2002}{{Dolan and Mor{\'e}}}{{}}}
-\bibcite{erling2015ldbc}{{19}{2015}{{Erling et~al.}}{{Erling, Averbuch, Larriba-Pey, Chafi, Gubichev, Prat, Pham and Boncz}}}
-\bibcite{eschauzier2025revisiting}{{20}{2025}{{Eschauzier et~al.}}{{Eschauzier, Taelman and Verborgh}}}
-\bibcite{esteves2021odrl}{{21}{2021}{{Esteves et~al.}}{{Esteves, Pandit and Rodr{\'\i }guez-Doncel}}}
-\bibcite{fielding2022rfc}{{22}{2022}{{Fielding et~al.}}{{Fielding, Nottingham and Reschke}}}
-\bibcite{folz2016cyclades}{{23}{2016}{{Folz et~al.}}{{Folz, Skaf-Molli and Molli}}}
-\bibcite{hamill2009social}{{24}{2009}{{Hamill and Gilbert}}{{}}}
-\bibcite{hanski2024observations}{{25}{2024}{{Hanski et~al.}}{{Hanski, Taelman and Verborgh}}}
-\bibcite{hanski2025link}{{26}{2025}{{Hanski et~al.}}{{Hanski, Van~Braeckel, Taelman and Verborgh}}}
-\bibcite{hartig2011caching}{{27}{2011a}{{Hartig}}{{}}}
-\bibcite{hartig2011zero}{{28}{2011b}{{Hartig}}{{}}}
-\bibcite{hartig2012sparql}{{29}{2012}{{Hartig}}{{}}}
-\bibcite{hartig2009executing}{{30}{2009}{{Hartig et~al.}}{{Hartig, Bizer and Freytag}}}
-\bibcite{hartig2016walking}{{31}{2016}{{Hartig and {\"O}zsu}}{{}}}
-\bibcite{heling2022federated}{{32}{2022}{{Heling and Acosta}}{{}}}
-\bibcite{kalaitzakis2012evolution}{{33}{2012}{{Kalaitzakis et~al.}}{{Kalaitzakis, Papadakis and Fragopoulou}}}
-\bibcite{karki2026agentic}{{34}{2026}{{Karki et~al.}}{{Karki, Pandey, Tiwari, Mihindukulasooriya, Groppe and Dobriy}}}
-\bibcite{lorey2013caching}{{35}{2013}{{Lorey and Naumann}}{{}}}
-\bibcite{malyshev2018getting}{{36}{2018}{{Malyshev et~al.}}{{Malyshev, Kr{\"o}tzsch, Gonz{\'a}lez, Gonsior and Bielefeldt}}}
-\bibcite{martin2010improving}{{37}{2010}{{Martin et~al.}}{{Martin, Unbehauen and Auer}}}
-\bibcite{meiss_whats_2009}{{38}{2009}{{Meiss et~al.}}{{Meiss, Duncan, Gonçalves, Ramasco and Menczer}}}
-\bibcite{mislove2007measurement}{{39}{2007}{{Mislove et~al.}}{{Mislove, Marcon, Gummadi, Druschel and Bhattacharjee}}}
-\bibcite{mitzlaff2013user}{{40}{2013}{{Mitzlaff et~al.}}{{Mitzlaff, Atzmueller, Benz, Hotho and Stumme}}}
-\bibcite{nicholson2024hpcache}{{41}{2024}{{Nicholson et~al.}}{{Nicholson, Chrysogelos and Ailamaki}}}
-\bibcite{o2009star}{{42}{2009}{{O’Neil et~al.}}{{O’Neil, O’Neil, Chen and Revilak}}}
-\bibcite{padia2015attribute}{{43}{2015}{{Padia et~al.}}{{Padia, Finin, Joshi et~al.}}}
-\bibcite{papailiou2015graph}{{44}{2015}{{Papailiou et~al.}}{{Papailiou, Tsoumakos, Karras and Koziris}}}
-\bibcite{picalausa_what_2011}{{45}{2011}{{Picalausa and Vansummeren}}{{}}}
-\bibcite{prat2014community}{{46}{2014}{{Prat-P{\'e}rez and Dominguez-Sal}}{{}}}
-\bibcite{raman2019challenges}{{47}{2019}{{Raman et~al.}}{{Raman, Joglekar, Cristofaro, Sastry and Tyson}}}
-\bibcite{sadagopan2008characterizing}{{48}{2008}{{Sadagopan and Li}}{{}}}
-\bibcite{saleem2015lsq}{{49}{2015}{{Saleem et~al.}}{{Saleem, Ali, Hogan, Mehmood and Ngomo}}}
+\bibcite{erling2015ldbc}{{18}{2015}{{Erling et~al.}}{{Erling, Averbuch, Larriba-Pey, Chafi, Gubichev, Prat, Pham and Boncz}}}
+\bibcite{eschauzier2025revisiting}{{19}{2025}{{Eschauzier et~al.}}{{Eschauzier, Taelman and Verborgh}}}
+\bibcite{esteves2021odrl}{{20}{2021}{{Esteves et~al.}}{{Esteves, Pandit and Rodr{\'\i }guez-Doncel}}}
+\bibcite{fielding2022rfc}{{21}{2022}{{Fielding et~al.}}{{Fielding, Nottingham and Reschke}}}
+\bibcite{folz2016cyclades}{{22}{2016}{{Folz et~al.}}{{Folz, Skaf-Molli and Molli}}}
+\bibcite{hamill2009social}{{23}{2009}{{Hamill and Gilbert}}{{}}}
+\bibcite{hanski2024observations}{{24}{2024}{{Hanski et~al.}}{{Hanski, Taelman and Verborgh}}}
+\bibcite{hanski2025link}{{25}{2025}{{Hanski et~al.}}{{Hanski, Van~Braeckel, Taelman and Verborgh}}}
+\bibcite{hartig2011caching}{{26}{2011a}{{Hartig}}{{}}}
+\bibcite{hartig2011zero}{{27}{2011b}{{Hartig}}{{}}}
+\bibcite{hartig2012sparql}{{28}{2012}{{Hartig}}{{}}}
+\bibcite{hartig2009executing}{{29}{2009}{{Hartig et~al.}}{{Hartig, Bizer and Freytag}}}
+\bibcite{hartig2016walking}{{30}{2016}{{Hartig and {\"O}zsu}}{{}}}
+\bibcite{heling2022federated}{{31}{2022}{{Heling and Acosta}}{{}}}
+\bibcite{kalaitzakis2012evolution}{{32}{2012}{{Kalaitzakis et~al.}}{{Kalaitzakis, Papadakis and Fragopoulou}}}
+\bibcite{karki2026agentic}{{33}{2026}{{Karki et~al.}}{{Karki, Pandey, Tiwari, Mihindukulasooriya, Groppe and Dobriy}}}
+\bibcite{lorey2013caching}{{34}{2013}{{Lorey and Naumann}}{{}}}
+\bibcite{malyshev2018getting}{{35}{2018}{{Malyshev et~al.}}{{Malyshev, Kr{\"o}tzsch, Gonz{\'a}lez, Gonsior and Bielefeldt}}}
+\bibcite{martin2010improving}{{36}{2010}{{Martin et~al.}}{{Martin, Unbehauen and Auer}}}
+\bibcite{meiss_whats_2009}{{37}{2009}{{Meiss et~al.}}{{Meiss, Duncan, Gonçalves, Ramasco and Menczer}}}
+\bibcite{mislove2007measurement}{{38}{2007}{{Mislove et~al.}}{{Mislove, Marcon, Gummadi, Druschel and Bhattacharjee}}}
+\bibcite{mitzlaff2013user}{{39}{2013}{{Mitzlaff et~al.}}{{Mitzlaff, Atzmueller, Benz, Hotho and Stumme}}}
+\bibcite{nicholson2024hpcache}{{40}{2024}{{Nicholson et~al.}}{{Nicholson, Chrysogelos and Ailamaki}}}
+\bibcite{o2009star}{{41}{2009}{{O’Neil et~al.}}{{O’Neil, O’Neil, Chen and Revilak}}}
+\bibcite{padia2015attribute}{{42}{2015}{{Padia et~al.}}{{Padia, Finin, Joshi et~al.}}}
+\bibcite{papailiou2015graph}{{43}{2015}{{Papailiou et~al.}}{{Papailiou, Tsoumakos, Karras and Koziris}}}
+\bibcite{picalausa_what_2011}{{44}{2011}{{Picalausa and Vansummeren}}{{}}}
+\bibcite{prat2014community}{{45}{2014}{{Prat-P{\'e}rez and Dominguez-Sal}}{{}}}
+\bibcite{raman2019challenges}{{46}{2019}{{Raman et~al.}}{{Raman, Joglekar, Cristofaro, Sastry and Tyson}}}
+\bibcite{sadagopan2008characterizing}{{47}{2008}{{Sadagopan and Li}}{{}}}
+\bibcite{saleem2015lsq}{{48}{2015}{{Saleem et~al.}}{{Saleem, Ali, Hogan, Mehmood and Ngomo}}}
+\bibcite{saleem2018largerdfbench}{{49}{2018}{{Saleem et~al.}}{{Saleem, Hasnain and Ngomo}}}
 \bibcite{sambra2016solid}{{50}{2016}{{Sambra et~al.}}{{Sambra, Mansour, Hawke, Zereba, Greco, Ghanem, Zagidulin, Aboulnaga and Berners-Lee}}}
 \bibcite{schmidt2011fedbench}{{51}{2011}{{Schmidt et~al.}}{{Schmidt, G{\"o}rlitz, Haase, Ladwig, Schwarte and Tran}}}
 \bibcite{schneider2009understanding}{{52}{2009}{{Schneider et~al.}}{{Schneider, Feldmann, Krishnamurthy and Willinger}}}
@@ -221,5 +234,5 @@
 \bibcite{williams2011enabling}{{64}{2011}{{Williams and Weaver}}{{}}}
 \bibcite{zhang2016secf}{{65}{2016}{{Zhang et~al.}}{{Zhang, Sheng, Qin, Yao, Shemshadi and Taylor}}}
 \bibcite{zhang2020characterizing}{{66}{2020}{{Zhang et~al.}}{{Zhang, Wang, Zhao, Liu, Zhang and Yang}}}
-\csxdef{lastpage}{15}
-\gdef \@abspage@last{17}
+\csxdef{lastpage}{17}
+\gdef \@abspage@last{18}
