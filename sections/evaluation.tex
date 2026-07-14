@@ -7,6 +7,8 @@ Also mention clearly how in this section we will evaluate caching, as it is a we
 optimization strategy. This is not the only application field, merely an example application of the data.
 }
 
+
+\subsection{Experiment Setup}
 We evaluate our benchmark using a scale 0.1 SolidBench dataset 
 (158,233 RDF files, 1,531 vaults, 3,556,159 triples). 
 Using the default hyperparameters in Table~\ref{tab:generation_hyperparameters}, 
@@ -41,7 +43,7 @@ across all cache sizes, with larger caches yielding better results.
 For total execution time of queries, the large cache is significantly better than the smaller cache sizes, while for
 throughput the difference is less pronounced.
 
-\begin{figure*}[t]
+\begin{figure*}[htbp]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_unindexed.pdf}
     \caption{Performance profiles of the LRU-based unindexed triples cache. 
@@ -73,7 +75,7 @@ yields only minor performance benefits, while reachability-aware estimation show
 This aligns with expectations: larger caches accumulate more irrelevant, 
 out-of-context data, which the reachability-aware estimator successfully filters out.
 
-\begin{figure*}[t]
+\begin{figure*}[htbp]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_cache.pdf}
     \caption{Performance profiles of the LRU-based indexed cache family of algorithms. 
@@ -101,8 +103,16 @@ the quad store-based approach uses triple pattern queries over the entire quad s
 the graph term filled in to represent the current document.
 For reachability-aware estimation the performance hit is not as big, especially in the
 total execution time case.
-
-\begin{figure*}[t]
+% \todo{Combine as follows: 
+% Indexed + Unindexed
+% in-memory store + disk-based store.
+% Same for random.
+% Also reduce space between the figures
+% Add fainter lines for the log ticks on x-axis
+% Add the algorithm evaluated in top bar 
+% (which is coloured in like: \url{https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2F10.64898%2F2026.05.25.727627v1.full-text&ved=0CBYQjRxqGAoTCIjOr6Cy0pUDFQAAAAAdAAAAABCFAQ&opi=89978449})
+% }
+\begin{figure*}[htbp]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_store.pdf}
     \caption{Performance profiles of the in-memory quad store cache family of algorithms. 
@@ -114,7 +124,7 @@ total execution time case.
 
 In Figure~\ref{fig:disk-store-cache-performance}, we see that the disk-based quad store cache performs....
 \todo{PLACEHOLDER FIGURE}
-\begin{figure*}[t]
+\begin{figure*}[htbp]
     \centering
     \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_store.pdf}
     \caption{Performance profiles of the disk-based quad store cache family of algorithms. 

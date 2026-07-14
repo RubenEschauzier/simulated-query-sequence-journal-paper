@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex build/main"] 1784039281.79475 "build/main.aux" "build/main.bbl" "build/main" 1784039292.76521 0
+["bibtex build/main"] 1784040998.86505 "build/main.aux" "build/main.bbl" "build/main" 1784041000.09994 0
   "./cas-model2-names.bst" 1714813730 31802 28b630660245c09f173aac55be552b29 ""
   "./references/bib.bib" 1784037438.99378 29227 45bf6e15ff622c9f3e71486d37b0eb2f ""
-  "build/main.aux" 1784039292.48068 26192 e3e4401b2eb2eac5e94968894869ba80 "pdflatex"
+  "build/main.aux" 1784040999.79568 26315 da6f5642740237f071048769901dad2f "pdflatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1784039291.73908 "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" "build/main.pdf" "main" 1784039292.76537 0
+["pdflatex"] 1784040998.98561 "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" "build/main.pdf" "main" 1784041000.10011 0
   "/etc/texmf/web2c/texmf.cnf" 1770288521.25536 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" 1784034118.71068 6766 67b988bc2ace4b2d80e351387c82c82e ""
+  "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" 1784040835.67252 6766 67b988bc2ace4b2d80e351387c82c82e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1388795362 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -189,10 +189,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1770288536.82692 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1770288579 8215030 67d84bed42aee6fbdcb2fb9dde4c572f ""
-  "build/main.abs" 1784039292.19453 2467 2c7987af0d7680b5104b169e22730b56 "pdflatex"
-  "build/main.aux" 1784039292.48068 26192 e3e4401b2eb2eac5e94968894869ba80 "pdflatex"
-  "build/main.bbl" 1784039281.8906 32595 8b14a2cc850a9386f1bd7679492db21d "bibtex build/main"
-  "build/main.out" 1784039292.18094 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/main.abs" 1784040999.48569 2467 2c7987af0d7680b5104b169e22730b56 "pdflatex"
+  "build/main.aux" 1784040999.79568 26315 da6f5642740237f071048769901dad2f "pdflatex"
+  "build/main.bbl" 1784040998.97969 32595 8b14a2cc850a9386f1bd7679492db21d "bibtex build/main"
+  "build/main.out" 1784040999.47081 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "cas-common.sty" 1714814802 76688 c602be3da196cb506acc84d1fa26b134 ""
   "cas-dc.cls" 1714814956 4395 40b8ed97981966f9bde1c9d1561f114f ""
   "figures/faceted_forest_figure.pdf" 1783782151.92855 34791 5847f694db4a64c585c45df790cb8bdc ""
@@ -200,13 +200,13 @@
   "figures/performance_profile_normal_sequences_cache.pdf" 1783973226.96565 49675 e08b5c918e7199491746d72df6c40495 ""
   "figures/performance_profile_normal_sequences_store.pdf" 1783973179.2107 50422 c7181e8d31da6c10742deea4b978413d ""
   "figures/performance_profile_normal_sequences_unindexed.pdf" 1783973936.5775 28249 ac052fccf29dddbc5b9325f009d729cd ""
-  "figures/synth_hit_rate_reduced_combined.pdf" 1784033320.27144 70430 75ad5655ae3d60a2030dd2265dac14ed ""
-  "main.tex" 1784034118.71068 6766 67b988bc2ace4b2d80e351387c82c82e ""
+  "figures/synth_hit_rate_reduced_combined.pdf" 1784040826.41473 70503 b8cf3f36ebe94bd80974a58c2254737c ""
+  "main.tex" 1784040835.67252 6766 67b988bc2ace4b2d80e351387c82c82e ""
   "reviewing.tex" 1782894956.11961 980 d51272bd43b3bc8006ca62ad1404a4e2 ""
   "sections/benchmark.tex" 1784037485.06435 23089 b8e295c857e0d1d345f7aeb5c968548f ""
-  "sections/caching.tex" 1784019573.85294 5538 bf33ec66df5be8a9101d0442be401707 ""
+  "sections/caching.tex" 1784040860.82365 5538 bf33ec66df5be8a9101d0442be401707 ""
   "sections/conclusion.tex" 1783024986.5663 5702 43d16b6d4fe1fec6539f5eb3f3775dba ""
-  "sections/evaluation.tex" 1784039291.52611 32177 cec566412b20dc5f10b01c2a849b6f64 ""
+  "sections/evaluation.tex" 1784040997.50482 32695 8015a6a195e69731d98b60a84dca04e0 ""
   "sections/introduction.tex" 1784034505.60453 13725 f67ed92efa11d7e301570e492f811e4b ""
   "sections/related-work.tex" 1784038030.20972 9831 8236f310f184a93fe34645180da158df ""
   "thumbnails/cas-email.jpeg" 1584175240 8764 ae276cc9956197082d008c18ae4cbb28 ""
