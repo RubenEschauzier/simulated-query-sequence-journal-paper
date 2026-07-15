@@ -1,12 +1,21 @@
 \section{Evaluation}
 \label{sec:evaluation}
-\todo{Improve naming algorithms to new names we selected}
-\todo{Here outline also why we evaluate the benchmark this way, why this is a proxy for a useful benchmark
-and then repeat again: no emperical data.
-Also mention clearly how in this section we will evaluate caching, as it is a well-studied form of client-side and specific
-optimization strategy. This is not the only application field, merely an example application of the data.
-}
+\todo{Once figures are complete, rename the algorithms in the figures to accuractely reflect current names}
 
+As established in Section~\ref{sec:simulation-methodology},
+the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
+Instead, we validate the data access patterns and temporal locality of the generator using client-side caching as a proxy.
+Because caching relies on data locality, it serves to measure the impact of our simulation choices.
+
+We structure the evaluation in four parts.
+First, we establish a performance baseline for the generated workloads.
+Next, we isolate logical sessions to quantify how session switching affects data locality and cache performance.
+We then analyze how query refinement patterns influence cache performance, examining both refinement depth and specific execution chokepoints.
+Finally, we contrast our outcomes with traditional evaluation methods, such as microbenchmarks and random sequences,
+to demonstrate that they fail to capture these performance dynamics accurately.
+
+While we use caching to validate the benchmark, the generated workloads support the evaluation of other client-side optimization techniques.
+We selected caching as our primary proxy due to the extensive literature on its application and benchmarking in client-side environments.
 
 \subsection{Experiment Setup}
 We evaluate our benchmark using a scale 0.1 SolidBench dataset 
@@ -43,18 +52,6 @@ across all cache sizes, with larger caches yielding better results.
 For total execution time of queries, the large cache is significantly better than the smaller cache sizes, while for
 throughput the difference is less pronounced.
 
-\begin{figure*}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_unindexed.pdf}
-    \caption{Performance profiles of the LRU-based unindexed triples cache. 
-    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. 
-    Curves closer to the top-left indicate better overall performance. 
-    The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, 
-    while the rightward trajectory demonstrates robustness 
-    (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time).
-    From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}
-    \label{fig:unindexed-lru-cache-performance}
-\end{figure*}
 
 \paragraph{Indexed LRU Cache}
 As shown in Figure~\ref{fig:indexed-lru-cache-performance}, 
@@ -77,15 +74,20 @@ out-of-context data, which the reachability-aware estimator successfully filters
 
 \begin{figure*}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_cache.pdf}
-    \caption{Performance profiles of the LRU-based indexed cache family of algorithms. 
-    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}
-    \label{fig:indexed-lru-cache-performance}
+    \includegraphics[width=\linewidth]{figures/lru-based-cache.pdf}
+    \caption{Performance profiles of the LRU-based unindexed and indexed triples cache. 
+    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. 
+    Curves closer to the top-left indicate better overall performance. 
+    The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, 
+    while the rightward trajectory demonstrates robustness 
+    (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time).
+    From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}
+    \label{fig:unindexed-lru-cache-performance}
 \end{figure*}
 
 
 \paragraph{Memory-based Quad store Cache}
-As shown in Figure~\ref{fig:quad-store-cache-performance}, 
+As shown in Figure~\ref{fig:store-cache-performance}, 
 the memory-based quad store cache exhibits high performance variance depending on the estimation strategy.
 Without estimation (\textit{Indexed Store}), performance scales normally with capacity: 
 the large cache achieves the best performance, while the medium and small caches sit lower 
@@ -103,34 +105,18 @@ the quad store-based approach uses triple pattern queries over the entire quad s
 the graph term filled in to represent the current document.
 For reachability-aware estimation the performance hit is not as big, especially in the
 total execution time case.
-% \todo{Combine as follows: 
-% Indexed + Unindexed
-% in-memory store + disk-based store.
-% Same for random.
-% Also reduce space between the figures
-% Add fainter lines for the log ticks on x-axis
-% Add the algorithm evaluated in top bar 
-% (which is coloured in like: \url{https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.biorxiv.org%2Fcontent%2F10.64898%2F2026.05.25.727627v1.full-text&ved=0CBYQjRxqGAoTCIjOr6Cy0pUDFQAAAAAdAAAAABCFAQ&opi=89978449})
-% }
-\begin{figure*}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_store.pdf}
-    \caption{Performance profiles of the in-memory quad store cache family of algorithms. 
-    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}
-    \label{fig:quad-store-cache-performance}
-\end{figure*}
+
 
 \paragraph{Disk-based Quad store Cache}
 
-In Figure~\ref{fig:disk-store-cache-performance}, we see that the disk-based quad store cache performs....
+In Figure~\ref{fig:store-cache-performance}, we see that the disk-based quad store cache performs....
 \todo{PLACEHOLDER FIGURE}
 \begin{figure*}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/performance_profile_normal_sequences_store.pdf}
-    \caption{Performance profiles of the disk-based quad store cache family of algorithms. 
-    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.
-    \todo{PLACEHOLDER FIGURE}}
-    \label{fig:disk-store-cache-performance}
+    \includegraphics[width=.95\linewidth]{figures/store-based-cache.pdf}
+    \caption{Performance profiles of the in-memory and disk-based quad store caches families of algorithms. 
+    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}
+    \label{fig:store-cache-performance}
 \end{figure*}
 
 
@@ -144,7 +130,7 @@ using small caches and LRU-cache scales better for bigger caches.}
 
 
 \subsection{Logical Session \& Interest Modeling Cache Performance}
-
+\todo{Create Table with placeholder values}
 Present a table showing the effect of logical sessions on cache performance. 
 Include a metric for the delta number of unique data sources accessed 
 during session switches to quantify data locality. 
@@ -249,7 +235,8 @@ enabling custom stress tests for distinct caching architectures.
         For both discovered sources and execution time, 
         the plot uses signed log-counts and signed log-milliseconds, respectively. 
         Error bars represent $95\%$ confidence intervals 
-        and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray. 
+        and statistically insignificant estimates $(p \ge 0.05)$ are rendered in gray and
+        any chokepoints without any significant coefficients are omitted. 
         Undoing the traversal chokepoint changing the instantiation value of the query 
         significantly improves cache hit rate (+.35) 
         and reduces the number of unique data sources accessed. 
@@ -258,21 +245,49 @@ enabling custom stress tests for distinct caching architectures.
 \end{figure*}
 
 \subsubsection{Effect of Refinement Depth on Performance}
-\todo{Write introduction to experiment refinement depth, reuse parts of previous paper}
+
+Beyond the impact of specific chokepoints on cache performance and query characteristics, 
+we evaluate how caches perform as refinement depth increases. 
+This analysis reveals how our caching approaches handle longer sequences and whether data locality remains 
+high across multiple refinement steps. 
+Using the default benchmark configuration, we analyze average execution times and cache hit rates at varying refinement depths. 
+We define depth as the number of consecutive refinement patterns applied to a single base query.
+
+From Figure~\ref{fig:refinement_cache_efficiency}
+
+
+
+In Figure~\ref{}
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/combined_cache_efficiency_grid.pdf}
+    \caption{Cache hit ratio and eviction percentage across refinement depths (0 to 5). The grid separates configurations by cardinality estimation strategy (rows) and cache capacity (columns). Line plots denote the cache hit ratio, while the shaded background bars represent the percentage of cache capacity evicted during the sequence.}
+    \label{fig:refinement_cache_efficiency}
+\end{figure*}
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/temporal_throughput_combined_grid.pdf}
+    \caption{Geometric mean speedup of total execution time (solid lines) and query throughput (dashed lines) relative to the no-cache baseline. Results are faceted by cardinality estimation strategy (rows) and cache capacity (columns). The Reachability-Aware Estimation row utilizes a logarithmic y-axis to accommodate significant performance gains at higher refinement depths, whereas the other strategies cap linearly at $20\times$.}
+    \label{fig:refinement_temporal_throughput}
+\end{figure*}
+\todo{Write refinement depth section with figure}
 
 
 \subsection{Comparison to Alternative Evaluation Methods}
+\todo{Write intorduction paragraph}
 
 The final step in our evaluation is to compare the performance outcomes obtained from our benchmark
 against alternative evaluation methods from literature. \todo{Mention random / synthetic}
 
 
-Compare SolidSessionBench's performance outcomes against alternative 
-evaluation methods, specifically micro-benchmarks and random query sequences. 
-Highlight differing performance characteristics, identify the analytical 
-shortcomings of these alternative methods, explain how their resulting 
-conclusions mislead, and demonstrate how this sequence-based benchmark 
-resolves those issues.
+% Compare SolidSessionBench's performance outcomes against alternative 
+% evaluation methods, specifically micro-benchmarks and random query sequences. 
+% Highlight differing performance characteristics, identify the analytical 
+% shortcomings of these alternative methods, explain how their resulting 
+% conclusions mislead, and demonstrate how this sequence-based benchmark 
+% resolves those issues.
 
 \paragraph{Microbenchmarks-Theoretical Hit Rate Analysis}
 Cache literature extensively uses microbenchmarks of various forms
@@ -295,7 +310,7 @@ yielding initial results faster since only the first few requests are needed.
 
 In general, using an indexed cache (store-based or LRU) improves performance more than an unindexed cache,
 however, this also comes with higher cache management costs, which are not accounted for when using theoretical hit rates.
-\todo{See about disk-base caching}
+\todo{See about disk-base caching} \\
 \todo{Circle back to our general evaluation to see how the conclusions differ}
 
 \begin{figure*}[!h]
@@ -310,7 +325,8 @@ however, this also comes with higher cache management costs, which are not accou
 \end{figure*}
 
 \paragraph{Random Query Sequences}
-
+\todo{Make section about random query sequences}
+\todo{PLACEHOLDER DISK}
 
 
 \paragraph{Scope and Limitations}
@@ -549,11 +565,11 @@ and our results show this omission risks drawing inaccurate conclusions.
 %     \label{fig:global_cache_performance_random_sequences}
 % \end{figure*}
 
-\paragraph{Scope and Limitations}
-We evaluate SolidSessionBench against microbenchmarks and random sequences, 
-but explicitly exclude hand-crafted scenarios and simple distributions.
-Hand-crafted methods lack scalability, while simple distributions fail to capture complex user habits.
-By automating logical sessions and user interests, our benchmark functions as a scalable superset of both approaches,
-making direct comparison redundant. 
-By contrast, the compared methods do not incorporate these sequence attributes, 
-and our results show this omission risks drawing inaccurate conclusions.
+% \paragraph{Scope and Limitations}
+% We evaluate SolidSessionBench against microbenchmarks and random sequences, 
+% but explicitly exclude hand-crafted scenarios and simple distributions.
+% Hand-crafted methods lack scalability, while simple distributions fail to capture complex user habits.
+% By automating logical sessions and user interests, our benchmark functions as a scalable superset of both approaches,
+% making direct comparison redundant. 
+% By contrast, the compared methods do not incorporate these sequence attributes, 
+% and our results show this omission risks drawing inaccurate conclusions.

@@ -14,20 +14,48 @@ and handling scattered index access patterns that lack predictable locality~\cit
 In practice, a choke point-based benchmark design strategy first identifies critical execution challenges, 
 then designs queries or modifications that explicitly test them.
 
-SolidBench's workload combines standard SNB \textit{interactive} queries with custom \textit{discover} templates,
-which explicitly target these Link Traversal Query Processing (LTQP) choke points in decentralized environments.
+We evaluate our prioritization algorithms using SolidBench~\cite{taelman2023link},
+the state-of-the-art benchmark for structured decentralized environments.
+SolidBench simulates a social network containing users, posts, and comments,
+all described by a single ontology.
+To represent Solid pods, the benchmark fragments data so that all information
+related to a specific user resides in a single pod.
+Under default settings, SolidBench generates 158,233 RDF files across
+1,531 data vaults, totaling 3,556,159 triples.
 
-To support sequence-based evaluation, we extend three core components of the SolidBench ecosystem:
-\rt{We should make sure to properly explain SolidBench and its architecture (we can do that now, with the space limitations of a journal).}
+To simulate a highly distributed network, SolidBench partitions the Social
+Network Benchmark (SNB) dataset into individual data pods.
+Its sequential architecture executes in four modular steps:
+\begin{enumerate}
+    \item The LDBC Datagen generates the underlying dataset.
+    \item An enhancer creates additional data, such as noise triples that
+    do not participate in queries.
+    \item A dataset fragmenter partitions the triples into a Solid-like structure.
+    \item The SPARQL queries are instantiated.
+\end{enumerate}
 
+The workload combines standard SNB \textit{interactive} queries (\textit{short} and \textit{complex})
+with custom \textit{discover} templates that explicitly target
+Link Traversal Query Processing (LTQP) choke points.
+During execution, a client-side engine dynamically traverses links
+between these scattered pods to resolve the queries.
+
+To support sequence-based evaluation, we significantly extend and restructure three core SolidBench components:
 \begin{itemize}
-    \item \textbf{Query Generator:} We modify the generator to produce correlated query sequences that reflect empirical real-world usage patterns.
-    
-    \item \textbf{Dataset Generator:} We enhance the data generation process to model interest-based similarities between simulated users.
-    
-    \item \textbf{Benchmark Runner:} We integrate sequence execution logic into the existing runner to facilitate straightforward,
-     reproducible sequence-based experiments and allow easy generation of default configuration files.
+    \item \textbf{Query Generator:} Modified to produce correlated query sequences
+    that reflect empirical usage patterns.
+    \item \textbf{Dataset Generator:} Enhanced to model interest-based similarities
+    among simulated users.
+    \item \textbf{Benchmark Runner:} Updated with sequence execution logic to facilitate
+    reproducible experiments and simplify the generation of default configuration files.
 \end{itemize}
+
+Link traversal engines cannot currently solve \textit{complex} queries in a feasible timeframe,
+so we omit them from our default benchmark configuration.
+However, because the sequence generator is fully configurable,
+researchers can easily include complex query templates in future benchmarks
+as traversal engines improve.
+
 
 \subsection{Realism of Query Sequences}
 To ensure SolidSessionBench accurately reflects user behavior in decentralized environments, 

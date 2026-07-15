@@ -83,8 +83,8 @@
 \shorttitle{SolidSessionBench: Realistic Query Sequences}
 \shortauthors{Ruben Eschauzier and Ruben Taelman}
 
-\title[mode = title]{\todo{Change title to reflect intro changes}SolidSessionBench: Realistic Query Sequences for User-Oriented Decentralized Environments}                      
-
+\title[mode = title]{SolidSessionBench: Realistic Query Sequences for User-Oriented Decentralized Environments}                      
+\todo{Should I change the title? I feel like its such a small part of the paper that it doesn't require a mention of multi perspective or it might be deceptive}
 % \tnotetext[1]{This document is the results of the research
 %    project funded by the National Science Foundation.}
 
@@ -115,12 +115,13 @@
 \begin{abstract}
 % Context:      Why the need is so pressing or important
 Emerging decentralized architectures give users complete control over their own data, 
-scattering information across heterogeneous sources. 
-Without a central authority to enforce consistency, users freely publish overlapping and potentially conflicting claims, 
-generating a highly multi-perspective decentralized environment.
-\rt{The jump between these sentences feels a bit too large. You could for example add an additional sentence here to talk about why integrating such decentralized data is challenging, and that client-side query engines can solve this.}
-While client-side query engines can dynamically fetch and reconcile this information,
-optimizing execution remains challenging due to a lack of prior knowledge regarding data distribution. 
+spreading information across heterogeneous sources. 
+Without a central authority to enforce consistency, users freely publish overlapping and potentially conflicting claims,
+generating a multi-perspective decentralized environment. 
+Integrating this fragmented data is challenging because no single authoritative endpoint exists to aggregate results or resolve conflicts.
+Client-side query engines overcome this by shifting execution locally, 
+enabling users to dynamically fetch and reconcile information on the fly. 
+However, optimizing this execution remains challenging due to a lack of prior knowledge regarding data distribution. 
 By exploiting access patterns across repeated user query sequences, engines can overcome this knowledge gap.
 % Need:         Why something needed to be done at all
 However, accurately evaluating these personalized optimizations is difficult. 
@@ -141,12 +142,6 @@ of session switching and query refinement, that traditional workloads do not.
 % Conclusion: What the findings mean for the audience
 We conclude that modeling realistic user interactions provides an essential foundation 
 for accurately evaluating client-side optimization techniques in decentralized environments.
-
-\verb+Multi-perspective data+ \verb+Link Traversal-based Query Processing+ \verb++ \verb+\end{keyword}+ 
-which
-contain the abstract and keywords respectively. 
-
-\noindent Each keyword shall be separated by a \verb+\sep+ command.
 \end{abstract}
 
 \begin{highlights}
@@ -159,9 +154,8 @@ contain the abstract and keywords respectively.
     Multi-perspective data \sep
     Link Traversal-based Query Processing \sep
     Client-side caching \sep
-    Query sequence simulation \sep
+    Query sequence simulation
 \end{keywords}
-
 
 \maketitle
 
