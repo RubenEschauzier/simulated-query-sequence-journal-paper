@@ -122,9 +122,6 @@ that leverage local access patterns to build necessary prior knowledge.
 	\caption{When users interact with query engines, their queries intentions and thus relevant data to the query can overlap, leading to opportunities for personalized optimization.}
 	\label{fig:intro-overlap}
 \end{figure}
-\todo{Adjust figure to reflect fact that AI is no longer focus}
-\rt{In the figure, make sure to align the two tints of red.}
-\rt{I'd make it explicit somewhere that the different arrows indicate the traversal paths of different LTQP executions (each for one specific query).}
 
 Benchmarking these approaches requires realistic query sequences.
 Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}, LargeRDFBench~\cite{saleem2018largerdfbench})
@@ -153,11 +150,31 @@ SolidSessionBench lays the foundation for performant client-side querying.
 Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information
 and the application of consistency fixes across multi-dimensional knowledge graphs.
 
+In summary, this paper makes the following contributions:
+\begin{itemize}
+    \item We review empirical usage patterns in web and query-based systems
+    to establish a foundation for realistic sequence simulation.
+    
+    \item We propose a simulation methodology based on the literature review
+	 that models logical query sessions,
+    user interest-driven data locality, and dynamic query refinements
+    mapped to query engine choke points.
+    
+    \item We introduce SolidSessionBench, a fully configurable benchmark
+    integrating this methodology to evaluate client-side query optimization
+    under realistic conditions.
+    
+    \item We implement four baseline client-side caching strategies
+    for Link Traversal Query Processing (LTQP),
+    alongside two cache-based cardinality estimation techniques.
+    
+    \item We evaluate these strategies, demonstrating that realistic query sequences
+    reveal critical performance dynamics that traditional benchmarking approaches miss.
+\end{itemize}
+
 The remainder of this paper is structured as follows.
 Section~\ref{sec:related-work} reviews prior benchmarking approaches and real-world query usage patterns.
 Section~\ref{sec:simulation-methodology} outlines our simulation methodology and defines the resulting hyperparameters.
 Section~\ref{sec:client-side-caching} introduces the technical mechanics of client-side caching strategies in LTQP.
 Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
 Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
-
-\todo{Maybe insert section summarizing contributions.}\rt{Yes, that would be good!}

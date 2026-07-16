@@ -505,6 +505,16 @@ INPUT ./figures/synth_hit_rate_reduced_combined.pdf
 INPUT ./figures/synth_hit_rate_reduced_combined.pdf
 INPUT ./figures/synth_hit_rate_reduced_combined.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
+INPUT ./figures/lru-based-cache-random.pdf
+INPUT ./figures/lru-based-cache-random.pdf
+INPUT ./figures/lru-based-cache-random.pdf
+INPUT ./figures/lru-based-cache-random.pdf
+INPUT ./figures/lru-based-cache-random.pdf
+INPUT ./figures/store-based-cache-random.pdf
+INPUT ./figures/store-based-cache-random.pdf
+INPUT ./figures/store-based-cache-random.pdf
+INPUT ./figures/store-based-cache-random.pdf
+INPUT ./figures/store-based-cache-random.pdf
 INPUT ./sections/conclusion.tex
 INPUT ./sections/conclusion.tex
 INPUT sections/conclusion.tex
