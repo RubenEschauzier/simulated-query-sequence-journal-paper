@@ -4,7 +4,7 @@
 
 As established in Section~\ref{sec:simulation-methodology},
 the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
-Instead, we validate the data access patterns and temporal locality of the generator using client-side caching as a proxy.
+Instead, we validate the data access patterns and temporal locality of the generator using client-side caching as a proxy.\rt{I might misunderstand, but I don't really see the caching evaluation as a proxy for comparing generated sequences to existing query logs. They are just different kinds of evaluation, right?}
 Because caching relies on data locality, it serves to measure the impact of our simulation choices.
 
 We structure the evaluation in four parts.
@@ -18,8 +18,8 @@ While we use caching to validate the benchmark, the generated workloads support 
 We selected caching as our primary proxy due to the extensive literature on its application and benchmarking in client-side environments.
 
 \subsection{Experiment Setup}
-We evaluate our benchmark using a scale 0.1 SolidBench dataset 
-(158,233 RDF files, 1,531 vaults, 3,556,159 triples). 
+We evaluate our benchmark using the default scale of the SolidBench dataset 
+(scale 0.1, 158,233 RDF files, 1,531 vaults, 3,556,159 triples). 
 Using the default hyperparameters in Table~\ref{tab:generation_hyperparameters}, 
 we generate 8 sequences totaling 192 queries. 
 These queries are from the interactive workload, are split into discover and short queries,
@@ -155,7 +155,7 @@ Future work should investigate identifying and protecting a
 frequently accessed core of cache entries to mitigate
 session-switching penalties.
 Alternatively, query engines could identify logical sessions dynamically
-and maintain a separate cache for each.
+and maintain a separate cache for each.\rt{This is a very important finding! It intuitively makes sense, but very good to have the numbers now to confirm this!}
 
 \begin{table*}[htpb]
 \centering
@@ -282,7 +282,7 @@ enabling custom stress tests for distinct caching architectures.
 \begin{figure*}[htpb]
     \centering
     \includegraphics[width=\textwidth]{figures/faceted_forest_figure.pdf}
-    \caption{Marginal fixed effects of refinement pattern additions (\texttt{-a}) 
+    \caption{Marginal fixed effects of refinement pattern additions (\texttt{-a}) \rt{Could we call this +a? Might correspond more clearly to "additions". Or maybe even just "+" and "-" as suffix is sufficient?}
         and removals (\texttt{-r}) on query performance 
         across Small (S), Medium (M), and Large (L) cache capacities. 
         The plot reports the unstandardized absolute expected change ($\Delta Y$) 
@@ -320,12 +320,12 @@ logging internal cache misses when it probes links at the edge of the cached gra
 Consequently, its reported hit rate is artificially deflated by these planning-phase checks,
 suggesting the actual HTTP-request driven hit rate is likely comparable to the other approaches.
 
-Figure~\ref{fig:refinement_temporal_throughput} demonstrates that an increase in hit rate
+Figure~\ref{fig:refinement_temporal_throughput}\rt{Reference doesn't show up. I think the figure is missing the label.} demonstrates that an increase in hit rate
 does not reliably translate to faster execution or improved throughput.
 While caching generally improves these metrics, speedup variance is high across the sequence,
 dipping considerably at depth 3 and spiking dramatically at depth 5 (coinciding with the drop in hit rates).
 Most notably, the small and medium caches using reachability-aware cardinality estimation achieve massive performance gains at depth 5,
-reaching up to 100$\times$ speedups compared to the baseline.
+reaching up to 100$\times$ speedups compared to the baseline.\rt{This is also a very major finding!!! This could be proof that the killer use case for link traversal, is based on refinement-based query sequences.}
 Interestingly, this effect disappears for large caches.
 We attribute this to two factors:
 first, higher variance at larger depths, as fewer refinement sequences reach depth 5;
@@ -376,8 +376,8 @@ as using the full cache for estimation would skew the results for miss rates abo
 Figure~\ref{fig:theoretical_cache_performance} shows representative performance profiles for the workload. 
 Most templates (8 out of 12) show reliable improvement that scales with the hit rate for both algorithms. 
 However, certain long-running queries (e.g., interactive-discover-6, 7, and short-3) show no speedup, 
-and some even experience slowdowns. 
-These templates traverse many solid pods but do not require all traversed data. 
+and some even experience slowdowns\rt{Which ones?}. 
+These templates traverse many Solid pods but do not require all traversed data. 
 We hypothesize that rapidly serving documents from an in-memory cache overwhelms the system with data, 
 slowing result production. 
 Conversely, HTTP network latency gives the JavaScript event loop time to process the join execution pipeline, 
