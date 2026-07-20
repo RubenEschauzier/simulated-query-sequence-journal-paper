@@ -498,6 +498,7 @@ INPUT ./figures/combined_cache_efficiency_grid.pdf
 INPUT ./figures/combined_cache_efficiency_grid.pdf
 INPUT ./figures/combined_cache_efficiency_grid.pdf
 INPUT ./figures/combined_cache_efficiency_grid.pdf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT ./figures/temporal_throughput_combined_grid.pdf
 INPUT ./figures/temporal_throughput_combined_grid.pdf
 INPUT ./figures/temporal_throughput_combined_grid.pdf

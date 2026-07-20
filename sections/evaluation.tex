@@ -196,7 +196,6 @@ Grounding these patterns in empirical data~\cite{arenas2025exploring} already en
 Consequently, this evaluation strategy primarily evaluates how these emperically found user behaviors affect caching performance and data locality.
 
 \subsubsection{Effect of chokepoints on query sequences}
-\todo{Add appendix or supplemental material and refer to it}
 
 We isolate the structural impact of individual query chokepoints 
 through a controlled experiment comprising 80 single-query sequences. 
@@ -340,7 +339,10 @@ that isolated query evaluations would miss.
 \begin{figure*}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/combined_cache_efficiency_grid.pdf}
-    \caption{Cache hit ratio and eviction percentage across refinement depths (0 to 5). The grid separates configurations by cardinality estimation strategy (rows) and cache capacity (columns). Line plots denote the cache hit ratio, while the shaded background bars represent the percentage of cache capacity evicted during the sequence.}
+    \caption{Cache hit ratio and eviction percentage across refinement depths (0 to 5). 
+    The grid separates configurations by cardinality estimation strategy (rows) and cache capacity (columns).
+     Line plots denote the cache hit ratio, while the shaded background bars represent the percentage of cache capacity evicted during the sequence.
+     \todo{Disk-based cache!}}
     \label{fig:refinement_cache_efficiency}
 \end{figure*}
 
