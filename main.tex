@@ -30,6 +30,9 @@
 \usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{caption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{placeins}
 
 % Custom styling for JSON code blocks
 \definecolor{eclipseStrings}{RGB}{42,0,255}
@@ -83,8 +86,7 @@
 \shorttitle{SolidSessionBench: Realistic Query Sequences}
 \shortauthors{Ruben Eschauzier and Ruben Taelman}
 
-\title[mode = title]{SolidSessionBench: Realistic Query Sequences for User-Oriented Decentralized Environments}                      
-\todo{Should I change the title? I feel like its such a small part of the paper that it doesn't require a mention of multi perspective or it might be deceptive}
+\title[mode = title]{SolidSessionBench: Realistic Query Sequences for User-Oriented Decentralized Environments (Extended)}                      
 % \tnotetext[1]{This document is the results of the research
 %    project funded by the National Science Foundation.}
 
@@ -146,9 +148,10 @@ for accurately evaluating client-side optimization techniques in decentralized e
 \end{abstract}
 
 \begin{highlights}
-\item Research highlights item 1
-\item Research highlights item 2
-\item Research highlights item 3
+\item Introduces SolidSessionBench, a benchmark simulating realistic query sequences to evaluate client-side optimization in decentralized environments.
+\item Models empirical user interactions using logical query sessions, interest-driven data locality, and dynamic query refinements.
+\item Implements baseline client-side caching strategies and cache-based cardinality estimation for Link Traversal Query Processing (LTQP).
+\item Demonstrates that realistic sequence simulation reveals critical performance dynamics that traditional, non-sequence-based workloads miss.
 \end{highlights}
 
 \begin{keywords}
@@ -177,6 +180,7 @@ for accurately evaluating client-side optimization techniques in decentralized e
 % Loading bibliography database
 \bibliography{references/bib}
 
+\input{sections/appendix.tex}
 
 %\vskip3pt
 

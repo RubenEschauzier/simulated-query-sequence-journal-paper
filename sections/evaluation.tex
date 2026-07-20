@@ -1,6 +1,6 @@
 \section{Evaluation}
 \label{sec:evaluation}
-\todo{Once figures are complete, rename the algorithms in the figures to accuractely reflect current names}
+\todo{Once figures are complete, rename the algorithms in the figures to accuractely reflect current names and fix floats}
 
 As established in Section~\ref{sec:simulation-methodology},
 the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
@@ -40,7 +40,7 @@ sequences.
 % a detailed analysis of logical session and interest modeling, refinement patterns, 
 % and a comparison to alternative evaluation methods.
 
-\subsection{Holistic Evaluation of Benchmark Characteristics}
+\subsection{Evaluation on Full Query Workload}
 
 First, we present the overall performance characteristics of the tested caching algorithms on the default configuration
 of our introduced benchmark.
@@ -125,10 +125,6 @@ In Figure~\ref{fig:store-cache-performance}, we see that the disk-based quad sto
 for example how unindex cache mainly improves total execution time, how quad store seems best when
 using small caches and LRU-cache scales better for bigger caches.}
 
-\subsubsection{Cache Hitrates}
-\todo{Optional section with hitrates and eviction percentages per cache size and algorithm. Should we include this?}
-
-
 \subsection{Logical Session \& Interest Modeling Cache Performance}
 To evaluate the impact of logical sessions on caching performance,
 we analyze the cache hit rate deviation ($\Delta$) from the template baseline
@@ -157,7 +153,7 @@ session-switching penalties.
 Alternatively, query engines could identify logical sessions dynamically
 and maintain a separate cache for each.\rt{This is a very important finding! It intuitively makes sense, but very good to have the numbers now to confirm this!}
 
-\begin{table*}[htpb]
+\begin{table*}[h!]
 \centering
 \caption{
     Impact of logical session status on algorithm performance. 
@@ -282,8 +278,8 @@ enabling custom stress tests for distinct caching architectures.
 \begin{figure*}[htpb]
     \centering
     \includegraphics[width=\textwidth]{figures/faceted_forest_figure.pdf}
-    \caption{Marginal fixed effects of refinement pattern additions (\texttt{-a}) \rt{Could we call this +a? Might correspond more clearly to "additions". Or maybe even just "+" and "-" as suffix is sufficient?}
-        and removals (\texttt{-r}) on query performance 
+    \caption{Marginal fixed effects of refinement pattern additions (\texttt{+})
+        and removals (\texttt{-}) on query performance 
         across Small (S), Medium (M), and Large (L) cache capacities. 
         The plot reports the unstandardized absolute expected change ($\Delta Y$) 
         for Cache Hit Rate, Discovered Sources, and Execution Time. 
@@ -301,8 +297,8 @@ enabling custom stress tests for distinct caching architectures.
 
 \subsubsection{Effect of Refinement Depth on Performance}
 
-To demonstrate our benchmark's ability to model realistic refinements of a single query,
-we evaluate how caching strategies perform across increasing refinement depths.
+To demonstrate our benchmark's ability to uncover effects of exploratory query refinement at various depths,
+we evaluate how our caching strategies performance evolves as depth increases.
 We define depth as the number of consecutive refinement patterns applied to a base query.
 By analyzing average execution times and cache hit rates at varying depths using the default benchmark configuration,
 we reveal how caches handle highly correlated, sequential workloads.
@@ -320,19 +316,21 @@ logging internal cache misses when it probes links at the edge of the cached gra
 Consequently, its reported hit rate is artificially deflated by these planning-phase checks,
 suggesting the actual HTTP-request driven hit rate is likely comparable to the other approaches.
 
-Figure~\ref{fig:refinement_temporal_throughput}\rt{Reference doesn't show up. I think the figure is missing the label.} demonstrates that an increase in hit rate
+Figure~\ref{fig:refinement_temporal_throughput} demonstrates that an increase in hit rate
 does not reliably translate to faster execution or improved throughput.
 While caching generally improves these metrics, speedup variance is high across the sequence,
 dipping considerably at depth 3 and spiking dramatically at depth 5 (coinciding with the drop in hit rates).
 Most notably, the small and medium caches using reachability-aware cardinality estimation achieve massive performance gains at depth 5,
 reaching up to 100$\times$ speedups compared to the baseline.\rt{This is also a very major finding!!! This could be proof that the killer use case for link traversal, is based on refinement-based query sequences.}
 Interestingly, this effect disappears for large caches.
-We attribute this to two factors:
+We attribute this to three factors:
 first, higher variance at larger depths, as fewer refinement sequences reach depth 5;
 second, the inherent unpredictability of the cost model.
 Because smaller caches contain less data, they generate less accurate cardinality estimates.
 Counterintuitively, these inaccurate cardinality and cost estimates can occasionally cause the optimizer to discover a vastly superior
 join plan that drastically improves execution. 
+This ties in to the third factor: the queries with extreme throughput improvements use a LIMIT clause (interactive-discover-8), thus traversal can be terminated
+quickly if an efficient query plan is found and results are produced quickly.
 
 Ultimately, this analysis validates our benchmark design.
 By testing across refinement sequences, we expose that deeper user traversals present significant cache invalidation challenges,
@@ -350,11 +348,11 @@ that isolated query evaluations would miss.
     \centering
     \includegraphics[width=\linewidth]{figures/temporal_throughput_combined_grid.pdf}
     \caption{Geometric mean speedup of total execution time (solid lines) and query throughput (dashed lines) relative to the no-cache baseline. Results are faceted by cardinality estimation strategy (rows) and cache capacity (columns). The Reachability-Aware Estimation row utilizes a logarithmic y-axis to accommodate significant performance gains at higher refinement depths.}
+    \label{fig:refinement_temporal_throughput}
 \end{figure*}
 
 
 \subsection{Comparison to Alternative Evaluation Methods}
-\todo{Write intorduction paragraph}
 
 The final step in our evaluation compares the performance outcomes
 obtained from SolidSessionBench against alternative evaluation methods
@@ -376,26 +374,32 @@ as using the full cache for estimation would skew the results for miss rates abo
 Figure~\ref{fig:theoretical_cache_performance} shows representative performance profiles for the workload. 
 Most templates (8 out of 12) show reliable improvement that scales with the hit rate for both algorithms. 
 However, certain long-running queries (e.g., interactive-discover-6, 7, and short-3) show no speedup, 
-and some even experience slowdowns\rt{Which ones?}. 
+and some, such as interactive-short-3, even experience slowdowns. 
 These templates traverse many Solid pods but do not require all traversed data. 
 We hypothesize that rapidly serving documents from an in-memory cache overwhelms the system with data, 
 slowing result production. 
 Conversely, HTTP network latency gives the JavaScript event loop time to process the join execution pipeline, 
 yielding initial results faster since only the first few requests are needed.
+The disk-based cache is an outlier on discover-8, showing major slowdowns for time-to-first-result. 
+Raw data analysis reveals that the query's LIMIT clause causes inaccurate measurements. 
+Because the disk-based cache requires longer ingestion times, fewer documents are dereferenced before reaching the limit. 
+Subsequent queries therefore experience cache misses before the limit is met,
+making the measured speedups unrepresentative of a true 100\% cache hit rate.
 
-In general, using an indexed cache (store-based or LRU) improves performance more than an unindexed cache,
-however, this also comes with higher cache management costs, which are not accounted for when using theoretical hit rates.
-\todo{See about disk-base caching} \\
+Generally, an indexed cache (store-based or LRU) outperforms an unindexed cache. 
+However, this approach incurs higher cache management costs, which theoretical hit rates do not account for. 
+Although slightly slower than the in-memory quad store, the disk-based quad store cache remains competitive with the other approaches. 
+This demonstrates that disk-based caching is effective in memory-constrained environments.
+The full figures are \todo{Appendix!}...
 \todo{Circle back to our general evaluation to see how the conclusions differ}
 
 \begin{figure*}[!h]
     \centering
     % Ensure the filename matches your generated PDF
     \includegraphics[width=\textwidth]{figures/synth_hit_rate_reduced_combined.pdf}
-    \caption{ Performance of unindexed, LRU indexed, In-memory store, and Disk-based store caches 
+    \caption{ Performance of LRU-based unindexed, LRU-based indexed, In-memory store, and Disk-based store caches 
     across representative query templates. The y-axis shows the mean speedup relative 
-    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile
-    \todo{Placeholder disk figure}}
+    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile }
     \label{fig:theoretical_cache_performance}
 \end{figure*}
 
