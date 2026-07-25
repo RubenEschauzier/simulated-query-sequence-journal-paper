@@ -18,14 +18,13 @@ mitigates the high network latency inherent to LTQP.
 For our experiments, we use the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
 As a JavaScript-based engine, it relies on the event loop to asynchronously interleave HTTP requests during traversal and local query execution. 
 
-We use caching-based algorithms to validate SolidSessionBench query sequences and compare them against alternative benchmarking methods in the literature.
-Implementing these strategies establishes strong baselines for evaluating caching in traversal engines.
-This section introduces four cache implementations, each storing dereferenced triples differently.
-We also evaluate two cardinality estimation approaches that use cached triples to improve query planning and execution.
+Caching is a widely used optimization method for serving web content, making it a highly viable candidate for optimizing LTQP queries.
+This section introduces four cache implementations, each storing dereferenced triples differently. 
+We also evaluate two cardinality estimation approaches that use cached triples to improve query planning and execution. 
 Because these estimates require an indexed cache, we omit them for the unindexed baseline.
 
 \subsection{Cache Implementations}
-\begin{figure*}[b]
+\begin{figure*}[htbp]
     \centering
     \includegraphics[width=\linewidth]{figures/lru-based-cache.pdf}
     \caption{Performance profiles of the LRU-based unindexed and indexed triples cache. 

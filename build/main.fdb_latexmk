@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex build/main"] 1784985170.71194 "build/main.aux" "build/main.bbl" "build/main" 1784985174.43127 0
+["bibtex build/main"] 1784991859.80406 "build/main.aux" "build/main.bbl" "build/main" 1784991863.85245 0
   "./cas-model2-names.bst" 1714813730 31802 28b630660245c09f173aac55be552b29 ""
   "./references/bib.bib" 1784978215.68338 29636 9cfd2351970d220c250b1602f391420f ""
-  "build/main.aux" 1784985173.58541 32601 848cd9effc0abb09ddb556877a5950fc "pdflatex"
+  "build/main.aux" 1784991862.95624 32760 67087e0f4099240342ab6e97a3a99794 "pdflatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1784985170.98872 "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" "build/main.pdf" "main" 1784985174.43177 0
+["pdflatex"] 1784991860.12859 "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" "build/main.pdf" "main" 1784991863.85304 0
   "/etc/texmf/web2c/texmf.cnf" 1770288521.25536 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" 1784984874.3725 7144 3ed673ae90025c1fed968b903313b086 ""
+  "/home/ruben-eschauzier/papers/simulated-query-sequence-paper-journal-version/main.tex" 1784990896.11819 7499 61d57ecf123990138061129e2f493eac ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1388795362 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -192,10 +192,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1770288536.82692 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1770288579 8215030 67d84bed42aee6fbdcb2fb9dde4c572f ""
-  "build/main.abs" 1784985172.58905 2317 ee8ec4a3b2b8c8147a8ae6f1d7d9e5b9 "pdflatex"
-  "build/main.aux" 1784985173.58541 32601 848cd9effc0abb09ddb556877a5950fc "pdflatex"
-  "build/main.bbl" 1784985170.97498 30906 7113d7cc96eca0104cbb89392a5037b7 "bibtex build/main"
-  "build/main.out" 1784985172.54711 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/main.abs" 1784991861.8582 2317 ee8ec4a3b2b8c8147a8ae6f1d7d9e5b9 "pdflatex"
+  "build/main.aux" 1784991862.95624 32760 67087e0f4099240342ab6e97a3a99794 "pdflatex"
+  "build/main.bbl" 1784991860.1099 30906 7113d7cc96eca0104cbb89392a5037b7 "bibtex build/main"
+  "build/main.out" 1784991861.8162 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "cas-common.sty" 1714814802 76688 c602be3da196cb506acc84d1fa26b134 ""
   "cas-dc.cls" 1714814956 4395 40b8ed97981966f9bde1c9d1561f114f ""
   "figures/combined_cache_efficiency_grid.pdf" 1784978215.67114 36754 0714bf65f0a031c7a80c46958ad7dc14 ""
@@ -211,15 +211,15 @@
   "figures/synth_hit_rate_reduced_lru_indexed_cache.pdf" 1784978215.68026 69513 52989724055b0e94cffb7459e4636fe1 ""
   "figures/synth_hit_rate_reduced_lru_unindexed_cache.pdf" 1784978215.68117 69270 128e612c236ab82a4900973d61aa68dc ""
   "figures/temporal_throughput_combined_grid.pdf" 1784978215.68209 41476 8400dde6f3ad0c25d733155eac7d7404 ""
-  "main.tex" 1784984874.3725 7144 3ed673ae90025c1fed968b903313b086 ""
+  "main.tex" 1784990896.11819 7499 61d57ecf123990138061129e2f493eac ""
   "reviewing.tex" 1782894956.11961 980 d51272bd43b3bc8006ca62ad1404a4e2 ""
-  "sections/appendix.tex" 1784978215.68362 7606 24dcb4f4785626e41e810deb8b6e5d5f ""
-  "sections/benchmark.tex" 1784197372.4995 24328 ea750373b24322c033aacf3d682f96d2 ""
-  "sections/caching.tex" 1784984677.02029 6076 4d0d206acc1e16c2501cad06344b87bd ""
-  "sections/conclusion.tex" 1784982350.81071 6416 4f5cbf651a3f0c7cd723cc1b5b45db70 ""
-  "sections/evaluation.tex" 1784985167.69664 45371 5e386ac135dca1659383b1107f88daf6 ""
+  "sections/appendix.tex" 1784985477.88885 7614 13832620cc5e43eadd5d89d99dbc596f ""
+  "sections/benchmark.tex" 1784991053.42977 24322 ba8f6e6fcc782910b1cec1d81abc85e5 ""
+  "sections/caching.tex" 1784991459.09881 5957 8a7482ec6338abd45cf92bfbda6ba3a6 ""
+  "sections/conclusion.tex" 1784991855.7322 6639 438392d48038b282eb5b553640b5c504 ""
+  "sections/evaluation.tex" 1784991683.80272 30670 2ce46d96a37da6f801baa176cff076e8 ""
   "sections/introduction.tex" 1784979409.95871 13383 591f7f749274eb970b03098cc7f9d976 ""
-  "sections/related-work.tex" 1784979328.98553 9838 bcf6fc35fd016d19fd388386d025ad6a ""
+  "sections/related-work.tex" 1784985572.47732 9838 bcf6fc35fd016d19fd388386d025ad6a ""
   "thumbnails/cas-email.jpeg" 1584175240 8764 ae276cc9956197082d008c18ae4cbb28 ""
   "thumbnails/cas-url.jpeg" 1584175240 7736 ef75ae5d7195a5176d102b6aea09b729 ""
   (generated)

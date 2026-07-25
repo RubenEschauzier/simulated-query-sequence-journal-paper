@@ -81,12 +81,21 @@
 
 \begin{document}
 \let\WriteBookmarks\relax
-\def\floatpagepagefraction{1}
-\def\textpagefraction{.001}
-\shorttitle{SolidSessionBench: Realistic Query Sequences}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.6}
+\renewcommand{\dblfloatpagefraction}{0.6}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{6}
+\setcounter{dbltopnumber}{3}
+
+\shorttitle{Caching for Link Traversal}
 \shortauthors{Ruben Eschauzier and Ruben Taelman}
 
-\title[mode = title]{SolidSessionBench: Realistic Query Sequences for User-Oriented Decentralized Environments (Extended)}                      
+\title[mode = title]{Client-Side Caching for Link Traversal Query Processing in Decentralized Environments}                      
 % \tnotetext[1]{This document is the results of the research
 %    project funded by the National Science Foundation.}
 
@@ -96,8 +105,7 @@
 \cormark[1]
 \ead{ruben.eschauzier@gmail.com}
 
-\credit{TODO:}
-
+\credit{Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Writing -- Original Draft, Visualization}
 %\address[1]{, Street 129, 1043 NX Amsterdam, The Netherlands}
 \affiliation[1]{organization={Department of Electronics and Information Systems, Ghent University – imec},
                 addressline={Universiteitstraat 4}, 
@@ -112,7 +120,7 @@
 \ead[url]{www.rubensworks.net}
 
 
-\credit{TODO:}
+\credit{Conceptualization, Resources, Writing -- Review \& Editing, Supervision, Funding acquisition}
 
 \begin{abstract}
 % Context:      Why the need is so pressing or important
@@ -145,10 +153,10 @@ and that modeling realistic user interactions is essential for accurately evalua
 \end{abstract}
 
 \begin{highlights}
-\item Introduces SolidSessionBench, a benchmark simulating realistic query sequences to evaluate client-side optimization in decentralized environments.
-\item Models empirical user interactions using logical query sessions, interest-driven data locality, and dynamic query refinements.
-\item Implements baseline client-side caching strategies and cache-based cardinality estimation for Link Traversal Query Processing (LTQP).
-\item Demonstrates that realistic sequence simulation reveals critical performance dynamics that traditional, non-sequence-based workloads miss.
+\item Evaluates four client-side caching strategies and two cardinality estimation techniques for LTQP.
+\item Uncovers critical performance bottlenecks caused by session switching and exploratory query refinements.
+\item Demonstrates over $100\times$ speedups by leveraging cached triple structures for online cardinality estimation.
+\item Proves that traditional, non-sequence-based workloads yield misleadingly pessimistic caching evaluations.
 \end{highlights}
 
 \begin{keywords}
@@ -168,6 +176,7 @@ and that modeling realistic user interactions is essential for accurately evalua
 \input{sections/evaluation.tex}
 \input{sections/conclusion.tex}
 
+\FloatBarrier
 \printcredits
 
 %% Loading bibliography style file
@@ -177,9 +186,9 @@ and that modeling realistic user interactions is essential for accurately evalua
 % Loading bibliography database
 \bibliography{references/bib}
 
+\FloatBarrier
 \input{sections/appendix.tex}
 
 %\vskip3pt
 
 \end{document}
-
