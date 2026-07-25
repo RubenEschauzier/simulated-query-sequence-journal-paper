@@ -25,6 +25,19 @@ We also evaluate two cardinality estimation approaches that use cached triples t
 Because these estimates require an indexed cache, we omit them for the unindexed baseline.
 
 \subsection{Cache Implementations}
+\begin{figure*}[b]
+    \centering
+    \includegraphics[width=\linewidth]{figures/lru-based-cache.pdf}
+    \caption{Performance profiles of the LRU-based unindexed and indexed triples cache. 
+    The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm. 
+    Curves closer to the top-left indicate better overall performance. 
+    The y-intercept ($x=1$) shows how often an algorithm is the outright fastest, 
+    while the rightward trajectory demonstrates robustness 
+    (e.g., $x=2, y=80\%$ means 80\% of queries execute within twice the fastest time).
+    From the figure, we observe that all caching-based approaches outperform the no-cache baseline.}
+    \label{fig:lru-cache-performance}
+\end{figure*}
+
 \paragraph{Unindexed LRU Cache}
 This baseline caches raw triple arrays alongside source metadata.
 On a cache hit, the engine retrieves and indexes these triples into the active local store.
