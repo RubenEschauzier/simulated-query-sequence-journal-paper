@@ -6,7 +6,29 @@ it captures client-side performance characteristics that traditional evaluation 
 While using Solid as the primary use case, the underlying concepts apply to approaches such as Linked Web Storage (LWS),
 and we will provide an LWS-specific representation once the W3C Working Group finalizes the specifications.
 
-To ensure longevity, SolidSessionBench has been integrated into the core SolidBench ecosystem,
+Our evaluation demonstrates that traditional benchmarking methods, such as microbenchmarks and random query sequences, produce misleading estimates of real-world caching performance. 
+\todo{Check if true}
+By applying SolidSessionBench to caching in LTQP, we uncovered three critical insights. 
+First, logical session switching severely degrades cache hit rates, proving that optimal cache sizing and eviction policies must account for session dynamics. 
+Second, deep exploratory query refinement introduces significant cache invalidation challenges. 
+However, it also exposes unexploited optimization opportunities, such as the 100$\times$ speedups triggered by cost-model unpredictability and cache dynamics when using disk-based caching or combining small caches with cardinality estimation.
+Third, cache-based triple pattern cardinality estimation effectively optimizes link traversal queries, as previous executions provide the prior knowledge traditionally absent in LTQP.
+
+This paper provides a clear path forward for optimizing LTQP in decentralized environments. 
+Historically, the absence of prior knowledge hindered LTQP query optimization, leading to inefficient execution plans. 
+Furthermore, network latency from numerous HTTP requests imposes a strict lower bound on execution times. 
+Well-designed caching algorithms can address both bottlenecks simultaneously, offering a promising direction for future optimization literature.
+
+To realize this potential and support realistic user behavior, client-side query engines must move beyond static, session-agnostic caching. 
+Future research should prioritize session-aware caching mechanisms that dynamically identify and protect cross-session core entries. 
+Additionally, developing intelligent cache warmup strategies and hierarchical architectures, such as combining small 
+in-memory quad stores with large disk-based caches, can mitigate the performance penalties of session switching. 
+Next, reverse-engineering the extreme speedup anomalies caused by inaccurate cardinality estimates could unlock
+highly optimized execution plans tailored specifically for link traversal. 
+Finally, future work should explore alternative cache-based cardinality estimation methods,
+particularly for evaluating join cardinalities.
+
+To ensure longevity and reuse, SolidSessionBench has been integrated into the core SolidBench ecosystem,
 inheriting its established track record of community support and maintenance.
 We formalize this in our sustainability plan \url{https://github.com/SolidBench/SolidBench.js/wiki/Sustainability-Plan}.
 Due to the \\ seamless integration into SolidBench, its status as the standard community resource 
@@ -17,62 +39,3 @@ The framework is modular, MIT-licensed, and fully documented, with links to all 
 and experiment setups available at this paper-specific hub: \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}\rt{Could you move all repos you created for this paper that are now under your personal namespace, to the KNoWS GitHub organization?}.  
 This \\ extension-friendly approach to development allows researchers to easily modify or extend specific components to meet future requirements
 without disrupting the broader evaluation pipeline.
-
-\rt{I suspect the conclusion is not ready yet, but do make sure to recap the most significant findings (e.g. the ones I commented on). And translate this to high-level perspectives, and what this means for the future of decentralization as a whole querying, and what future research is needed now (e.g. session-based caches, intelligent cache warmups (possibly related to your NLNet proposal), ...).}
-
-% This seamless extension of the standard community resource facilitates adoption among researchers evaluating client-specific optimizations.
-
-
-
-% In this work, we introduced SolidSessionBench, an evidence-based benchmark that generates realistic query sequences for decentralized environments.
-% By explicitly modeling logical sessions, user interests, and iterative query refinement, our benchmark captures critical client-side performance dynamics that traditional, 
-% isolated query workloads obscure.
-% Our evaluation of caching strategies confirms that integrating these empirical sequence behaviors is essential to accurately assess client-side optimizations.
-
-% While this benchmark uses Solid as its primary use case, the underlying concepts are general and apply directly to Linked Web Storage (LWS).
-% When the W3C LWS Working Group standardizes the LWS specs, we will provide a LWS-representation of this benchmark as well.
-
-% To ensure long-term maintenance, we have integrated SolidSessionBench into the SolidBench.js repositories.
-% This integration allows our benchmark to inherit SolidBench's multi-year track record of reliable upkeep and community support.
-% \todo{we formalize this in our maintenance plan \url{http://todo.com}....maintenance plan?}
-% Although this resource is newly introduced, it is a seamless extension of SolidBench, 
-% which is the standard community resource for evaluating decentralized query execution. 
-% Consequently, SolidBench's established user base serves as a highly reliable proxy for the future adoption of this dataset
-% when trying to evaluate any client-specific optimization approaches.
-% To further facilitate the adoption of this resource, we've extensively documented the code. 
-% We refer to \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}, which serves as a hub pointing towards the required
-% links to inspect the documentation, source code, data, and experiment setups.
-% Finally, under a permissive MIT license, the framework's modular,
-% multi-repository architecture allows researchers to modify specific components without disrupting the broader evaluation pipeline.
-
-
-% To guarantee long-term maintance of the benchmark, we are actively integrating SolidSessionBench into the core SolidBench repository via open pull requests.
-% By tying this benchmark to the established SolidBench ecosystem, we use its multi-year track record of reliable maintenance and community support. 
-% All source code, data, and associated experiment setups are publicly available at \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}.
-
-% \todo{Depending on status of PRs either mention its already integrated or still WIP (Can do this through the url)}
-
-% \rt{Some things to incorporate based on the resource review criteria:
-
-% % Is the resource easy to (re)use? For example, does it have high-quality documentation? 
-% % Are there tutorials available? --> Are there docs? Make sure to have clear READMEs, and link to them explicitly.
-
-% % Is there potential for extensibility to meet future requirements? 
-% % --> You can probably spend a few words on this as well.
-
-% Is there a sustainability plan specified for the resource? 
-% Is there a plan for the medium and long-term maintenance of the resource? 
-% --> You briefly mention this in the conclusion, but I think it would be stronger if we add an explicit sustainability plan for SolidBench
-% (e.g. in its wiki, similar to how we do it for Comunica), and link to it from the paper.
-
-% }
-
-% \section{Declaration of Generative AI Use}
-% In this work, we used Gemini to:
-% \begin{itemize}
-%     \item Generate self-contained code snippets, which we validated through manual and automated testing.
-%     \item Generate code to produce figures.
-%     \item Identify and resolve bugs.
-%     \item Rewrite and condense paragraphs to improve clarity.
-% \end{itemize}
-% The authors reviewed all AI-generated content and take full responsibility for the final manuscript and codebase.

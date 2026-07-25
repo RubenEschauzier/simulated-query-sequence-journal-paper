@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{68}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -95,6 +95,11 @@
 \bibitem[{Erling et~al.(2015)Erling, Averbuch, Larriba-Pey, Chafi, Gubichev, Prat, Pham and Boncz}]{erling2015ldbc}
 \bibinfo{author}{Erling, O.}, \bibinfo{author}{Averbuch, A.}, \bibinfo{author}{Larriba-Pey, J.}, \bibinfo{author}{Chafi, H.}, \bibinfo{author}{Gubichev, A.}, \bibinfo{author}{Prat, A.}, \bibinfo{author}{Pham, M.D.}, \bibinfo{author}{Boncz, P.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{The ldbc social network benchmark: Interactive workload}, in: \bibinfo{booktitle}{Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data}, pp. \bibinfo{pages}{619--630}.
+%Type = Unpublished
+\bibitem[{Eschauzier and Taelman(2026)}]{eschauzier2026solidsessionbench}
+\bibinfo{author}{Eschauzier, R.}, \bibinfo{author}{Taelman, R.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{{SolidSessionBench}: Realistic query sequences for user-oriented decentralized environments}.
+\newblock \bibinfo{note}{Conditionally accepted to ISWC 2026. Camera-ready preprint available at \url{https://rubeneschauzier.github.io/simulated-query-sequence-paper/build/main.pdf}}.
 %Type = Inproceedings
 \bibitem[{Eschauzier et~al.(2025)Eschauzier, Taelman and Verborgh}]{eschauzier2025revisiting}
 \bibinfo{author}{Eschauzier, R.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Verborgh, R.}, \bibinfo{year}{2025}.

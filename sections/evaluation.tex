@@ -109,8 +109,15 @@ total execution time case.
 
 \paragraph{Disk-based Quad store Cache}
 
-In Figure~\ref{fig:store-cache-performance}, we see that the disk-based quad store cache performs....
-\todo{PLACEHOLDER FIGURE}
+In Figure~\ref{fig:store-cache-performance}, we see that the disk-based quad store cache with size equal
+to large in-memory cache performs better than the baseline, however it under-performs or equals the small cache
+in most scenarios. 
+Interestingly, disk-based estimation does not display the same performance hit compared to an in-memory cache of equal size, 
+suggesting that the disk-based store implementation does not suffer the same scaling penalty.
+This indicates that the lack of large cache performance in the quad store case is a 
+result of implementation inefficiency rather than algorithmic limitations.
+Generally, in memory constrained environments using disk-based cache will provide a performance benefit. 
+However, it is much less pronounced than in-memory caching.
 \begin{figure*}[htbp]
     \centering
     \includegraphics[width=.95\linewidth]{figures/store-based-cache.pdf}
@@ -121,9 +128,16 @@ In Figure~\ref{fig:store-cache-performance}, we see that the disk-based quad sto
 
 
 \paragraph{Comparison Between Caching Algorithms}
-\todo{Small section comparing the different caching algorithms and their performance characteristics.
-for example how unindex cache mainly improves total execution time, how quad store seems best when
-using small caches and LRU-cache scales better for bigger caches.}
+
+Comparing the four caching strategies reveals distinct operational trade-offs based on capacity and estimation requirements. 
+The unindexed LRU cache provides the most consistent baseline improvement, scaling predictably with capacity to reduce total execution time. 
+However, integrating cardinality estimation solves more queries while maintaining these speedup advantages.
+
+Between the indexed approaches, the LRU cache scales better at larger capacities, whereas the in-memory quad store excels with smaller caches. 
+Finally, the disk-based cache improves upon the baseline but is predictably outperformed by in-memory alternatives.
+
+These findings highlight the potential of a tiered architecture: combining a small in-memory quad store with a large disk-based cache. 
+Implementing this effectively requires a scan-resistant design that minimizes evictions and data movement between tiers.
 
 \subsection{Logical Session \& Interest Modeling Cache Performance}
 To evaluate the impact of logical sessions on caching performance,
@@ -151,7 +165,9 @@ Future work should investigate identifying and protecting a
 frequently accessed core of cache entries to mitigate
 session-switching penalties.
 Alternatively, query engines could identify logical sessions dynamically
-and maintain a separate cache for each.\rt{This is a very important finding! It intuitively makes sense, but very good to have the numbers now to confirm this!}
+and maintain a separate cache for each.
+This ties in to the findings supporting the development of a hierarchical caching architecture, which
+requires strong cache resistance and supports caching previously identified logical sessions on-disk.
 
 \begin{table*}[h!]
 \centering
@@ -181,9 +197,7 @@ store-l            & -0.193 & -29.819 & -0.017 &  -2.644 &  0.019 &  3.060 \\
 store-m            & -0.137 & -28.394 & -0.020 &  -4.103 &  0.018 &  3.810 \\
 store-s            & -0.108 & -29.691 & -0.056 & -15.100 &  0.035 &  9.697 \\
 \cmidrule(lr){1-7}
-disk-l             &  --    &   --    &  --    &   --    &  --    &  --    \\
-disk-m             &  --    &   --    &  --    &   --    &  --    &  --    \\
-disk-s             &  --    &   --    &  --    &   --    &  --    &  --    \\
+disk-l             & -0.070 & -12.966 & -0.044 & -8.028  & 0.028   & 5.052 \\
 \bottomrule
 \end{tabular*}
 \end{table*}
@@ -315,41 +329,45 @@ logging internal cache misses when it probes links at the edge of the cached gra
 Consequently, its reported hit rate is artificially deflated by these planning-phase checks,
 suggesting the actual HTTP-request driven hit rate is likely comparable to the other approaches.
 
-Figure~\ref{fig:refinement_temporal_throughput} demonstrates that an increase in hit rate
-does not reliably translate to faster execution or improved throughput.
-While caching generally improves these metrics, speedup variance is high across the sequence,
-dipping considerably at depth 3 and spiking dramatically at depth 5 (coinciding with the drop in hit rates).
-Most notably, the small and medium caches using reachability-aware cardinality estimation achieve massive performance gains at depth 5,
-reaching up to 100$\times$ speedups compared to the baseline.\rt{This is also a very major finding!!! This could be proof that the killer use case for link traversal, is based on refinement-based query sequences.}
-Interestingly, this effect disappears for large caches.
-We attribute this to three factors:
-first, higher variance at larger depths, as fewer refinement sequences reach depth 5;
-second, the inherent unpredictability of the cost model.
-Because smaller caches contain less data, they generate less accurate cardinality estimates.
-Counterintuitively, these inaccurate cardinality and cost estimates can occasionally cause the optimizer to discover a vastly superior
-join plan that drastically improves execution. 
-This ties in to the third factor: the queries with extreme throughput improvements use a LIMIT clause (interactive-discover-8), thus traversal can be terminated
-quickly if an efficient query plan is found and results are produced quickly.
+Figure~\ref{fig:refinement_temporal_throughput} demonstrates that an increased hit rate does not reliably translate 
+to faster execution or higher throughput. 
+While caching generally improves these metrics, speedup variance remains high across the sequence. 
+Performance drops considerably at depth 3 and spikes at depth 5, which coincides with lower hit rates.
+Notably, disk-based caches and small or medium caches using reachability-aware cardinality estimation 
+achieve massive performance gains at depth 5, yielding up to a 100$\times$ speedup over the baseline.
+Interestingly, this effect disappears for large, non-disk caches.
+
+We attribute this anomaly to three factors. 
+First, variance increases at larger depths because fewer refinement sequences reach depth 5. 
+Second, the cost model is unpredictable. Smaller caches hold less data, which degrades the accuracy of their cardinality estimates.
+Counterintuitively, these poor estimates occasionally cause the optimizer to select a vastly superior join plan. 
+Third, the queries exhibiting extreme throughput improvements contain a LIMIT clause (e.g., interactive-discover-8). 
+This allows traversal to terminate early once the efficient plan produces the required results.
+
+However, these factors do not fully explain the performance spike for the disk-based quad store. 
+Given the potential for massive speedups, future work must isolate the root cause of this behavior 
+and determine if it can be systematically applied to other areas of query execution.
 
 Ultimately, this analysis validates our benchmark design.
 By testing across refinement sequences, we expose that deeper user traversals present significant cache invalidation challenges,
 and that cardinality estimation variance plays a profound---and sometimes highly unpredictable---role in query performance
 that isolated query evaluations would miss.
-\todo{Include disk-based caching!}
+\todo{Rewrite this part to be more benchmark focussed!}
 \begin{figure*}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/combined_cache_efficiency_grid.pdf}
     \caption{Cache hit ratio and eviction percentage across refinement depths (0 to 5). 
     The grid separates configurations by cardinality estimation strategy (rows) and cache capacity (columns).
-     Line plots denote the cache hit ratio, while the shaded background bars represent the percentage of cache capacity evicted during the sequence.
-     \todo{Disk-based cache!}}
+     Line plots denote the cache hit ratio, while the shaded background bars represent the percentage of cache capacity evicted during the sequence.}
     \label{fig:refinement_cache_efficiency}
 \end{figure*}
 
 \begin{figure*}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/temporal_throughput_combined_grid.pdf}
-    \caption{Geometric mean speedup of total execution time (solid lines) and query throughput (dashed lines) relative to the no-cache baseline. Results are faceted by cardinality estimation strategy (rows) and cache capacity (columns). The Reachability-Aware Estimation row utilizes a logarithmic y-axis to accommodate significant performance gains at higher refinement depths.}
+    \caption{Geometric mean speedup of total execution time (solid lines) and query throughput (dashed lines) relative to the no-cache baseline.
+     Results are faceted by cardinality estimation strategy (rows) and cache capacity (columns). 
+     The Reachability-Aware Estimation row and Large cache column utilize a logarithmic y-axis to accommodate significant performance gains at higher refinement depths.}
     \label{fig:refinement_temporal_throughput}
 \end{figure*}
 

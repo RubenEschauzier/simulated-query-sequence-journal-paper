@@ -41,9 +41,7 @@ The quad graph stores the source of the triples, allowing cache hits to retrieve
 
 \paragraph{Disk-based Quad Store Cache}
 This approach stores the quad store on disk, providing the same advantages while supporting datasets larger than main memory.
-We add a small in-memory cache for a `hot' subset of frequently accessed triples.
-To make this memory cache scan-resistant, documents are only added if accessed multiple times.
-This prevents long-running queries from evicting the entire cache.
+The quad store also supports count queries, however these count queries are not exact and instead provide count estimations.
 
 \subsection{Cardinality Estimation Approaches}
 
@@ -69,8 +67,7 @@ If the seed document is missing from the cache, we fall back to the Reachability
 \subsection{Experimental Configurations}
 For our experiments we evaluate three cache capacities: small (350k triples, $\sim$10\% of the dataset), 
 medium (700k, $\sim$20\%), and large (1.4M, $\sim$40\%). 
-While the disk-based cache stores 1.4M triples on disk, 
-and a a small in-memory cache of 25k, 50k, and 100k triples for the small, medium, and large configurations respectively.
+While the disk-based cache has a single size which stores 1.4M triples on disk.
 % All cache implementations use the LRU eviction policy.
 
 Our implementations adhere to the RFC-9111 specification~\cite{fielding2022rfc}, 

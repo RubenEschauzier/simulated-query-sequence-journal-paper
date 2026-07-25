@@ -1,5 +1,5 @@
 \section{Introduction}
-
+\todo{Adjust to be more benchmarky}
 Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data.
 Structured decentralized ecosystems, such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges},
 encourage users to keep their data in small, independent stores following shared data models.
@@ -11,69 +11,6 @@ or potentially conflicting claims.
 Query engines must therefore dynamically fetch and integrate this information at runtime~\cite{taelman_sigweb_queryengineshypermedia_2024}, 
 not only to discover conflicting statements and multiple perspectives, 
 but to reconcile these claims to provide a coherent answer to the user or agent.
-
-% Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data. 
-% Structured decentralized ecosystems, such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges}, 
-% encourage users to keep their data in small, independent stores that follow shared data models. 
-% While this approach strengthens user autonomy, the absence of a central data authority naturally creates a multi-perspective environment.
-% Data spreads across heterogeneous sources that frequently contain overlapping, diverse, or conflicting claims. 
-% Query engines must therefore be able to dynamically query this information, 
-% to discover conflicting statements and multiple perspectives, and to reconcile these claims to provide a coherent answer to the user.
-% This is a notoriously difficult task when engines must navigate thousands of sources, each enforcing local access policies.
-
-% Emerging automated systems increasingly rely on knowledge graphs to ground the reasoning and decision-making of LLM-based AI agents.
-% Language models are progressively utilized to interact with~\cite{zahera2024generating} 
-% and build~\cite{lippolis2025large, benhocine2022towards} these knowledge bases.
-% During execution, these systems issue queries over the knowledge graph to extract relevant facts 
-% for task performance or question answering~\cite{walter2025grasp, karki2026agentic}. 
-% Similarly, human-in-the-loop engineering pipelines rely on LLMs for curation and maintenance tasks, 
-% which in turn necessitates iterative graph querying to inspect existing data structures.
-
-% While these systems typically operate on centralized knowledge bases (such as knowledge graphs),
-% emerging web architectures prioritize decentralization to give users control over their data.
-% This shift is also seen in LLM-based systems that use knowledge graphs for factual grounding.
-% For example, deploying Solid~\cite{sambra2016solid} as a decentralized knowledge graph 
-% allows individuals to retain autonomy over their personal data and dictate exactly which information feeds 
-% the agent's underlying model~\cite{bernerslee2017charlie}. 
-
-% Structured decentralized ecosystems such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges}
-% partition global Knowledge Graphs into small, independent sub-graphs managed by individuals. 
-% This approach strengthens user autonomy but complicates data consumption; 
-% (LLM-based) automated systems must identify and query many heterogeneous data sources on the fly, each enforcing distinct access policies.  
-
-% Emerging automated systems increasingly rely on knowledge graphs to ground the reasoning and decision-making
-% of an LLM-based AI agent. 
-% In general, LLM-based systems are increasingly used to interact~\cite{zahera2024generating} 
-% and build~\cite{lippolis2025large, benhocine2022towards} knowledge graphs.
-% These LLM-based systems execute queries over the knowledge graph to obtain 
-% relevant information to answer user questions or perform tasks~\cite{walter2025grasp, karki2026agentic}.
-% In addition, human-in-the-loop systems for knowledge graph engineering increasingly rely on LLMs 
-% to assist in the curation and maintenance of knowledge graphs,
-% which in turn requires executing queries over the knowledge graph to obtain relevant information.
-
-% These systems operate on centralized knowledge graphs, however, emerging web applications increasingly
-% rely on decentralized architectures to give users control over their personal data.
-% This same pattern is seen in context of LLM systems where a knowledge graph serves as a factual grounding for the LLM.
-% For example, using Solid~\cite{sambra2016solid} as a decentralized knowledge graph for LLMs allows 
-% users to control their personal data and the information that is used to answer their questions~\cite{bernerslee2017charlie}.
-
-% decentralized architectures to give users control over their data,
-% requiring engines to dynamically fetch and integrate knowledge distributed across the web.
-% While centralizing data simplifies processing, it conflicts with privacy requirements and access controls.
-% Structured decentralized ecosystems such as Solid~\cite{sambra2016solid}  and Mastodon~\cite{raman2019challenges}
-% partition global Knowledge Graphs into small, independent sub-graphs managed by individuals. 
-% This approach strengthens user autonomy but complicates data consumption; 
-% automated systems must identify and query many heterogeneous data sources on the fly, each enforcing distinct access policies.  
-
-% Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data,
-% requiring query engines to dynamically fetch and integrate information distributed across the web.
-% While centralizing this data simplifies query processing, it often conflicts with privacy requirements 
-% and fine-grained access controls.
-% Structured decentralized ecosystems such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges} encourage users to keep their own data in small,
-% independent stores that follow shared data models. 
-% This approach strengthens user autonomy, 
-% yet it makes query execution more difficult because engines must identify and query many heterogeneous data sources,
-% each with its own access policies.
 
 Traditional federated querying approaches~\cite{schwarte2011fedx,schmidt2011fedbench,heling2022federated} support the integration of decentralized data sources,
 but they typically assume a small (10-100) set of well-described and consistently available endpoints~\cite{dang2023fedshop}. 
@@ -139,7 +76,7 @@ a domain naturally rich in multi-perspective data,
 alongside patterns observed in real-world SPARQL logs.
 
 To evaluate the realism of our generated query sequences without access to real-world query logs, 
-we investigate \todo{insert (when disk-based works for sure)} and evaluate \todo{insert} baseline client-side caching strategies
+we investigate four baseline client-side caching strategies combined with two cardinality estimatoin techniques
 in the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
 We use these simple algorithms to establish a performance baseline and demonstrate the necessity of sequence-based evaluation.
 Comparing this baseline against existing literature shows 
@@ -172,6 +109,22 @@ In summary, this paper makes the following contributions:
     reveal critical performance dynamics that traditional benchmarking approaches miss.
 \end{itemize}
 
+
+This article extends our previous work presented at the International Semantic Web Conference 
+(ISWC) 2026~\cite{eschauzier2026solidsessionbench}. 
+While the initial study introduced the SolidSessionBench methodology and evaluated standard in-memory caching strategies, 
+this version expands both the technical implementations and the experimental analysis. 
+
+Specifically, we introduce in-memory and disk-based quad store caches to unify cached triple indexes. 
+Furthermore, we enhance the original cache-based cardinality estimation technique
+by incorporating reachability to generate more accurate estimates. 
+Finally, we expand the experimental analysis by applying a linear mixed-effects regression model to quantify
+the performance impact of individual query execution choke points. 
+
+Beyond expanded explanations and examples, this extended version provides a thorough investigation of diverse cache implementations. 
+Overall, we place a stronger focus on cache performance, the implications of our findings, 
+and concrete directions for future research.
+
 The remainder of this paper is structured as follows.
 Section~\ref{sec:related-work} reviews prior benchmarking approaches and real-world query usage patterns.
 Section~\ref{sec:simulation-methodology} outlines our simulation methodology and defines the resulting hyperparameters.
@@ -179,4 +132,3 @@ Section~\ref{sec:client-side-caching} introduces the technical mechanics of clie
 Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
 Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
 
-\todo{Mention this is an extension and what the extension is. Provide citation for the extension}
