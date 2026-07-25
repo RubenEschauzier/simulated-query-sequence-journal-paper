@@ -1,4 +1,4 @@
-\begin{thebibliography}{68}
+\begin{thebibliography}{64}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -64,11 +64,6 @@
 \bibitem[{Boncz et~al.(2013)Boncz, Neumann and Erling}]{boncz2013tpc}
 \bibinfo{author}{Boncz, P.}, \bibinfo{author}{Neumann, T.}, \bibinfo{author}{Erling, O.}, \bibinfo{year}{2013}.
 \newblock \bibinfo{title}{Tpc-h analyzed: Hidden messages and lessons learned from an influential benchmark}, in: \bibinfo{booktitle}{Technology Conference on Performance Evaluation and Benchmarking}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{61--76}.
-%Type = Inproceedings
-\bibitem[{Bonifati et~al.(2018)Bonifati, Martens and Timm}]{bonifati_darql_2018}
-\bibinfo{author}{Bonifati, A.}, \bibinfo{author}{Martens, W.}, \bibinfo{author}{Timm, T.}, \bibinfo{year}{2018}.
-\newblock \bibinfo{title}{{DARQL}: {Deep} {Analysis} of {SPARQL} {Queries}}, in: \bibinfo{booktitle}{Companion {Proceedings} of the {The} {Web} {Conference} 2018}, \bibinfo{publisher}{International World Wide Web Conferences Steering Committee}, \bibinfo{address}{Republic and Canton of Geneva, CHE}. pp. \bibinfo{pages}{187--190}.
-\newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/3184558.3186975}, \DOIprefix\doi{10.1145/3184558.3186975}.
 %Type = Article
 \bibitem[{Bonifati et~al.(2020)Bonifati, Martens and Timm}]{bonifati2020analytical}
 \bibinfo{author}{Bonifati, A.}, \bibinfo{author}{Martens, W.}, \bibinfo{author}{Timm, T.}, \bibinfo{year}{2020}.
@@ -205,11 +200,6 @@
 \bibinfo{author}{Papailiou, N.}, \bibinfo{author}{Tsoumakos, D.}, \bibinfo{author}{Karras, P.}, \bibinfo{author}{Koziris, N.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{Graph-aware, workload-adaptive sparql query caching}, in: \bibinfo{booktitle}{Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data}, pp. \bibinfo{pages}{1777--1792}.
 %Type = Inproceedings
-\bibitem[{Picalausa and Vansummeren(2011)}]{picalausa_what_2011}
-\bibinfo{author}{Picalausa, F.}, \bibinfo{author}{Vansummeren, S.}, \bibinfo{year}{2011}.
-\newblock \bibinfo{title}{What are real {SPARQL} queries like?}, in: \bibinfo{booktitle}{Proceedings of the {International} {Workshop} on {Semantic} {Web} {Information} {Management}}, \bibinfo{publisher}{Association for Computing Machinery}, \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{1--6}.
-\newblock \URLprefix \url{https://dl.acm.org/doi/10.1145/1999299.1999306}, \DOIprefix\doi{10.1145/1999299.1999306}.
-%Type = Inproceedings
 \bibitem[{Prat-P{\'e}rez and Dominguez-Sal(2014)}]{prat2014community}
 \bibinfo{author}{Prat-P{\'e}rez, A.}, \bibinfo{author}{Dominguez-Sal, D.}, \bibinfo{year}{2014}.
 \newblock \bibinfo{title}{How community-like is the structure of synthetically generated graphs?}, in: \bibinfo{booktitle}{Proceedings of Workshop on GRAph Data management Experiences and Systems}, pp. \bibinfo{pages}{1--9}.
@@ -225,11 +215,6 @@
 \bibitem[{Saleem et~al.(2015)Saleem, Ali, Hogan, Mehmood and Ngomo}]{saleem2015lsq}
 \bibinfo{author}{Saleem, M.}, \bibinfo{author}{Ali, M.I.}, \bibinfo{author}{Hogan, A.}, \bibinfo{author}{Mehmood, Q.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2015}.
 \newblock \bibinfo{title}{Lsq: the linked sparql queries dataset}, in: \bibinfo{booktitle}{International semantic web conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{261--269}.
-%Type = Article
-\bibitem[{Saleem et~al.(2018)Saleem, Hasnain and Ngomo}]{saleem2018largerdfbench}
-\bibinfo{author}{Saleem, M.}, \bibinfo{author}{Hasnain, A.}, \bibinfo{author}{Ngomo, A.C.N.}, \bibinfo{year}{2018}.
-\newblock \bibinfo{title}{Largerdfbench: A billion triples benchmark for sparql endpoint federation}.
-\newblock \bibinfo{journal}{Journal of Web Semantics} \bibinfo{volume}{48}, \bibinfo{pages}{85--125}.
 %Type = Article
 \bibitem[{Sambra et~al.(2016)Sambra, Mansour, Hawke, Zereba, Greco, Ghanem, Zagidulin, Aboulnaga and Berners-Lee}]{sambra2016solid}
 \bibinfo{author}{Sambra, A.V.}, \bibinfo{author}{Mansour, E.}, \bibinfo{author}{Hawke, S.}, \bibinfo{author}{Zereba, M.}, \bibinfo{author}{Greco, N.}, \bibinfo{author}{Ghanem, A.}, \bibinfo{author}{Zagidulin, D.}, \bibinfo{author}{Aboulnaga, A.}, \bibinfo{author}{Berners-Lee, T.}, \bibinfo{year}{2016}.
@@ -279,10 +264,6 @@
 \bibinfo{author}{Umbrich, J.}, \bibinfo{author}{Hose, K.}, \bibinfo{author}{Karnstedt, M.}, \bibinfo{author}{Harth, A.}, \bibinfo{author}{Polleres, A.}, \bibinfo{year}{2011}.
 \newblock \bibinfo{title}{Comparing data summaries for processing live queries over linked data}.
 \newblock \bibinfo{journal}{World Wide Web} \bibinfo{volume}{14}, \bibinfo{pages}{495--544}.
-%Type = Inproceedings
-\bibitem[{Vandenbrande et~al.(2025)Vandenbrande, Taelman, Bonte and Ongenae}]{vandenbrande2025incremunica}
-\bibinfo{author}{Vandenbrande, M.}, \bibinfo{author}{Taelman, R.}, \bibinfo{author}{Bonte, P.}, \bibinfo{author}{Ongenae, F.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Incremunica: Web-based incremental view maintenance for sparql}, in: \bibinfo{booktitle}{European Semantic Web Conference}, \bibinfo{organization}{Springer}. pp. \bibinfo{pages}{297--315}.
 %Type = Article
 \bibitem[{V{\"o}gele et~al.(2018)V{\"o}gele, van Hoorn, Schulz, Hasselbring and Krcmar}]{vogele2018wessbas}
 \bibinfo{author}{V{\"o}gele, C.}, \bibinfo{author}{van Hoorn, A.}, \bibinfo{author}{Schulz, E.}, \bibinfo{author}{Hasselbring, W.}, \bibinfo{author}{Krcmar, H.}, \bibinfo{year}{2018}.

@@ -1,5 +1,4 @@
 \section{Introduction}
-\todo{Adjust to be more benchmarky}
 Emerging web applications increasingly rely on decentralized architectures to give users control over their personal data.
 Structured decentralized ecosystems, such as Solid~\cite{sambra2016solid} and Mastodon~\cite{raman2019challenges},
 encourage users to keep their data in small, independent stores following shared data models.
@@ -60,70 +59,38 @@ that leverage local access patterns to build necessary prior knowledge.
 	\label{fig:intro-overlap}
 \end{figure}
 
-Benchmarking these approaches requires realistic query sequences.
-Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}, LargeRDFBench~\cite{saleem2018largerdfbench})
-execute isolated or repeated query templates, which fails to capture client-side dynamics accurately. 
-Furthermore, while centralized SPARQL optimization relies on
-real query logs~\cite{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}, 
-such logs do not yet exist for decentralized LTQP environments. 
-Consequently, we need a standardized benchmark that realistically simulates user query sequences 
-to prevent fragmented evaluation practices.
 
-In this paper, we address this gap by introducing SolidSessionBench,
-a benchmark extending SolidBench~\cite{taelman2023link} to generate realistic query sequences.
-These sequences capture usage patterns identified in social network literature, 
-a domain naturally rich in multi-perspective data, 
-alongside patterns observed in real-world SPARQL logs.
+Client-side caching is well-known mechanism to exploit these access patterns and mitigate network latency. 
+However, accurately evaluating caching strategies requires realistic query sequences. 
+Traditional benchmarks execute isolated queries or random sequences, which fail to capture client-side dynamics accurately. 
+Consequently, these methods yield misleading estimates of cache performance in real-world scenarios. 
 
-To evaluate the realism of our generated query sequences without access to real-world query logs, 
-we investigate four baseline client-side caching strategies combined with two cardinality estimatoin techniques
-in the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
-We use these simple algorithms to establish a performance baseline and demonstrate the necessity of sequence-based evaluation.
-Comparing this baseline against existing literature shows 
-that current evaluation techniques are insufficient for client-side caching in LTQP.
-
-By enabling researchers to evaluate personalized query optimization against actual user behaviors,
-SolidSessionBench lays the foundation for performant client-side querying. 
-Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information
-and the application of consistency fixes across multi-dimensional knowledge graphs.
+In this paper, we present a comprehensive evaluation of client-side caching strategies for LTQP. 
+We introduce SolidSessionBench to generate realistic query sequences by modeling empirical usage patterns, 
+including logical query sessions, interest-driven data locality, and dynamic query refinements. 
+Conducting our experiments using these sequences ensures our evaluation reflects real-world behavior. 
+By evaluating caching against these sequences, we uncover important performance dynamics that traditional benchmarks miss.
 
 In summary, this paper makes the following contributions:
 \begin{itemize}
-    \item We review empirical usage patterns in web and query-based systems
-    to establish a foundation for realistic sequence simulation.
-    
-    \item We propose a simulation methodology based on the literature review
-	 that models logical query sessions,
-    user interest-driven data locality, and dynamic query refinements
-    mapped to query engine choke points.
-    
-    \item We introduce SolidSessionBench, a fully configurable benchmark
-    integrating this methodology to evaluate client-side query optimization
-    under realistic conditions.
-    
-    \item We implement four baseline client-side caching strategies
-    for Link Traversal Query Processing (LTQP),
-    alongside two cache-based cardinality estimation techniques.
-    
-    \item We evaluate these strategies, demonstrating that realistic query sequences
-    reveal critical performance dynamics that traditional benchmarking approaches miss.
+    \item We implement four client-side caching strategies (three in-memory and one disk-based) 
+    and two cache-based cardinality estimation techniques for Link Traversal Query Processing.
+    \item We evaluate these approaches, demonstrating that client-side caching significantly improves 
+    query execution times and throughput despite a lack of prior knowledge.
+    \item We highlight how realistic sequence simulation fundamentally alters performance evaluations, 
+    proving that traditional, non-sequence-based workloads yield overly pessimistic estimates.
+    \item We introduce SolidSessionBench, an evidence-based query sequence simulator, 
+    to validate these caching strategies against realistic user interactions.
 \end{itemize}
 
-
-This article extends our previous work presented at the International Semantic Web Conference 
-(ISWC) 2026~\cite{eschauzier2026solidsessionbench}. 
-While the initial study introduced the SolidSessionBench methodology and evaluated standard in-memory caching strategies, 
-this version expands both the technical implementations and the experimental analysis. 
-
-Specifically, we introduce in-memory and disk-based quad store caches to unify cached triple indexes. 
-Furthermore, we enhance the original cache-based cardinality estimation technique
-by incorporating reachability to generate more accurate estimates. 
-Finally, we expand the experimental analysis by applying a linear mixed-effects regression model to quantify
-the performance impact of individual query execution choke points. 
-
-Beyond expanded explanations and examples, this extended version provides a thorough investigation of diverse cache implementations. 
-Overall, we place a stronger focus on cache performance, the implications of our findings, 
-and concrete directions for future research.
+This article extends our previous work presented at the International Semantic Web Conference (ISWC) 2026~\cite{eschauzier2026solidsessionbench}. 
+While the initial study introduced the SolidSessionBench methodology and evaluated standard in-memory caches, 
+this version shifts the focus to a comprehensive investigation of client-side caching architectures. 
+Specifically, we introduce in-memory and disk-based quad store caches to unify the indexes of the cached triples. 
+Furthermore, we improve the original cache-based cardinality estimation technique 
+by incorporating cache entry reachability to generate more accurate estimates. 
+Finally, we expand the experimental analysis by applying a linear mixed-effects regression model 
+to quantify the exact performance impact of individual query execution chokepoints on the cache.
 
 The remainder of this paper is structured as follows.
 Section~\ref{sec:related-work} reviews prior benchmarking approaches and real-world query usage patterns.
@@ -131,4 +98,77 @@ Section~\ref{sec:simulation-methodology} outlines our simulation methodology and
 Section~\ref{sec:client-side-caching} introduces the technical mechanics of client-side caching strategies in LTQP.
 Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
 Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
+
+
+% Benchmarking these approaches requires realistic query sequences.
+% Traditional benchmarks (e.g., WatDiv~\cite{alucc2014diversified}, \\ BSBM~\cite{bizer2011berlin}, LargeRDFBench~\cite{saleem2018largerdfbench})
+% execute isolated or repeated query templates, which fails to capture client-side dynamics accurately. 
+% Furthermore, while centralized SPARQL optimization relies on
+% real query logs~\cite{berendt2013usewod2013,picalausa_what_2011,bonifati_darql_2018,stadler2024lsq}, 
+% such logs do not yet exist for decentralized LTQP environments. 
+% Consequently, we need a standardized benchmark that realistically simulates user query sequences 
+% to prevent fragmented evaluation practices.
+
+% In this paper, we address this gap by introducing SolidSessionBench,
+% a benchmark extending SolidBench~\cite{taelman2023link} to generate realistic query sequences.
+% These sequences capture usage patterns identified in social network literature, 
+% a domain naturally rich in multi-perspective data, 
+% alongside patterns observed in real-world SPARQL logs.
+
+% To evaluate the realism of our generated query sequences without access to real-world query logs, 
+% we investigate four baseline client-side caching strategies combined with two cardinality estimatoin techniques
+% in the Comunica LTQP engine~\cite{taelman2018comunica,taelman2023link}. 
+% We use these simple algorithms to establish a performance baseline and demonstrate the necessity of sequence-based evaluation.
+% Comparing this baseline against existing literature shows 
+% that current evaluation techniques are insufficient for client-side caching in LTQP.
+
+% By enabling researchers to evaluate personalized query optimization against actual user behaviors,
+% SolidSessionBench lays the foundation for performant client-side querying. 
+% Ultimately, efficient LTQP execution over decentralized sources facilitates the rapid identification of conflicting information
+% and the application of consistency fixes across multi-dimensional knowledge graphs.
+
+% In summary, this paper makes the following contributions:
+% \begin{itemize}
+%     \item We review empirical usage patterns in web and query-based systems
+%     to establish a foundation for realistic sequence simulation.
+    
+%     \item We propose a simulation methodology based on the literature review
+% 	 that models logical query sessions,
+%     user interest-driven data locality, and dynamic query refinements
+%     mapped to query engine choke points.
+    
+%     \item We introduce SolidSessionBench, a fully configurable benchmark
+%     integrating this methodology to evaluate client-side query optimization
+%     under realistic conditions.
+    
+%     \item We implement four baseline client-side caching strategies
+%     for Link Traversal Query Processing (LTQP),
+%     alongside two cache-based cardinality estimation techniques.
+    
+%     \item We evaluate these strategies, demonstrating that realistic query sequences
+%     reveal critical performance dynamics that traditional benchmarking approaches miss.
+% \end{itemize}
+
+
+% This article extends our previous work presented at the International Semantic Web Conference 
+% (ISWC) 2026~\cite{eschauzier2026solidsessionbench}. 
+% While the initial study introduced the SolidSessionBench methodology and evaluated standard in-memory caching strategies, 
+% this version expands both the technical implementations and the experimental analysis. 
+
+% Specifically, we introduce in-memory and disk-based quad store caches to unify cached triple indexes. 
+% Furthermore, we enhance the original cache-based cardinality estimation technique
+% by incorporating reachability to generate more accurate estimates. 
+% Finally, we expand the experimental analysis by applying a linear mixed-effects regression model to quantify
+% the performance impact of individual query execution choke points. 
+
+% Beyond expanded explanations and examples, this extended version provides a thorough investigation of diverse cache implementations. 
+% Overall, we place a stronger focus on cache performance, the implications of our findings, 
+% and concrete directions for future research.
+
+% The remainder of this paper is structured as follows.
+% Section~\ref{sec:related-work} reviews prior benchmarking approaches and real-world query usage patterns.
+% Section~\ref{sec:simulation-methodology} outlines our simulation methodology and defines the resulting hyperparameters.
+% Section~\ref{sec:client-side-caching} introduces the technical mechanics of client-side caching strategies in LTQP.
+% Section~\ref{sec:evaluation} evaluates the benchmark using proxy measures of realism. 
+% Finally, Section~\ref{sec:conclusion} concludes the paper and presents a plan for benchmark sustainability.
 

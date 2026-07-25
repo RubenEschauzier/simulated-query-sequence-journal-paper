@@ -358,7 +358,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneralsc.tfm
 INPUT ./sections/introduction.tex
 INPUT ./sections/introduction.tex
 INPUT sections/introduction.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
@@ -408,6 +407,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathtt.tfm
 INPUT ./sections/related-work.tex
 INPUT ./sections/related-work.tex
 INPUT sections/related-work.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT ./sections/benchmark.tex
 INPUT ./sections/benchmark.tex

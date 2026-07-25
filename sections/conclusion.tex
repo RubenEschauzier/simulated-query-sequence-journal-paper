@@ -1,42 +1,75 @@
 \section{Conclusion}
 \label{sec:conclusion}
-We introduced SolidSessionBench, an evidence-based benchmark for generating realistic query sequences in decentralized environments. 
-By modeling logical sessions, user interests, and iterative refinement, 
-it captures client-side performance characteristics that traditional evaluation methods fail to find. 
-While using Solid as the primary use case, the underlying concepts apply to approaches such as Linked Web Storage (LWS),
-and we will provide an LWS-specific representation once the W3C Working Group finalizes the specifications.
 
-Our evaluation demonstrates that traditional benchmarking methods, such as microbenchmarks and random query sequences, produce misleading estimates of real-world caching performance. 
-By applying SolidSessionBench to caching in LTQP, we uncovered three critical insights. 
-First, logical session switching severely degrades cache hit rates, proving that optimal cache sizing and eviction policies must account for session dynamics. 
-Second, deep exploratory query refinement introduces significant cache invalidation challenges. 
-However, it also exposes unexploited optimization opportunities, such as the 100$\times$ speedups triggered by cost-model unpredictability and cache dynamics when using disk-based caching or combining small caches with cardinality estimation.
-Third, cache-based triple pattern cardinality estimation effectively optimizes link traversal queries, as previous executions provide the prior knowledge traditionally absent in LTQP.
+In this paper, we presented a comprehensive evaluation of client-side caching strategies 
+for Link Traversal Query Processing (LTQP) in decentralized environments. 
+By utilizing SolidSessionBench to simulate realistic query sequences, 
+we uncovered critical client-side performance characteristics that traditional evaluation methods fail to find. 
+Our evaluation yielded three primary insights. 
+First, logical session switching severely degrades cache hit rates,
+proving that optimal cache sizing and eviction policies must account for session dynamics. 
+Second, deep exploratory query refinement introduces significant cache invalidation challenges
+while exposing unexploited optimization opportunities.
+For instance, inaccurate cost models and cardinality estimates in disk-based and smaller caches 
+occasionally trigger highly efficient plan switches, yielding speedups exceeding $100\times$.
+Third, cache-based triple pattern cardinality estimation effectively optimizes link traversal queries 
+by providing the prior knowledge traditionally absent in LTQP.
 
-This paper provides a clear path forward for optimizing LTQP in decentralized environments. 
-Historically, the absence of prior knowledge hindered LTQP query optimization, leading to inefficient execution plans. 
-Furthermore, network latency from numerous HTTP requests imposes a strict lower bound on execution times. 
-Well-designed caching algorithms can address both bottlenecks simultaneously, offering a promising direction for future optimization literature.
-
-To realize this potential and support realistic user behavior, client-side query engines must move beyond static, session-agnostic caching. 
-Future research should prioritize session-aware caching mechanisms that dynamically identify and protect cross-session core entries. 
-Additionally, developing intelligent cache warmup strategies and hierarchical architectures, such as combining small 
-in-memory quad stores with large disk-based caches, can mitigate the performance penalties of session switching. 
-Next, reverse-engineering the extreme speedup anomalies caused by inaccurate cardinality estimates could unlock
-highly optimized execution plans tailored specifically for link traversal. 
-Finally, future work should explore alternative cache-based cardinality estimation methods,
+These findings demonstrate that traditional benchmarking methods, such as microbenchmarks and random query sequences,
+produce misleading and overly pessimistic estimates of real-world caching performance. 
+To realize the full potential of caching in LTQP, client-side query engines must move beyond static, 
+session-agnostic architectures. 
+Future research should prioritize session-aware caching mechanisms 
+that dynamically identify and protect cross-session core entries. 
+Furthermore, developing hierarchical architectures, such as combining small in-memory quad stores with large disk-based caches,
+can mitigate the performance penalties of session switching. 
+Finally, future work should explore alternative cache-based cardinality estimation methods, 
 particularly for evaluating join cardinalities.
 
-To ensure longevity and reuse, SolidSessionBench has been integrated into the core SolidBench ecosystem,
-inheriting its established track record of community support and maintenance.
-We formalize this in our sustainability plan \url{https://github.com/SolidBench/SolidBench.js/wiki/Sustainability-Plan}.
-Due to the \\ seamless integration into SolidBench, its status as the standard community resource 
-for evaluating decentralized query execution~\cite{eschauzier2025revisiting,vandenbrande2025incremunica,hanski2025link,tam2024opportunities}
-serves as a proxy for the future adoption of this new benchmark when trying to evaluate any client-specific optimization approaches.
+To ensure longevity and support future research into client-side optimization, 
+SolidSessionBench is integrated into the core SolidBench ecosystem. 
+The framework is modular, MIT-licensed, and fully documented, with all code, data, 
+and experiment setups available at \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}.
 
-The framework is modular, MIT-licensed, and fully documented, with links to all code, data, 
-and experiment setups available at this paper-specific hub: \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}
-\rt{Could you move all repos you created for this paper that are now under your personal namespace, to the KNoWS GitHub organization?}.  
-\todo{Point to new paper and update README}
-This \\ extension-friendly approach to development allows researchers to easily modify or extend specific components to meet future requirements
-without disrupting the broader evaluation pipeline.
+% We introduced SolidSessionBench, an evidence-based benchmark for generating realistic query sequences in decentralized environments. 
+% By modeling logical sessions, user interests, and iterative refinement, 
+% it captures client-side performance characteristics that traditional evaluation methods fail to find. 
+% While using Solid as the primary use case, the underlying concepts apply to approaches such as Linked Web Storage (LWS),
+% and we will provide an LWS-specific representation once the W3C Working Group finalizes the specifications.
+
+% Our evaluation demonstrates that traditional benchmarking methods, such as microbenchmarks and random query sequences,
+% produce misleading estimates of real-world caching performance. 
+% By applying SolidSessionBench to caching in LTQP, we uncovered three critical insights. 
+% First, logical session switching severely degrades cache hit rates, proving that optimal cache sizing and eviction policies must account for session dynamics. 
+% Second, deep exploratory query refinement introduces significant cache invalidation challenges. 
+% However, it also exposes unexploited optimization opportunities, such as the 100$\times$ speedups triggered by cost-model unpredictability and cache dynamics
+% when using disk-based caching or combining small caches with cardinality estimation.
+% Third, cache-based triple pattern cardinality estimation effectively optimizes link traversal queries, as previous executions provide the prior knowledge traditionally absent in LTQP.
+
+% This paper provides a clear path forward for optimizing LTQP in decentralized environments. 
+% Historically, the absence of prior knowledge hindered LTQP query optimization, leading to inefficient execution plans. 
+% Furthermore, network latency from numerous HTTP requests imposes a strict lower bound on execution times. 
+% Well-designed caching algorithms can address both bottlenecks simultaneously, offering a promising direction for future optimization literature.
+
+% To realize this potential and support realistic user behavior, client-side query engines must move beyond static, session-agnostic caching. 
+% Future research should prioritize session-aware caching mechanisms that dynamically identify and protect cross-session core entries. 
+% Additionally, developing intelligent cache warmup strategies and hierarchical architectures, such as combining small 
+% in-memory quad stores with large disk-based caches, can mitigate the performance penalties of session switching. 
+% Next, reverse-engineering the extreme speedup anomalies caused by inaccurate cardinality estimates could unlock
+% highly optimized execution plans tailored specifically for link traversal. 
+% Finally, future work should explore alternative cache-based cardinality estimation methods,
+% particularly for evaluating join cardinalities.
+
+% To ensure longevity and reuse, SolidSessionBench has been integrated into the core SolidBench ecosystem,
+% inheriting its established track record of community support and maintenance.
+% We formalize this in our sustainability plan \url{https://github.com/SolidBench/SolidBench.js/wiki/Sustainability-Plan}.
+% Due to the \\ seamless integration into SolidBench, its status as the standard community resource 
+% for evaluating decentralized query execution~\cite{eschauzier2025revisiting,vandenbrande2025incremunica,hanski2025link,tam2024opportunities}
+% serves as a proxy for the future adoption of this new benchmark when trying to evaluate any client-specific optimization approaches.
+
+% The framework is modular, MIT-licensed, and fully documented, with links to all code, data, 
+% and experiment setups available at this paper-specific hub: \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}
+% \rt{Could you move all repos you created for this paper that are now under your personal namespace, to the KNoWS GitHub organization?}.  
+% \todo{Point to new paper and update README}
+% This \\ extension-friendly approach to development allows researchers to easily modify or extend specific components to meet future requirements
+% without disrupting the broader evaluation pipeline.

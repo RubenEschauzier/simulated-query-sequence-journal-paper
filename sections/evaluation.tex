@@ -2,20 +2,32 @@
 \label{sec:evaluation}
 \todo{fix floats}
 
-As established in Section~\ref{sec:simulation-methodology},
-the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
-Instead, we validate the data access patterns and temporal locality of the generator using client-side caching as a proxy.\rt{I might misunderstand, but I don't really see the caching evaluation as a proxy for comparing generated sequences to existing query logs. They are just different kinds of evaluation, right?}
-Because caching relies on data locality, it serves to measure the impact of our simulation choices.
+We evaluate four client-side caching strategies to uncover their performance dynamics under realistic user behavior. 
+To achieve this, we utilize SolidSessionBench to generate workloads that simulate empirical access patterns and logical query sessions. 
+While we focus on caching due to its extensive application in client-side environments, 
+the generated workloads support the evaluation of other personalized optimization techniques.
 
-We structure the evaluation in four parts.
-First, we establish a performance baseline for the generated workloads.
-Next, we isolate logical sessions to quantify how session switching affects data locality and cache performance.
-We then analyze how query refinement patterns influence cache performance, examining both refinement depth and specific execution chokepoints.
-Finally, we contrast our outcomes with traditional evaluation methods, such as microbenchmarks and random sequences,
-to demonstrate that they fail to capture these performance dynamics accurately.
+We structure the evaluation in four parts. 
+First, we establish a performance baseline for the caching algorithms on the generated workloads. 
+Next, we isolate logical sessions to quantify how session switching affects data locality and cache hit rates. 
+We then analyze how query refinement patterns influence cache performance, 
+examining both refinement depth and specific execution chokepoints. 
+Finally, we contrast our outcomes with traditional evaluation methods, such as microbenchmarks and random sequences, to demonstrate that traditional workloads yield inaccurate caching performance estimates.
 
-While we use caching to validate the benchmark, the generated workloads support the evaluation of other client-side optimization techniques.
-We selected caching as our primary proxy due to the extensive literature on its application and benchmarking in client-side environments.
+% As established in Section~\ref{sec:simulation-methodology},
+% the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
+% Instead, we validate the data access patterns and temporal locality of the generator using client-side caching as a proxy.\rt{I might misunderstand, but I don't really see the caching evaluation as a proxy for comparing generated sequences to existing query logs. They are just different kinds of evaluation, right?}
+% Because caching relies on data locality, it serves to measure the impact of our simulation choices.
+
+% We structure the evaluation in four parts.
+% First, we establish a performance baseline for the generated workloads.
+% Next, we isolate logical sessions to quantify how session switching affects data locality and cache performance.
+% We then analyze how query refinement patterns influence cache performance, examining both refinement depth and specific execution chokepoints.
+% Finally, we contrast our outcomes with traditional evaluation methods, such as microbenchmarks and random sequences,
+% to demonstrate that they fail to capture these performance dynamics accurately.
+
+% While we use caching to validate the benchmark, the generated workloads support the evaluation of other client-side optimization techniques.
+% We selected caching as our primary proxy due to the extensive literature on its application and benchmarking in client-side environments.
 
 \subsection{Experiment Setup}
 We evaluate our benchmark using the default scale of the SolidBench dataset 
@@ -310,11 +322,10 @@ enabling custom stress tests for distinct caching architectures.
 
 \subsubsection{Effect of Refinement Depth on Performance}
 
-To demonstrate our benchmark's ability to uncover effects of exploratory query refinement at various depths,
-we evaluate how our caching strategies performance evolves as depth increases.
+To understand the impact of exploratory query refinement on cache performance, we evaluate how our caching strategies behave as refinement depth increases.
 We define depth as the number of consecutive refinement patterns applied to a base query.
-By analyzing average execution times and cache hit rates at varying depths using the default benchmark configuration,
-we reveal how caches handle highly correlated, sequential workloads.
+By measuring average execution times and cache hit rates at varying depths, we reveal how caches manage highly correlated,
+sequential workloads.
 
 Figure~\ref{fig:refinement_cache_efficiency} shows that cache hit rates predictably rise as refinement depth increases,
 proving that caching algorithms successfully exploit the structural similarities inherent to exploratory refinement.
@@ -348,11 +359,6 @@ However, these factors do not fully explain the performance spike for the disk-b
 Given the potential for massive speedups, future work must isolate the root cause of this behavior 
 and determine if it can be systematically applied to other areas of query execution.
 
-Ultimately, this analysis validates our benchmark design.
-By testing across refinement sequences, we expose that deeper user traversals present significant cache invalidation challenges,
-and that cardinality estimation variance plays a profound---and sometimes highly unpredictable---role in query performance
-that isolated query evaluations would miss.
-\todo{Rewrite this part to be more benchmark focussed!}
 \begin{figure*}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/combined_cache_efficiency_grid.pdf}
@@ -371,6 +377,14 @@ that isolated query evaluations would miss.
     \label{fig:refinement_temporal_throughput}
 \end{figure*}
 
+\subsection{Impact of Workload Realism on Caching Performance}
+
+The final step in our evaluation contrasts the performance outcomes obtained under realistic user behavior with those derived
+from conventional caching evaluation methods, specifically synthetic microbenchmarks and random query sequences. 
+Prior caching research heavily relies on these traditional workloads. 
+However, by comparing these approaches to our sequence-based evaluation, 
+we demonstrate that conventional methods different and overly pessimistic conclusions regarding cache performance 
+in decentralized environments. 
 
 \subsection{Comparison to Alternative Evaluation Methods}
 

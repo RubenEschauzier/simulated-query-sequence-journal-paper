@@ -13,29 +13,42 @@ simulated micro benchmarks, simulated end-to-end query benchmarks, and real-worl
 % Existing evaluation methods for client-side query optimization 
 % generally fall into three categories:
 
-\textbf{Simulated micro benchmarks} attempt to isolate performance gains of the benchmarked approaches by fixing certain aspects of query execution.
-This can range from fixing the cached data size~\cite{hartig2011caching} to controlling the percentage of query-relevant data present in the cache \cite{nicholson2024hpcache}. Fixing aspects of query execution makes it easier to isolate and understand the effect of specific caching mechanisms. 
-However, it also gives an incomplete picture, because we don’t know how those fixed conditions relate to real workloads or how the methods perform when those assumptions don’t hold.
+\textbf{Simulated micro benchmarks} attempt to isolate performance gains of the benchmarked approaches 
+by fixing certain aspects of query execution.
+This can range from fixing the cached data size~\cite{hartig2011caching} to controlling the percentage of 
+query-relevant data present in the cache~\cite{nicholson2024hpcache}. 
+Fixing aspects of query execution makes it easier to isolate and understand the effect of specific caching mechanisms. 
+However, it also gives an incomplete picture, because we do not know how those fixed conditions relate to real workloads 
+or how the methods perform when those assumptions do not hold.
 
 \textbf{Simulated end-to-end query benchmarks} use generated query sequences to evaluate performance. 
-They aim to measure cache hit rate and overall execution behavior under the assumption that the simulated sequences reflect realistic usage.
-In practice, the simulation is usually built by extending an existing benchmark so that it generates sequences instead of isolated queries. 
+They aim to measure cache hit rate and overall execution behavior under the assumption that the simulated sequences 
+reflect realistic usage.
+In practice, the simulation is usually built by extending an existing benchmark so that it generates sequences 
+instead of isolated queries. 
 The sequence order is often determined by simple rules or by random selection.
 
-A common approach is to use queries from existing benchmarks such as the Star Schema Benchmark \cite{o2009star} or the Berlin SPARQL Benchmark~\cite{bizer2011berlin}.
-These queries are then randomly divided into sequences \cite{hartig2011caching,nicholson2024hpcache,folz2016cyclades}, with each sequence executed using a shared cache. This approach is straightforward but not realistic.
-Prior work shows that real workloads contain user behavior patterns and temporal locality, and these patterns can be exploited by caching methods.
+A common approach is to use queries from existing benchmarks such as the Star Schema Benchmark~\cite{o2009star} 
+or the Berlin SPARQL Benchmark~\cite{bizer2011berlin}.
+These queries are then randomly divided into sequences~\cite{hartig2011caching,nicholson2024hpcache,folz2016cyclades}, 
+with each sequence executed using a shared cache. 
+This approach is straightforward but not realistic.
+Prior work shows that real workloads contain user behavior patterns and temporal locality, and these patterns can be 
+exploited by caching methods.
 Random sequences fail to capture these properties.
 
 More realistic is to adjust the query generators of existing benchmarks to include patterns in the query sequences.
-Some works~\cite{williams2011enabling,martin2010improving} use a Pareto distribution to decide what entity is used to instantiate a query template.
+Some works~\cite{williams2011enabling,martin2010improving} use a Pareto distribution to decide what entity is used to
+instantiate a query template.
 This follows from the observation that many human activities follow a Pareto distribution~\cite{arnold2014pareto},
  with many queries relating to a small portion of the entities.
 
 A third approach uses simulated query sequences that reflect the access patterns of specific applications.
-One example is a workload that models data scientists exploring different aspects of the same entity—such as an author in a scholarly network—through consecutive, thematically related queries~\cite{chatzopoulos2022atrapos}.
+One example is a workload that models data scientists exploring different aspects of the same entity,
+such as an author in a scholarly network, through consecutive, thematically related queries~\cite{chatzopoulos2022atrapos}.
 Such simulations often include multiple query sessions, with new sessions beginning according to a probability parameter $p$.
-Another example is a simulated application scenario focused on retrieving information about vacation destinations, which is used to assess caching effectiveness~\cite{martin2010improving}.
+Another example is a simulated application scenario focused on retrieving information about vacation destinations, 
+which is used to assess caching effectiveness~\cite{martin2010improving}.
 
 \textbf{Real-world query logs} Whenever available, query logs from actual applications form a highly relevant benchmarking approach.
 However, obtaining these query logs can be challenging.
