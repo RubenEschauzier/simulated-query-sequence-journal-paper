@@ -119,3 +119,46 @@ ICC & 0.411 & 0.311 & 0.288 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\newpage
+\section{Full Synthetic Hit Rate Figures}
+\label{app:synth-hitrate}
+This section provides the full results of the synthetic hit rate experiments summarized in Section~\ref{sec:evaluation}. 
+Figures~\ref{fig:full-theoretical-unindexed},~\ref{fig:full-theoretical-indexed},~\ref{fig:full-theoretical-store}, 
+and~\ref{fig:full-theoretical-disk}
+show the results for the LRU-based unindexed cache, LRU-based indexed cache, the in-memory store cache, and the disk-based store cache, respectively.
+
+\begin{figure*}[!h]
+    \centering
+    % Ensure the filename matches your generated PDF
+    \includegraphics[width=\textwidth]{figures/synth_hit_rate_reduced_lru_unindexed_cache.pdf}
+    \caption{ Performance of LRU-based unindexed cache across all query templates. The y-axis shows the mean speedup relative 
+    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile }
+    \label{fig:full-theoretical-unindexed}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    % Ensure the filename matches your generated PDF
+    \includegraphics[width=\textwidth]{figures/synth_hit_rate_reduced_lru_indexed_cache.pdf}
+    \caption{ Performance of LRU-based indexed cache across all query templates. The y-axis shows the mean speedup relative 
+    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile }
+    \label{fig:full-theoretical-indexed}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    % Ensure the filename matches your generated PDF
+    \includegraphics[width=\textwidth]{figures/synth_hit_rate_reduced_in-memory_store_cache.pdf}
+    \caption{ Performance of in-memory store cache across all query templates. The y-axis shows the mean speedup relative 
+    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile }
+    \label{fig:full-theoretical-store}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    % Ensure the filename matches your generated PDF
+    \includegraphics[width=\textwidth]{figures/synth_hit_rate_reduced_disk-based_store_cache.pdf}
+    \caption{ Performance of disk-based store cache across all query templates. The y-axis shows the mean speedup relative 
+    to a baseline with a 0\% hit rate. Shaded regions denote the 90th percentile }
+    \label{fig:full-theoretical-disk}
+\end{figure*}

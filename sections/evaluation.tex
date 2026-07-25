@@ -1,6 +1,6 @@
 \section{Evaluation}
 \label{sec:evaluation}
-\todo{Once figures are complete, rename the algorithms in the figures to accuractely reflect current names and fix floats}
+\todo{fix floats}
 
 As established in Section~\ref{sec:simulation-methodology},
 the lack of real-world query logs prevents a direct comparison of the generated sequences to existing query logs.
@@ -185,19 +185,19 @@ requires strong cache resistance and supports caching previously identified logi
 \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
 & \textbf{Abs.} & \textbf{\%} & \textbf{Abs.} & \textbf{\%} & \textbf{Abs.} & \textbf{\%} \\
 \midrule
-unindexed-l        & -0.092 & -15.557 & -0.059 &  -9.824 &  0.035 &  6.013 \\
-unindexed-m        & -0.109 & -24.034 & -0.045 &  -9.720 &  0.029 &  6.555 \\
-unindexed-s        & -0.091 & -24.120 & -0.066 & -17.139 &  0.039 & 10.460 \\
+lru unindexed-l        & -0.092 & -15.557 & -0.059 &  -9.824 &  0.035 &  6.013 \\
+lru unindexed-m        & -0.109 & -24.034 & -0.045 &  -9.720 &  0.029 &  6.555 \\
+lru unindexed-s        & -0.091 & -24.120 & -0.066 & -17.139 &  0.039 & 10.460 \\
 \cmidrule(lr){1-7}
-index-l            & -0.080 & -13.715 & -0.044 &  -7.404 &  0.027 &  4.586 \\
-index-m            & -0.080 & -17.202 & -0.057 & -11.917 &  0.034 &  7.101 \\
-index-s            & -0.085 & -21.823 & -0.066 & -16.458 &  0.039 &  9.869 \\
+lru indexed-l            & -0.080 & -13.715 & -0.044 &  -7.404 &  0.027 &  4.586 \\
+lru indexed-m            & -0.080 & -17.202 & -0.057 & -11.917 &  0.034 &  7.101 \\
+lru indexed-s            & -0.085 & -21.823 & -0.066 & -16.458 &  0.039 &  9.869 \\
 \cmidrule(lr){1-7}
-store-l            & -0.193 & -29.819 & -0.017 &  -2.644 &  0.019 &  3.060 \\
-store-m            & -0.137 & -28.394 & -0.020 &  -4.103 &  0.018 &  3.810 \\
-store-s            & -0.108 & -29.691 & -0.056 & -15.100 &  0.035 &  9.697 \\
+in-memory store-l            & -0.193 & -29.819 & -0.017 &  -2.644 &  0.019 &  3.060 \\
+in-memory store-m            & -0.137 & -28.394 & -0.020 &  -4.103 &  0.018 &  3.810 \\
+in-memory store-s            & -0.108 & -29.691 & -0.056 & -15.100 &  0.035 &  9.697 \\
 \cmidrule(lr){1-7}
-disk-l             & -0.070 & -12.966 & -0.044 & -8.028  & 0.028   & 5.052 \\
+disk store-l             & -0.070 & -12.966 & -0.044 & -8.028  & 0.028   & 5.052 \\
 \bottomrule
 \end{tabular*}
 \end{table*}
@@ -410,8 +410,11 @@ Generally, an indexed cache (store-based or LRU) outperforms an unindexed cache.
 However, this approach incurs higher cache management costs, which theoretical hit rates do not account for. 
 Although slightly slower than the in-memory quad store, the disk-based quad store cache remains competitive with the other approaches. 
 This demonstrates that disk-based caching is effective in memory-constrained environments.
-The full figures are \todo{Appendix!}...
-\todo{Circle back to our general evaluation to see how the conclusions differ}
+The conclusions from this evaluation differ from the full SolidSessionBench benchmark 
+results because they hide the significant overhead penalty of managing a disk-based cache. 
+While the full benchmark shows the disk-based cache performs significantly worse than all in-memory caches, 
+this evaluation method suggests their performance is similar.
+The full figures are found in Appendix~\ref{app:synth-hitrate}.
 
 \begin{figure*}[!h]
     \centering
@@ -426,15 +429,17 @@ The full figures are \todo{Appendix!}...
 \paragraph{Random Query Sequences}
 Another common benchmarking approach is to randomly order queries from an
 existing benchmark into a sequence~\cite{o2009star,bizer2011berlin,hartig2011caching,nicholson2024hpcache,folz2016cyclades}.
-Figures~\ref{fig:store-random-cache-performance} and \ref{fig:lru-random-cache-performance}
+Figures~\ref{fig:store-random-cache-performance} and~\ref{fig:lru-random-cache-performance}
 show execution times and throughput for sequences created by randomly grouping
 default SolidBench.js queries.
 Without cardinality estimation, only the large cache improves over the baseline,
-while medium and small caches perform similarly or worse.
+while medium, small, and disk-based caches perform similarly or worse.
 With cardinality estimation (both reachability-agnostic and -aware), no cache
 reliably outperforms the baseline, though the reachability-aware approach
 yields minor improvements when using the large cache.
-These results differ significantly from our benchmark, leading to different
+The exception is the reachability-aware disk-based cache, as this cache suffers less from
+the estimation performance penalty seen in the in-memory store.
+These results differ significantly from our benchmark results, leading to different
 conclusions about the utility of caching.
 Because random query sequences ignore the literature on established application user behavior,
 they produce overly pessimistic estimates of caching performance in real-world scenarios.
@@ -455,7 +460,6 @@ they produce overly pessimistic estimates of caching performance in real-world s
     query sequences. The y-axis shows the percentage of queries executing within a factor (x-axis) of the fastest algorithm.}
     \label{fig:store-random-cache-performance}
 \end{figure*}
-\todo{Disk-based is placeholder data which should be filled in when done}
 
 
 \paragraph{Scope and Limitations}

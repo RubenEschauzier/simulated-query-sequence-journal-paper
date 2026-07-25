@@ -7,7 +7,6 @@ While using Solid as the primary use case, the underlying concepts apply to appr
 and we will provide an LWS-specific representation once the W3C Working Group finalizes the specifications.
 
 Our evaluation demonstrates that traditional benchmarking methods, such as microbenchmarks and random query sequences, produce misleading estimates of real-world caching performance. 
-\todo{Check if true}
 By applying SolidSessionBench to caching in LTQP, we uncovered three critical insights. 
 First, logical session switching severely degrades cache hit rates, proving that optimal cache sizing and eviction policies must account for session dynamics. 
 Second, deep exploratory query refinement introduces significant cache invalidation challenges. 
@@ -36,6 +35,8 @@ for evaluating decentralized query execution~\cite{eschauzier2025revisiting,vand
 serves as a proxy for the future adoption of this new benchmark when trying to evaluate any client-specific optimization approaches.
 
 The framework is modular, MIT-licensed, and fully documented, with links to all code, data, 
-and experiment setups available at this paper-specific hub: \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}\rt{Could you move all repos you created for this paper that are now under your personal namespace, to the KNoWS GitHub organization?}.  
+and experiment setups available at this paper-specific hub: \url{https://github.com/RubenEschauzier/simulated-query-sequence-paper}
+\rt{Could you move all repos you created for this paper that are now under your personal namespace, to the KNoWS GitHub organization?}.  
+\todo{Point to new paper and update README}
 This \\ extension-friendly approach to development allows researchers to easily modify or extend specific components to meet future requirements
 without disrupting the broader evaluation pipeline.
